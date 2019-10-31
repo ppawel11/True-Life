@@ -1,0 +1,3 @@
+Sztuczne ¿ycie
+
+Proszê zaproponowaæ ciekawy scenariusz "gry w ¿ycie" w nastêpuj¹cym rozumieniu: wystêpuj¹ 2 rodzaje osobników: miêso¿ercy i roœlino¿ercy. Ka¿dy osobnik ma cechy takie jak zasiêg wzroku, szybkoœæ, itd. Cechy te dziedziczone s¹ przez dzieci osobnika (po krzy¿owaniu i mutacji). Ka¿dy osobnik ma hierarchiê potrzeb (jeœæ/spaæ/...). Zdefiniowaæ ograniczenia, np. jak osobnik szybki to musi wiêcej jeœæ, jak widzi daleko to ma w¹skie pole widzenia. Wynik symulacji proszê przedstawiæ w postaci graficznej (2D) (QT, SDL, OpenGL, inne). Powinno byæ mo¿liwe œledzenie rozwoju obu populacji, jak równie¿ podgl¹danie cech wybranego osobnika.
