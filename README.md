@@ -62,3 +62,29 @@ Zaproponować ciekawy scenariusz "gry w życie" w następującym rozumieniu: wys
     - problem --[dekompozycja]--> zadania --[dekompozycja]--> podzadania itd.
       warunek stopu: możliwe oszacowanie pracochłonności [h]
     - suma godzin >= 100h
+
+
+
+## 2. Szkielet aplikacji
+
+#### Wymagania ze strony przedmiotu
+
+* ~~Ma zawierać istotne dla projektu biblioteki i narzędzia~~
+* ~~Ma się kompilować i uruchamiać na różnych środowiskach~~
+* ~~Ma zawierać skrypty do budowania aplikacji (np. SCons)~~
+* ~~Przykładowe testy jednostkowe~~
+* Kod ma być na repo (czyli github po prostu) :heavy_check_mark:
+
+#### Wymagania prowadzącego
+
+* Szkielet = 
+  * skrypty budujące (np. SCons)
+  * przykładowy program (który demonstruje użycie istotnych dla projektu bibliotek i narzędzi)
+* Kompilacja i uruchamianie na różnych systemach
+* Zawiera szkielet głównej klasy programu
+* Przykładowe testy jednostkowe
+* Wysłać e-mailem w .zip
+* Instalacja bibliotek:
+  * Zautomatyzować: skrypt lub pakiet Ubuntu
+  * Ostatecznie (zamiast automatyzacji): opisać w README, co trzeba zainstalować
+  * Sprawdzić, czy automat/opis działa, na Ubuntu z pendrive'a
