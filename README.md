@@ -41,7 +41,7 @@ Zaproponować ciekawy scenariusz "gry w życie" w następującym rozumieniu: wys
 
 
 
-## 1. Dokumentacja wstępna
+## 1. Dokumentacja wstępna :heavy_check_mark:
 
 #### Wymagania ze strony przedmiotu
 
