@@ -38,3 +38,14 @@ Przydatne:
 * CopyLineDown
 * MoveLineDown
 * UnFoldAll
+
+
+
+### Dark theme
+
+*Narzędzia -> Opcje -> Środowisko -> Interface*
+
+Polecam:
+
+* Motyw: flat Dark
+
