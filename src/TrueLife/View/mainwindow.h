@@ -4,6 +4,14 @@
 #include <QMainWindow>
 #include <QPointer>
 
+/*
+ * std::unique_ptr was boost::unique_ptr before C++11
+ * there is no boost::unique_ptr now
+ *
+ * what about boost::scoped_ptr? ->
+ * "Generally, its std::unique_ptr you should use." -
+ * - https://studiofreya.com/cpp/boost/boost-scoped_ptr-vs-unique_ptr/
+ */
 #include <memory> // std::unique_ptr
 #include <boost/shared_ptr.hpp>
 #include <boost/make_shared.hpp>
