@@ -159,7 +159,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../TrueLife/TrueLife.pro ../TrueLife/View/mainwindow.h \
 		../TrueLife/View/statwidget.h \
 		../TrueLife/View/simuwidget.h \
-		../TrueLife/View/paramwidget.h ../TrueLife/main.cpp \
+		../TrueLife/View/paramwidget.h \
+		../TrueLife/common.h ../TrueLife/main.cpp \
 		../TrueLife/View/mainwindow.cpp \
 		../TrueLife/View/statwidget.cpp \
 		../TrueLife/View/simuwidget.cpp \
@@ -377,7 +378,7 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../TrueLife/View/mainwindow.h ../TrueLife/View/statwidget.h ../TrueLife/View/simuwidget.h ../TrueLife/View/paramwidget.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../TrueLife/View/mainwindow.h ../TrueLife/View/statwidget.h ../TrueLife/View/simuwidget.h ../TrueLife/View/paramwidget.h ../TrueLife/common.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../TrueLife/main.cpp ../TrueLife/View/mainwindow.cpp ../TrueLife/View/statwidget.cpp ../TrueLife/View/simuwidget.cpp ../TrueLife/View/paramwidget.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../TrueLife/View/mainwindow.ui ../TrueLife/View/statwidget.ui ../TrueLife/View/simuwidget.ui ../TrueLife/View/paramwidget.ui $(DISTDIR)/
 
@@ -415,6 +416,7 @@ compiler_moc_header_make_all: moc_mainwindow.cpp moc_statwidget.cpp moc_simuwidg
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp moc_statwidget.cpp moc_simuwidget.cpp moc_paramwidget.cpp
 moc_mainwindow.cpp: ../TrueLife/View/paramwidget.h \
+		../TrueLife/common.h \
 		../TrueLife/View/simuwidget.h \
 		../TrueLife/View/statwidget.h \
 		../TrueLife/View/mainwindow.h \
@@ -422,17 +424,20 @@ moc_mainwindow.cpp: ../TrueLife/View/paramwidget.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/iam/Pulpit/TrueLife/src/TrueLife -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TrueLife/View/mainwindow.h -o moc_mainwindow.cpp
 
-moc_statwidget.cpp: ../TrueLife/View/statwidget.h \
+moc_statwidget.cpp: ../TrueLife/common.h \
+		../TrueLife/View/statwidget.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/iam/Pulpit/TrueLife/src/TrueLife -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TrueLife/View/statwidget.h -o moc_statwidget.cpp
 
-moc_simuwidget.cpp: ../TrueLife/View/simuwidget.h \
+moc_simuwidget.cpp: ../TrueLife/common.h \
+		../TrueLife/View/simuwidget.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/iam/Pulpit/TrueLife/src/TrueLife -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TrueLife/View/simuwidget.h -o moc_simuwidget.cpp
 
-moc_paramwidget.cpp: ../TrueLife/View/paramwidget.h \
+moc_paramwidget.cpp: ../TrueLife/common.h \
+		../TrueLife/View/paramwidget.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
 	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/iam/Pulpit/TrueLife/src/TrueLife -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TrueLife/View/paramwidget.h -o moc_paramwidget.cpp
@@ -476,14 +481,17 @@ mainwindow.o: ../TrueLife/View/mainwindow.cpp ../TrueLife/mainwindow.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../TrueLife/View/mainwindow.cpp
 
 statwidget.o: ../TrueLife/View/statwidget.cpp ../TrueLife/View/statwidget.h \
+		../TrueLife/common.h \
 		ui_statwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o statwidget.o ../TrueLife/View/statwidget.cpp
 
 simuwidget.o: ../TrueLife/View/simuwidget.cpp ../TrueLife/View/simuwidget.h \
+		../TrueLife/common.h \
 		ui_simuwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o simuwidget.o ../TrueLife/View/simuwidget.cpp
 
 paramwidget.o: ../TrueLife/View/paramwidget.cpp ../TrueLife/View/paramwidget.h \
+		../TrueLife/common.h \
 		ui_paramwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o paramwidget.o ../TrueLife/View/paramwidget.cpp
 

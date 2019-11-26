@@ -2,6 +2,7 @@
 #define SIMUWIDGET_H
 
 #include <QWidget>
+#include "common.h"
 
 namespace Ui {
 class SimuWidget;

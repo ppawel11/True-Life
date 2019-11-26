@@ -34,7 +34,8 @@ HEADERS += \
         View/mainwindow.h \
     View/statwidget.h \
     View/simuwidget.h \
-    View/paramwidget.h
+    View/paramwidget.h \
+    common.h
 
 FORMS += \
         View/mainwindow.ui \

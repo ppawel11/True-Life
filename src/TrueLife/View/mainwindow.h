@@ -9,6 +9,7 @@
 #include "paramwidget.h"
 #include "simuwidget.h"
 #include "statwidget.h"
+#include "common.h"
 
 namespace Ui {
 class MainWindow;
@@ -22,13 +23,22 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+private slots:
+    void on_actionSimulation_triggered();
+
+    void on_actionStatistics_triggered();
+
+    void on_actionHome_triggered();
+
+    void on_actionNew_triggered();
+
 private:
     Ui::MainWindow *ui;
 
-    boost::shared_ptr<QWidget> homeWidget;
-    boost::shared_ptr<ParamWidget> paramWidget;
-    boost::shared_ptr<SimuWidget> simuWidget;
-    boost::shared_ptr<StatWidget> statWidget;
+    QWidget* homeWidget;
+    ParamWidget* paramWidget;
+    SimuWidget* simuWidget;
+    StatWidget* statWidget;
 };
 
 #endif // MAINWINDOW_H

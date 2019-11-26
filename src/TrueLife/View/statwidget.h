@@ -2,6 +2,7 @@
 #define STATWIDGET_H
 
 #include <QWidget>
+#include "common.h"
 
 namespace Ui {
 class StatWidget;

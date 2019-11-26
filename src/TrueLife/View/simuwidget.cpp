@@ -11,4 +11,5 @@ SimuWidget::SimuWidget(QWidget *parent) :
 SimuWidget::~SimuWidget()
 {
     delete ui;
+    qDebug() << "simuWidget usunięty";
 }

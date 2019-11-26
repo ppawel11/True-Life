@@ -2,6 +2,7 @@
 #define PARAMWIDGET_H
 
 #include <QWidget>
+#include "common.h"
 
 namespace Ui {
 class ParamWidget;
