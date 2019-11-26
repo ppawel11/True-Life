@@ -9,25 +9,28 @@ MainWindow::MainWindow(QWidget *parent) :
 
     homeWidget = this->centralWidget();
     paramWidget = new ParamWidget();
-    simuWidget = new SimuWidget();
-    statWidget = new StatWidget();
+    simuWidget = boost::make_shared<SimuWidget>(new SimuWidget());
+    statWidget = std::make_unique<StatWidget>(new StatWidget());
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+    qDebug() << "mainWindow usunięty";
 }
 
 void MainWindow::on_actionSimulation_triggered()
 {
     this->takeCentralWidget(); // to preserve it from deletion
-    this->setCentralWidget(simuWidget);
+//    qDebug()<<"use_count: "<<simuWidget.use_count();
+    this->setCentralWidget(simuWidget.get());
+//    qDebug()<<"use_count: "<<simuWidget.use_count();
 }
 
 void MainWindow::on_actionStatistics_triggered()
 {
     this->takeCentralWidget(); // to preserve it from deletion
-    this->setCentralWidget(statWidget);
+    this->setCentralWidget(statWidget.get());
 }
 
 void MainWindow::on_actionHome_triggered()

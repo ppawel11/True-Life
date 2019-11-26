@@ -11,4 +11,5 @@ StatWidget::StatWidget(QWidget *parent) :
 StatWidget::~StatWidget()
 {
     delete ui;
+    qDebug() << "statWidget usunięty";
 }

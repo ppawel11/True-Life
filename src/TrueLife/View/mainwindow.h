@@ -2,7 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QPointer>
 
+#include <memory> // std::unique_ptr
 #include <boost/shared_ptr.hpp>
 #include <boost/make_shared.hpp>
 
@@ -37,8 +39,8 @@ private:
 
     QWidget* homeWidget;
     ParamWidget* paramWidget;
-    SimuWidget* simuWidget;
-    StatWidget* statWidget;
+    boost::shared_ptr<SimuWidget> simuWidget;
+    std::unique_ptr<StatWidget> statWidget;
 };
 
 #endif // MAINWINDOW_H
