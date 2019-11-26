@@ -42,3 +42,6 @@ FORMS += \
     View/statwidget.ui \
     View/simuwidget.ui \
     View/paramwidget.ui
+
+RESOURCES += \
+    images.qrc
