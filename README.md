@@ -78,13 +78,14 @@ Zaproponować ciekawy scenariusz "gry w życie" w następującym rozumieniu: wys
 #### Wymagania prowadzącego
 
 * Szkielet = 
-  * skrypty budujące (np. SCons)
-  * przykładowy program (który demonstruje użycie istotnych dla projektu bibliotek i narzędzi)
-* Kompilacja i uruchamianie na różnych systemach
-* Zawiera szkielet głównej klasy programu
-* Przykładowe testy jednostkowe
-* Wysłać e-mailem w .zip
+  * skrypty budujące (np. SCons) :question:
+  * przykładowy program (demonstrujący użycie istotnych dla projektu bibliotek i narzędzi):question:
+* Kompilacja i uruchamianie na różnych systemach :white_check_mark:
+* Zawiera szkielet głównej klasy programu :question:
+* Przykładowe testy jednostkowe :question:
+* Wysłać e-mailem w .zip :white_check_mark:
 * Instalacja bibliotek:
-  * Zautomatyzować: skrypt lub pakiet Ubuntu
-  * Ostatecznie (zamiast automatyzacji): opisać w README, co trzeba zainstalować
-  * Sprawdzić, czy automat/opis działa, na Ubuntu z pendrive'a
+  * Zautomatyzować: skrypt lub pakiet Ubuntu :question:
+  * Ostatecznie (zamiast automatyzacji): opisać w README, co trzeba zainstalować :white_check_mark:
+  * Sprawdzić, czy automat/opis działa, na Ubuntu z pendrive'a :white_check_mark:
+
