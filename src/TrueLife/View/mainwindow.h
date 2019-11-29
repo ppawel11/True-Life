@@ -46,7 +46,7 @@ private:
     Ui::MainWindow *ui;
 
     QWidget* homeWidget;
-    ParamWidget* paramWidget;
+    std::unique_ptr<ParamWidget> paramWidget;
     boost::shared_ptr<SimuWidget> simuWidget;
     std::unique_ptr<StatWidget> statWidget;
 };
