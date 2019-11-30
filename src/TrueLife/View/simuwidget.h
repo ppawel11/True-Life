@@ -3,11 +3,15 @@
 
 #include <QWidget>
 #include "common.h"
+#include "Controller/controller.h"
 
 namespace Ui {
 class SimuWidget;
 }
 
+/**
+ * @brief Central widget of main window to show current simulation environment
+ */
 class SimuWidget : public QWidget
 {
     Q_OBJECT

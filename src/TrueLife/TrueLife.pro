@@ -28,14 +28,26 @@ SOURCES += \
         View/mainwindow.cpp \
     View/statwidget.cpp \
     View/simuwidget.cpp \
-    View/paramwidget.cpp
+    View/paramwidget.cpp \
+    Controller/controller.cpp \
+    Use-cases/feeder.cpp \
+    Use-cases/multiplier.cpp \
+    Use-cases/creator.cpp \
+    Entities/animal.cpp
 
 HEADERS += \
         View/mainwindow.h \
     View/statwidget.h \
     View/simuwidget.h \
     View/paramwidget.h \
-    common.h
+    common.h \
+    Controller/controller.h \
+    Model/initdatamodel.h \
+    Model/statisticsmodel.h \
+    Use-cases/feeder.h \
+    Use-cases/multiplier.h \
+    Use-cases/creator.h \
+    Entities/animal.h
 
 FORMS += \
         View/mainwindow.ui \

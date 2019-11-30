@@ -3,11 +3,15 @@
 
 #include <QWidget>
 #include "common.h"
+#include "Controller/controller.h"
 
 namespace Ui {
 class StatWidget;
 }
 
+/**
+ * @brief Central widget of main window to show statistics of current simulation
+ */
 class StatWidget : public QWidget
 {
     Q_OBJECT

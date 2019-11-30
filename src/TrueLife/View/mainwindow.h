@@ -20,11 +20,15 @@
 #include "simuwidget.h"
 #include "statwidget.h"
 #include "common.h"
+#include "Controller/controller.h"
 
 namespace Ui {
 class MainWindow;
 }
 
+/**
+ * @brief Main window of the application
+ */
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -45,10 +49,10 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
-    QWidget* homeWidget;
-    std::unique_ptr<ParamWidget> paramWidget;
-    boost::shared_ptr<SimuWidget> simuWidget;
-    std::unique_ptr<StatWidget> statWidget;
+    QWidget* home_widget;
+    std::unique_ptr<ParamWidget> param_widget;
+    boost::shared_ptr<SimuWidget> simu_widget;
+    std::unique_ptr<StatWidget> stat_widget;
 };
 
 #endif // MAINWINDOW_H

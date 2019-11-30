@@ -3,11 +3,15 @@
 
 #include <QWidget>
 #include "common.h"
+#include "Controller/controller.h"
 
 namespace Ui {
 class ParamWidget;
 }
 
+/**
+ * @brief Central widget of main window to enter parameters of new simulation
+ */
 class ParamWidget : public QWidget
 {
     Q_OBJECT

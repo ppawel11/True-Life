@@ -11,5 +11,5 @@ ParamWidget::ParamWidget(QWidget *parent) :
 ParamWidget::~ParamWidget()
 {
     delete ui;
-    qDebug() << "paramWidget usunięty";
+    qDebug() << "param_widget usunięty";
 }
