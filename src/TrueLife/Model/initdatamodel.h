@@ -4,6 +4,6 @@
 /**
  * @brief Holds inital data of simulations
  */
-struct InitDataModel {}
+struct InitDataModel {};
 
 #endif // INITDATAMODEL_H

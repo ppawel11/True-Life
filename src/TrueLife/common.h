@@ -11,7 +11,11 @@
  * BOOST_LOG_TRIVIAL(error) << "An error severity message";
  */
 
-#include <boost/test/test_tools.hpp>
+//#define BOOST_TEST_MODULE test module name
+//#define BOOST_TEST_DYN_LINK
+//#include <boost/test/test_tools.hpp> // lecture
+//#include <boost/test/unit_test.hpp> // https://www.boost.org/doc/libs/1_66_0/libs/test/doc/html/boost_test/usage_variants.html
+//#include <boost/test/included/unit_test.hpp> // Stack Overflow
 /* [lecture 8]
  * BOOST_WARN / BOOST_CHECK / BOOST_REQUIRE     | slide 15
  * _BITWISE_EQUAL / _EQUAL / _SMALL / _CLOSE    | slide 16
