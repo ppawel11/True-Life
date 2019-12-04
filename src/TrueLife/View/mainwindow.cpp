@@ -9,14 +9,20 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    // logo settings
     QPixmap *pix = new QPixmap(":/img/img/icon.jpg");
     int w = this->width();
     ui->logo_label->setPixmap(pix->scaledToWidth(0.5*w,Qt::SmoothTransformation));
 
+    // central widget settings
     home_widget = this->centralWidget();
     param_widget = std::make_unique<ParamWidget>(new ParamWidget());
     simu_widget = boost::make_shared<SimuWidget>(new SimuWidget());
     stat_widget = std::make_unique<StatWidget>(new StatWidget());
+
+    // timer settings
+    time_wizard = boost::make_shared<TimeWizard>(new TimeWizard());
+    time_wizard->setPeriod(500);
 }
 
 MainWindow::~MainWindow()
@@ -51,4 +57,18 @@ void MainWindow::on_actionNew_triggered()
 {
     this->takeCentralWidget(); // to preserve it from deletion
     this->setCentralWidget(param_widget.get());
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    static bool running = false;
+
+    if(!running) {
+        time_wizard->startTimer();
+        running = true;
+    }
+    else {
+        time_wizard->stopTimer();
+        running = false;
+    }
 }

@@ -21,6 +21,7 @@
 #include "statwidget.h"
 #include "common.h"
 #include "Controller/controller.h"
+#include "Entities/timewizard.h"
 
 namespace Ui {
 class MainWindow;
@@ -46,6 +47,8 @@ private slots:
 
     void on_actionNew_triggered();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 
@@ -53,6 +56,8 @@ private:
     std::unique_ptr<ParamWidget> param_widget;
     boost::shared_ptr<SimuWidget> simu_widget;
     std::unique_ptr<StatWidget> stat_widget;
+
+    boost::shared_ptr<TimeWizard> time_wizard;
 };
 
 #endif // MAINWINDOW_H

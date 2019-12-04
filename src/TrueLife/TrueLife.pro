@@ -34,7 +34,8 @@ SOURCES += \
     Use-cases/feeder.cpp \
     Use-cases/multiplier.cpp \
     Use-cases/creator.cpp \
-    Entities/animal.cpp
+    Entities/animal.cpp \
+    Entities/timewizard.cpp
 
 HEADERS += \
         View/mainwindow.h \
@@ -48,7 +49,8 @@ HEADERS += \
     Use-cases/feeder.h \
     Use-cases/multiplier.h \
     Use-cases/creator.h \
-    Entities/animal.h
+    Entities/animal.h \
+    Entities/timewizard.h
 
 FORMS += \
         View/mainwindow.ui \
