@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui charts
+#QMAKE_CXXFLAGS += -lboost_unit_test_framework-mt
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
