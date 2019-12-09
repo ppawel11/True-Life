@@ -35,7 +35,8 @@ SOURCES += \
     Use-cases/multiplier.cpp \
     Use-cases/creator.cpp \
     Entities/animal.cpp \
-    Entities/timewizard.cpp
+    Entities/timewizard.cpp \
+    View/symulatedelement.cpp
 
 HEADERS += \
         View/mainwindow.h \
@@ -50,7 +51,8 @@ HEADERS += \
     Use-cases/multiplier.h \
     Use-cases/creator.h \
     Entities/animal.h \
-    Entities/timewizard.h
+    Entities/timewizard.h \
+    View/symulatedelement.h
 
 FORMS += \
         View/mainwindow.ui \

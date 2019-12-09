@@ -6,6 +6,12 @@
 
 #include "common.h"
 
+/**
+ * @brief Handles time measurement and makes movement possible
+ *
+ * Contains Environment (brain of the symulation) and calls it in timer interrupt
+ * that is every period.
+ */
 class TimeWizard : public QObject
 {
     Q_OBJECT
