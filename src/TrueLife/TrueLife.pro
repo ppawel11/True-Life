@@ -36,6 +36,7 @@ SOURCES += \
     Use-cases/creator.cpp \
     Entities/animal.cpp \
     Entities/timewizard.cpp \
+    View/symuellipse.cpp
 
 HEADERS += \
         View/mainwindow.h \
@@ -51,6 +52,7 @@ HEADERS += \
     Use-cases/creator.h \
     Entities/animal.h \
     Entities/timewizard.h \
+    View/symuellipse.h
 
 FORMS += \
         View/mainwindow.ui \
