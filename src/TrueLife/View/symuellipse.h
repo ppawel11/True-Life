@@ -7,13 +7,16 @@
 
 #include "common.h"
 
-enum AnimalType {PREDATOR, HERBIVORE};
+enum ElementType {PREDATOR, HERBIVORE, WATER, FOOD};
 
+/**
+ * @brief Visual representation of symulated elements
+ */
 class SymuEllipse : public QGraphicsEllipseItem
 {
 public:
-    SymuEllipse(int x, int y, int width, int height, QPen pen, QBrush brush);
-    SymuEllipse(int x, int y, int width, int height, QBrush brush);
+    SymuEllipse(ElementType type, int x, int y, int width, int height, QPen pen, QBrush brush);
+    SymuEllipse(ElementType type, int x, int y, int width, int height, QBrush brush);
 
 protected:
     /**
@@ -31,11 +34,16 @@ protected:
     /**
      * @brief Checks if object is placed on map
      *
-     * In creation mode
+     * Works in creation mode.
      *
      * @param event
      */
     virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
+
+    /**
+     * @brief Type of the element
+     */
+    ElementType type;
 };
 
 #endif // SYMUELLIPSE_H

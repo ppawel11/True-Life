@@ -2,6 +2,7 @@
 #define COMMON_H
 
 #include <QDebug> // qDebug()<<"Hello!";
+#include <QColor>
 
 #include <boost/log/trivial.hpp>
 /* [lecture 8, slide 31]
@@ -22,5 +23,40 @@
  * _NO_THROW / _THROW / _EXCEPTION              | slide 17
  * _MESSAGE / BOOST_ERROR / BOOST_FAIL          | slide 18
  */
+
+/**
+ * @brief Holds our colour schemes.
+ */
+namespace OurColors {
+    /**
+     * @brief cool blue color
+     */
+    static const QColor blue = QColor("#2F82FF");
+
+    /**
+     * @brief cool green color
+     */
+    static const QColor green = QColor("#01D263");
+
+    /**
+     * @brief cool orange color
+     */
+    static const QColor orange = QColor("#EDB727");
+
+    /**
+     * @brief cool red color
+     */
+    static const QColor red = QColor("#C94E4E");
+
+    /**
+     * @brief color of the background behind the symulation map
+     */
+    static const QColor back = QColor("#FFF3CA");
+
+    /**
+     * @brief color of the symulation map
+     */
+    static const QColor map = QColor("#DDD383");
+}
 
 #endif // COMMON_H

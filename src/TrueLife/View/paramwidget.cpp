@@ -7,16 +7,20 @@ ParamWidget::ParamWidget(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    // Setting up the graphics scene
     scene = new QGraphicsScene(this);
-    scene->setBackgroundBrush(QColor("#FFF3CA"));
+    scene->setBackgroundBrush(OurColors::back);
     ui->graphicsView->setScene(scene);
-    ui->graphicsView->setMinimumSize(MAP_WIDTH+BORDER,MAP_HEIGHT+BORDER);
+    ui->graphicsView->setMinimumSize(Map::WIDTH+Map::BORDER,
+                                     Map::HEIGHT+Map::BORDER);
 
-    QBrush brush(QColor("#DDD383"));
+    // Setting up the sumulation map
+    QBrush brush(OurColors::map);
     QPen pen(Qt::black);
     pen.setWidth(3);
-    scene->addRect(0,0,MAP_WIDTH,MAP_HEIGHT,pen,brush);
+    scene->addRect(0,0,Map::WIDTH,Map::HEIGHT,pen,brush);
 
+    // assigning instance of container for sumulated elements
     symuEmelents = SymuElements::getInstance();
 }
 
@@ -28,39 +32,21 @@ ParamWidget::~ParamWidget()
 
 void ParamWidget::on_addPredatorButton_clicked()
 {
-    QBrush brush(Qt::red);
-    QPen pen(Qt::black);
-    pen.setWidth(1);
-    SymuEllipse *predator = new SymuEllipse(MAP_WIDTH/2, MAP_HEIGHT/2,
-                              15, 15,
-                              pen, brush);
-    predator->setFlag(QGraphicsItem::ItemIsMovable);
-    symuEmelents.addAnimal(predator);
-    scene->addItem(predator);
+    SymuEllipse *item = symuEmelents.addAnimal(PREDATOR);
+    item->setFlag(QGraphicsItem::ItemIsMovable);
+    scene->addItem(item);
 }
 
 void ParamWidget::on_addHerbivoreButton_clicked()
 {
-    QBrush brush(Qt::green);
-    QPen pen(Qt::black);
-    pen.setWidth(1);
-    SymuEllipse *herbivor = new SymuEllipse(MAP_WIDTH/2, MAP_HEIGHT/2,
-                              15, 15,
-                              pen, brush);
-    herbivor->setFlag(QGraphicsItem::ItemIsMovable);
-    symuEmelents.addAnimal(herbivor);
-    scene->addItem(herbivor);
+    SymuEllipse *item = symuEmelents.addAnimal(HERBIVORE);
+    item->setFlag(QGraphicsItem::ItemIsMovable);
+    scene->addItem(item);
 }
 
 void ParamWidget::on_addWaterButton_clicked()
 {
-    QBrush brush(Qt::blue);
-    QPen pen(Qt::black);
-    pen.setWidth(1);
-    SymuEllipse *water = new SymuEllipse(MAP_WIDTH/2, MAP_HEIGHT/2,
-                              50, 33,
-                              pen, brush);
-    water->setFlag(QGraphicsItem::ItemIsMovable);
-    symuEmelents.addSupply(water);
-    scene->addItem(water);
+    SymuEllipse *item = symuEmelents.addSupply(WATER);
+    item->setFlag(QGraphicsItem::ItemIsMovable);
+    scene->addItem(item);
 }

@@ -2,7 +2,10 @@
 #define SIMUWIDGET_H
 
 #include <QWidget>
+#include <QGraphicsScene>
+
 #include "common.h"
+#include "symuelements.h"
 #include "Controller/controller.h"
 
 namespace Ui {
@@ -22,6 +25,10 @@ public:
 
 private:
     Ui::SimuWidget *ui;
+
+    QGraphicsScene *scene;
+
+    SymuElements symuEmelents;
 };
 
 #endif // SIMUWIDGET_H

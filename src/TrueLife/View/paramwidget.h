@@ -3,10 +3,6 @@
 
 #include <QWidget>
 #include <QGraphicsScene>
-#include <QGraphicsEllipseItem>
-#include <QGraphicsRectItem>
-#include <QList>
-#include <map>
 
 #include "common.h"
 #include "symuelements.h"
@@ -22,11 +18,6 @@ class ParamWidget;
 class ParamWidget : public QWidget
 {
     Q_OBJECT
-
-private:
-    static const int MAP_WIDTH = 500;
-    static const int MAP_HEIGHT = 500;
-    static const int BORDER = 10;
 
 public:
     explicit ParamWidget(QWidget *parent = 0);
