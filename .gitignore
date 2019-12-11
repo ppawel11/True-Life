@@ -1,4 +1,2 @@
-src/build-TrueLife-Desktop-Debug/*
-!src/build-TrueLife-Desktop-Debug/*.cpp
-!src/build-TrueLife-Desktop-Debug/*.h
+src/build-TrueLife-Desktop-Debug/
 src/TrueLife/TrueLife.pro.user
