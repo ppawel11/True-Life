@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // central widget settings
     home_widget = this->centralWidget();
-    param_widget = std::make_unique<ParamWidget>(new ParamWidget());
+    creator_widget = std::make_unique<CreatorWidget>(new CreatorWidget());
     simu_widget = boost::make_shared<SimuWidget>(new SimuWidget());
     stat_widget = std::make_unique<StatWidget>(new StatWidget());
 
@@ -56,7 +56,7 @@ void MainWindow::on_actionHome_triggered()
 void MainWindow::on_actionNew_triggered()
 {
     this->takeCentralWidget(); // to preserve it from deletion
-    this->setCentralWidget(param_widget.get());
+    this->setCentralWidget(creator_widget.get());
 }
 
 void MainWindow::on_pushButton_clicked()

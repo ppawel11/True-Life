@@ -1,20 +1,20 @@
-#include "symuelements.h"
+#include "simuelements.h"
 
-SymuElements::SymuElements(){}
+SimuElements::SimuElements(){}
 
-SymuElements::~SymuElements(){}
+SimuElements::~SimuElements(){}
 
-void SymuElements::addAnimal(SymuEllipse *animal)
+void SimuElements::addAnimal(SimuEllipse *animal)
 {
     animals_list.insert({++id_counter_animals, animal});
 }
 
-void SymuElements::addSupply(SymuEllipse *supply)
+void SimuElements::addSupply(SimuEllipse *supply)
 {
     supply_list.insert({++id_counter_supply, supply});
 }
 
-SymuEllipse * SymuElements::addAnimal(ElementType type)
+SimuEllipse * SimuElements::addAnimal(ElementType type)
 {
     QPen pen(Qt::black);
     pen.setWidth(1);
@@ -33,14 +33,14 @@ SymuEllipse * SymuElements::addAnimal(ElementType type)
         return nullptr;
     }
 
-    SymuEllipse *animal =
-            new SymuEllipse(type, Map::WIDTH/2, Map::HEIGHT/2,
+    SimuEllipse *animal =
+            new SimuEllipse(type, Map::WIDTH/2, Map::HEIGHT/2,
                             15, 15, pen, brush);
     addAnimal(animal);
     return animal;
 }
 
-SymuEllipse * SymuElements::addSupply(ElementType type)
+SimuEllipse * SimuElements::addSupply(ElementType type)
 {
     QPen pen(Qt::black);
     pen.setWidth(1);
@@ -64,14 +64,14 @@ SymuEllipse * SymuElements::addSupply(ElementType type)
         return nullptr;
     }
 
-    SymuEllipse *supply =
-            new SymuEllipse(type, Map::WIDTH/2, Map::HEIGHT/2,
+    SimuEllipse *supply =
+            new SimuEllipse(type, Map::WIDTH/2, Map::HEIGHT/2,
                             width, height, pen, brush);
     addSupply(supply);
     return supply;
 }
 
-SymuElements& SymuElements::getInstance() {
-    static SymuElements instance;
+SimuElements& SimuElements::getInstance() {
+    static SimuElements instance;
     return instance;
 }

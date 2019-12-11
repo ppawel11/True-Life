@@ -1,9 +1,9 @@
-#include "paramwidget.h"
+#include "creatorwidget.h"
 #include "ui_paramwidget.h"
 
-ParamWidget::ParamWidget(QWidget *parent) :
+CreatorWidget::CreatorWidget(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::ParamWidget)
+    ui(new Ui::CreatorWidget)
 {
     ui->setupUi(this);
 
@@ -21,32 +21,32 @@ ParamWidget::ParamWidget(QWidget *parent) :
     scene->addRect(0,0,Map::WIDTH,Map::HEIGHT,pen,brush);
 
     // assigning instance of container for sumulated elements
-    symuEmelents = SymuElements::getInstance();
+    simuEmelents = SimuElements::getInstance();
 }
 
-ParamWidget::~ParamWidget()
+CreatorWidget::~CreatorWidget()
 {
     delete ui;
     qDebug() << "param_widget usunięty";
 }
 
-void ParamWidget::on_addPredatorButton_clicked()
+void CreatorWidget::on_addPredatorButton_clicked()
 {
-    SymuEllipse *item = symuEmelents.addAnimal(PREDATOR);
+    SimuEllipse *item = simuEmelents.addAnimal(PREDATOR);
     item->setFlag(QGraphicsItem::ItemIsMovable);
     scene->addItem(item);
 }
 
-void ParamWidget::on_addHerbivoreButton_clicked()
+void CreatorWidget::on_addHerbivoreButton_clicked()
 {
-    SymuEllipse *item = symuEmelents.addAnimal(HERBIVORE);
+    SimuEllipse *item = simuEmelents.addAnimal(HERBIVORE);
     item->setFlag(QGraphicsItem::ItemIsMovable);
     scene->addItem(item);
 }
 
-void ParamWidget::on_addWaterButton_clicked()
+void CreatorWidget::on_addWaterButton_clicked()
 {
-    SymuEllipse *item = symuEmelents.addSupply(WATER);
+    SimuEllipse *item = simuEmelents.addSupply(WATER);
     item->setFlag(QGraphicsItem::ItemIsMovable);
     scene->addItem(item);
 }

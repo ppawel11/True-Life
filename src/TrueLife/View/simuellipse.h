@@ -1,5 +1,5 @@
-#ifndef SYMUELLIPSE_H
-#define SYMUELLIPSE_H
+#ifndef SIMUELLIPSE_H
+#define SIMUELLIPSE_H
 
 #include <QGraphicsEllipseItem>
 #include <QPen>
@@ -12,11 +12,11 @@ enum ElementType {PREDATOR, HERBIVORE, WATER, FOOD};
 /**
  * @brief Visual representation of symulated elements
  */
-class SymuEllipse : public QGraphicsEllipseItem
+class SimuEllipse : public QGraphicsEllipseItem
 {
 public:
-    SymuEllipse(ElementType type, int x, int y, int width, int height, QPen pen, QBrush brush);
-    SymuEllipse(ElementType type, int x, int y, int width, int height, QBrush brush);
+    SimuEllipse(ElementType type, int x, int y, int width, int height, QPen pen, QBrush brush);
+    SimuEllipse(ElementType type, int x, int y, int width, int height, QBrush brush);
 
 protected:
     /**
@@ -46,4 +46,4 @@ protected:
     ElementType type;
 };
 
-#endif // SYMUELLIPSE_H
+#endif // SIMUELLIPSE_H

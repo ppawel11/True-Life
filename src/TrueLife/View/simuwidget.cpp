@@ -21,7 +21,7 @@ SimuWidget::SimuWidget(QWidget *parent) :
     scene->addRect(0,0,Map::WIDTH,Map::HEIGHT,pen,brush);
 
     // assigning instance of container for sumulated elements
-    symuEmelents = SymuElements::getInstance();
+    simuEmelents = SimuElements::getInstance();
 }
 
 SimuWidget::~SimuWidget()

@@ -1,6 +1,6 @@
-#include "symuellipse.h"
+#include "simuellipse.h"
 
-SymuEllipse::SymuEllipse(ElementType type, int x, int y, int width, int height, QPen pen, QBrush brush)
+SimuEllipse::SimuEllipse(ElementType type, int x, int y, int width, int height, QPen pen, QBrush brush)
     : QGraphicsEllipseItem::QGraphicsEllipseItem(x, y, width, height)
 {
     this->type = type;
@@ -8,7 +8,7 @@ SymuEllipse::SymuEllipse(ElementType type, int x, int y, int width, int height, 
     setBrush(brush);
 }
 
-SymuEllipse::SymuEllipse(ElementType type, int x, int y, int width, int height, QBrush brush)
+SimuEllipse::SimuEllipse(ElementType type, int x, int y, int width, int height, QBrush brush)
     : QGraphicsEllipseItem::QGraphicsEllipseItem(x, y, width, height)
 {
     this->type = type;
@@ -17,13 +17,13 @@ SymuEllipse::SymuEllipse(ElementType type, int x, int y, int width, int height, 
     setBrush(brush);
 }
 
-void SymuEllipse::mousePressEvent(QGraphicsSceneMouseEvent *event)
+void SimuEllipse::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     QGraphicsItem::mousePressEvent(event);
     qDebug()<<"mousePressEvent";
 }
 
-void SymuEllipse::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+void SimuEllipse::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     QGraphicsItem::mouseReleaseEvent(event);
     qDebug()<<"mouseReleaseEvent";

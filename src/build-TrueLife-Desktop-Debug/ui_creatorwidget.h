@@ -1,13 +1,13 @@
 /********************************************************************************
-** Form generated from reading UI file 'paramwidget.ui'
+** Form generated from reading UI file 'creatorwidget.ui'
 **
 ** Created by: Qt User Interface Compiler version 5.9.5
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
 
-#ifndef UI_PARAMWIDGET_H
-#define UI_PARAMWIDGET_H
+#ifndef UI_CREATORWIDGET_H
+#define UI_CREATORWIDGET_H
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
@@ -145,9 +145,9 @@ public:
 };
 
 namespace Ui {
-    class CreatorWidget: public Ui_ParamWidget {};
+    class ParamWidget: public Ui_ParamWidget {};
 } // namespace Ui
 
 QT_END_NAMESPACE
 
-#endif // UI_PARAMWIDGET_H
+#endif // UI_CREATORWIDGET_H

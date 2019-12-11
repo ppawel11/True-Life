@@ -29,21 +29,20 @@ SOURCES += \
         View/mainwindow.cpp \
     View/statwidget.cpp \
     View/simuwidget.cpp \
-    View/paramwidget.cpp \
     Controller/controller.cpp \
     Use-cases/feeder.cpp \
     Use-cases/multiplier.cpp \
     Use-cases/creator.cpp \
     Entities/animal.cpp \
     Entities/timewizard.cpp \
-    View/symuellipse.cpp \
-    View/symuelements.cpp
+    View/simuelements.cpp \
+    View/simuellipse.cpp \
+    View/creatorwidget.cpp
 
 HEADERS += \
         View/mainwindow.h \
     View/statwidget.h \
     View/simuwidget.h \
-    View/paramwidget.h \
     common.h \
     Controller/controller.h \
     Model/initdatamodel.h \
@@ -53,14 +52,15 @@ HEADERS += \
     Use-cases/creator.h \
     Entities/animal.h \
     Entities/timewizard.h \
-    View/symuellipse.h \
-    View/symuelements.h
+    View/simuelements.h \
+    View/simuellipse.h \
+    View/creatorwidget.h
 
 FORMS += \
         View/mainwindow.ui \
     View/statwidget.ui \
     View/simuwidget.ui \
-    View/paramwidget.ui
+    View/creatorwidget.ui
 
 RESOURCES += \
     images.qrc

@@ -16,7 +16,7 @@
 #include <boost/shared_ptr.hpp>
 #include <boost/make_shared.hpp>
 
-#include "paramwidget.h"
+#include "creatorwidget.h"
 #include "simuwidget.h"
 #include "statwidget.h"
 #include "common.h"
@@ -53,7 +53,7 @@ private:
     Ui::MainWindow *ui;
 
     QWidget* home_widget;
-    std::unique_ptr<ParamWidget> param_widget;
+    std::unique_ptr<CreatorWidget> creator_widget;
     boost::shared_ptr<SimuWidget> simu_widget;
     std::unique_ptr<StatWidget> stat_widget;
 

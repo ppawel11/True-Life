@@ -5,7 +5,7 @@
 #include <QGraphicsScene>
 
 #include "common.h"
-#include "symuelements.h"
+#include "simuelements.h"
 #include "Controller/controller.h"
 
 namespace Ui {
@@ -28,7 +28,7 @@ private:
 
     QGraphicsScene *scene;
 
-    SymuElements symuEmelents;
+    SimuElements simuEmelents;
 };
 
 #endif // SIMUWIDGET_H

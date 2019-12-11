@@ -1,7 +1,7 @@
-#ifndef SYMUELEMENTS_H
-#define SYMUELEMENTS_H
+#ifndef SIMUELEMENTS_H
+#define SIMUELEMENTS_H
 
-#include "symuellipse.h"
+#include "simuellipse.h"
 #include "common.h"
 
 namespace Map {
@@ -13,19 +13,19 @@ namespace Map {
 /**
  * @brief Container for objects being visual representations of sumulated elements.
  */
-class SymuElements
+class SimuElements
 {
 public:
-    SymuElements();
-    ~SymuElements();
+    SimuElements();
+    ~SimuElements();
 
-    static SymuElements& getInstance();
+    static SimuElements& getInstance();
 
-    void addAnimal(SymuEllipse *animal);
-    void addSupply(SymuEllipse *supply);
+    void addAnimal(SimuEllipse *animal);
+    void addSupply(SimuEllipse *supply);
 
-    SymuEllipse * addAnimal(ElementType type);
-    SymuEllipse * addSupply(ElementType type);
+    SimuEllipse * addAnimal(ElementType type);
+    SimuEllipse * addSupply(ElementType type);
 
 private:
     /**
@@ -34,7 +34,7 @@ private:
      * int id
      * SymuEllipse* pointer to representation of simulated element
      */
-    std::map<int, SymuEllipse*> animals_list;
+    std::map<int, SimuEllipse*> animals_list;
 
     /**
      * @brief list of supply
@@ -42,7 +42,7 @@ private:
      * int id
      * SymuEllipse* pointer to representation of simulated element
      */
-    std::map<int, SymuEllipse*> supply_list;
+    std::map<int, SimuEllipse*> supply_list;
 
     /**
      * @brief Increment-only counter for id generation for animals
@@ -55,4 +55,4 @@ private:
     int id_counter_supply;
 };
 
-#endif // SYMUELEMENTS_H
+#endif // SIMUELEMENTS_H

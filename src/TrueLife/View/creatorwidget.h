@@ -1,27 +1,27 @@
-#ifndef PARAMWIDGET_H
-#define PARAMWIDGET_H
+#ifndef CREATORWIDGET_H
+#define CREATORWIDGET_H
 
 #include <QWidget>
 #include <QGraphicsScene>
 
 #include "common.h"
-#include "symuelements.h"
+#include "simuelements.h"
 #include "Controller/controller.h"
 
 namespace Ui {
-class ParamWidget;
+class CreatorWidget;
 }
 
 /**
  * @brief Central widget of main window to enter parameters of new simulation
  */
-class ParamWidget : public QWidget
+class CreatorWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit ParamWidget(QWidget *parent = 0);
-    ~ParamWidget();
+    explicit CreatorWidget(QWidget *parent = 0);
+    ~CreatorWidget();
 
 private slots:
     void on_addPredatorButton_clicked();
@@ -31,14 +31,11 @@ private slots:
     void on_addWaterButton_clicked();
 
 private:
-    Ui::ParamWidget *ui;
+    Ui::CreatorWidget *ui;
 
     QGraphicsScene *scene;
 
-    SymuElements symuEmelents;
-
-    int pred_counter;
-    int herb_counter;
+    SimuElements simuEmelents;
 };
 
-#endif // PARAMWIDGET_H
+#endif // CREATORWIDGET_H
