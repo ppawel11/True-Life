@@ -18,9 +18,11 @@ SymuEllipse::SymuEllipse(int x, int y, int width, int height, QBrush brush)
 void SymuEllipse::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     QGraphicsItem::mousePressEvent(event);
+    qDebug()<<"mousePressEvent";
 }
 
 void SymuEllipse::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     QGraphicsItem::mouseReleaseEvent(event);
+    qDebug()<<"mouseReleaseEvent";
 }

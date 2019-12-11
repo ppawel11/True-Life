@@ -9,6 +9,7 @@
 #include <map>
 
 #include "common.h"
+#include "symuelements.h"
 #include "Controller/controller.h"
 
 namespace Ui {
@@ -31,10 +32,6 @@ public:
     explicit ParamWidget(QWidget *parent = 0);
     ~ParamWidget();
 
-    void addAnimal(QGraphicsEllipseItem *animal);
-
-    void addSupply(QGraphicsEllipseItem *supply);
-
 private slots:
     void on_addPredatorButton_clicked();
 
@@ -47,20 +44,10 @@ private:
 
     QGraphicsScene *scene;
 
-    /**
-     * @brief list of animals
-     *
-     * int id
-     * QGraphicsEllipseItem* pointer to predator view
-     */
-    std::map<int, QGraphicsEllipseItem*> animals_list;
-    int id_counter_animals;
+    SymuElements symuEmelents;
 
     int pred_counter;
     int herb_counter;
-
-    std::map<int, QGraphicsEllipseItem*> supply_list;
-    int id_counter_supply;
 };
 
 #endif // PARAMWIDGET_H

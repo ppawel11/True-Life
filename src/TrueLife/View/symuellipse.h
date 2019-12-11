@@ -5,6 +5,10 @@
 #include <QPen>
 #include <QBrush>
 
+#include "common.h"
+
+enum AnimalType {PREDATOR, HERBIVORE};
+
 class SymuEllipse : public QGraphicsEllipseItem
 {
 public:
