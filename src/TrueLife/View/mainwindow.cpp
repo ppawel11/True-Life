@@ -41,6 +41,7 @@ MainWindow::~MainWindow()
 void MainWindow::startSimulation()
 {
     qDebug()<<"Starting simulation...";
+    simu_widget->startSimulation();
     this->takeCentralWidget(); // to preserve it from deletion
     this->setCentralWidget(simu_widget.get());
 }

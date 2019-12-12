@@ -71,6 +71,11 @@ SimuEllipse * SimuElements::addSupply(ElementType type)
     return supply;
 }
 
+std::map<int, SimuEllipse *> SimuElements::getAnimals()
+{
+    return animals_list;
+}
+
 SimuElements& SimuElements::getInstance() {
     static SimuElements instance;
     return instance;

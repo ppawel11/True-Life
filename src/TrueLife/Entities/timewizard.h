@@ -34,6 +34,7 @@ public:
     void stopTimer();
     void setPeriod(int new_period, bool restart_timer = false);
     void resetPeriod(bool restart_timer = false);
+    bool isRunning();
 
 public slots:
     /**

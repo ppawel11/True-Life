@@ -33,6 +33,11 @@ void TimeWizard::resetPeriod(bool restartTimer)
     setPeriod(DEFAULT_PERIOD, restartTimer);
 }
 
+bool TimeWizard::isRunning()
+{
+    return timer->isActive();
+}
+
 void TimeWizard::interrupt()
 {
     qDebug()<< "Minął czas!";

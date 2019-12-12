@@ -27,6 +27,8 @@ public:
     SimuEllipse * addAnimal(ElementType type);
     SimuEllipse * addSupply(ElementType type);
 
+    std::map<int, SimuEllipse*> getAnimals();
+
 private:
     /**
      * @brief list of animals
