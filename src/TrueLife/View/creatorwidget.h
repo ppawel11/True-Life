@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QGraphicsScene>
+#include <QActionEvent>
 
 #include "common.h"
 #include "simuelements.h"
@@ -20,8 +21,10 @@ class CreatorWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit CreatorWidget(QWidget *parent = 0);
+    explicit CreatorWidget(QWidget *mainWindow, QWidget *parent = 0);
     ~CreatorWidget();
+
+    QAction * getStartAction();
 
 private slots:
     void on_addPredatorButton_clicked();
@@ -30,10 +33,16 @@ private slots:
 
     void on_addWaterButton_clicked();
 
+    void on_startButton_clicked();
+
 private:
     Ui::CreatorWidget *ui;
 
+    QWidget *mainWindow;
+
     QGraphicsScene *scene;
+
+    QAction *startAction;
 
     SimuElements simuEmelents;
 };

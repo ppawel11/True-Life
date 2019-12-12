@@ -16,13 +16,18 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // central widget settings
     home_widget = this->centralWidget();
-    creator_widget = std::make_unique<CreatorWidget>(new CreatorWidget());
+    creator_widget = std::make_unique<CreatorWidget>(new CreatorWidget(this));
     simu_widget = boost::make_shared<SimuWidget>(new SimuWidget());
     stat_widget = std::make_unique<StatWidget>(new StatWidget());
 
     // timer settings
     time_wizard = boost::make_shared<TimeWizard>(new TimeWizard());
     time_wizard->setPeriod(500);
+
+    // actions from centralWidgets settings
+    connect(creator_widget->getStartAction(),
+            SIGNAL(triggered()), this,
+            SLOT(startSimulation()));
 }
 
 MainWindow::~MainWindow()
@@ -31,6 +36,13 @@ MainWindow::~MainWindow()
     delete home_widget;
     qDebug() << "home_widget usunięty";
     qDebug() << "Main Window usunięty";
+}
+
+void MainWindow::startSimulation()
+{
+    qDebug()<<"Starting simulation...";
+    this->takeCentralWidget(); // to preserve it from deletion
+    this->setCentralWidget(simu_widget.get());
 }
 
 void MainWindow::on_actionSimulation_triggered()

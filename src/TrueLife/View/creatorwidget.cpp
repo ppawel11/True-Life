@@ -1,20 +1,21 @@
 #include "creatorwidget.h"
-#include "ui_paramwidget.h"
+#include "ui_creatorwidget.h"
 
-CreatorWidget::CreatorWidget(QWidget *parent) :
+CreatorWidget::CreatorWidget(QWidget *mainWindow, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::CreatorWidget)
 {
     ui->setupUi(this);
+    this->mainWindow = mainWindow;
 
-    // Setting up the graphics scene
+    // setting up the graphics scene
     scene = new QGraphicsScene(this);
     scene->setBackgroundBrush(OurColors::back);
     ui->graphicsView->setScene(scene);
     ui->graphicsView->setMinimumSize(Map::WIDTH+Map::BORDER,
                                      Map::HEIGHT+Map::BORDER);
 
-    // Setting up the sumulation map
+    // setting up the sumulation map
     QBrush brush(OurColors::map);
     QPen pen(Qt::black);
     pen.setWidth(3);
@@ -22,12 +23,20 @@ CreatorWidget::CreatorWidget(QWidget *parent) :
 
     // assigning instance of container for sumulated elements
     simuEmelents = SimuElements::getInstance();
+
+    // setting up a signal for MainWindow to start simulation
+    startAction = new QAction("Zaczynamy symulację!", this);
 }
 
 CreatorWidget::~CreatorWidget()
 {
     delete ui;
-    qDebug() << "param_widget usunięty";
+    qDebug() << "creator_widget usunięty";
+}
+
+QAction *CreatorWidget::getStartAction()
+{
+    return startAction;
 }
 
 void CreatorWidget::on_addPredatorButton_clicked()
@@ -49,4 +58,9 @@ void CreatorWidget::on_addWaterButton_clicked()
     SimuEllipse *item = simuEmelents.addSupply(WATER);
     item->setFlag(QGraphicsItem::ItemIsMovable);
     scene->addItem(item);
+}
+
+void CreatorWidget::on_startButton_clicked()
+{
+    startAction->activate(QAction::Trigger);
 }

@@ -39,6 +39,8 @@ public:
     ~MainWindow();
 
 private slots:
+    void startSimulation();
+
     void on_actionSimulation_triggered();
 
     void on_actionStatistics_triggered();
