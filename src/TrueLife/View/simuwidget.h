@@ -38,7 +38,7 @@ private:
 
     QGraphicsScene *scene;
 
-    SimuElements simuEmelents;
+    SimuElements *simuEmelents;
 
     boost::shared_ptr<TimeWizard> time_wizard;
 };

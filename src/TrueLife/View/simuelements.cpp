@@ -1,6 +1,7 @@
 #include "simuelements.h"
 
-SimuElements::SimuElements(){}
+SimuElements::SimuElements():
+    id_counter_animals(0), id_counter_supply(0) {}
 
 SimuElements::~SimuElements(){}
 
@@ -76,7 +77,12 @@ std::map<int, SimuEllipse *> SimuElements::getAnimals()
     return animals_list;
 }
 
-SimuElements& SimuElements::getInstance() {
-    static SimuElements instance;
+std::map<int, SimuEllipse *> SimuElements::getSupply()
+{
+    return supply_list;
+}
+
+SimuElements* SimuElements::getInstance() {
+    static SimuElements *instance = new SimuElements();
     return instance;
 }

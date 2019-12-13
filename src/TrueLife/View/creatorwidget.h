@@ -44,7 +44,7 @@ private:
 
     QAction *startAction;
 
-    SimuElements simuEmelents;
+    SimuElements *simuEmelents;
 };
 
 #endif // CREATORWIDGET_H

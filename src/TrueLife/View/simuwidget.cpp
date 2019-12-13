@@ -43,11 +43,18 @@ void SimuWidget::startSimulation()
 
 void SimuWidget::setUpMap()
 {
-    std::map<int, SimuEllipse*> animals = simuEmelents.getAnimals();
-    qDebug()<<animals.size();
+    std::map<int, SimuEllipse*> animals = simuEmelents->getAnimals();
+    qDebug()<<"Amount of animals: "<<animals.size();
     for (auto it = animals.begin(); it != animals.end(); ++it) {
         scene->addItem(it->second);
-        qDebug()<<it->first;
+//        qDebug()<<it->first; // id
+    }
+
+    std::map<int, SimuEllipse*> supply = simuEmelents->getSupply();
+    qDebug()<<"Amount of supply: "<<supply.size();
+    for (auto it = supply.begin(); it != supply.end(); ++it) {
+        scene->addItem(it->second);
+//        qDebug()<<it->first; // id
     }
 }
 

@@ -41,21 +41,21 @@ QAction *CreatorWidget::getStartAction()
 
 void CreatorWidget::on_addPredatorButton_clicked()
 {
-    SimuEllipse *item = simuEmelents.addAnimal(PREDATOR);
+    SimuEllipse *item = simuEmelents->addAnimal(PREDATOR);
     item->setFlag(QGraphicsItem::ItemIsMovable);
     scene->addItem(item);
 }
 
 void CreatorWidget::on_addHerbivoreButton_clicked()
 {
-    SimuEllipse *item = simuEmelents.addAnimal(HERBIVORE);
+    SimuEllipse *item = simuEmelents->addAnimal(HERBIVORE);
     item->setFlag(QGraphicsItem::ItemIsMovable);
     scene->addItem(item);
 }
 
 void CreatorWidget::on_addWaterButton_clicked()
 {
-    SimuEllipse *item = simuEmelents.addSupply(WATER);
+    SimuEllipse *item = simuEmelents->addSupply(WATER);
     item->setFlag(QGraphicsItem::ItemIsMovable);
     scene->addItem(item);
 }
