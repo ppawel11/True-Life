@@ -38,6 +38,7 @@ void SimuWidget::startSimulation()
 {
     setUpMap();
     time_wizard->startTimer();
+    simuEmelents->setItemsClickable(false);
     ui->playPauseButton->setText("Pauza");
 }
 
@@ -62,10 +63,12 @@ void SimuWidget::on_playPauseButton_clicked()
 {
     if(!time_wizard->isRunning()) {
         time_wizard->startTimer();
+        simuEmelents->setItemsClickable(false);
         ui->playPauseButton->setText("Pauza");
     }
     else {
         time_wizard->stopTimer();
+        simuEmelents->setItemsClickable(true);
         ui->playPauseButton->setText("Kontynuuj");
     }
 }

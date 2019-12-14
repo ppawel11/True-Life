@@ -82,6 +82,34 @@ std::map<int, SimuEllipse *> SimuElements::getSupply()
     return supply_list;
 }
 
+void SimuElements::setItemsMovable(bool enabled)
+{
+    for (auto item = animals_list.begin(); item != animals_list.end(); ++item) {
+        item->second->setFlag(QGraphicsItem::ItemIsMovable, enabled);
+    }
+
+    for (auto item = supply_list.begin(); item != supply_list.end(); ++item) {
+        item->second->setFlag(QGraphicsItem::ItemIsMovable, enabled);
+    }
+}
+
+void SimuElements::setItemsClickable(bool enabled)
+{
+    for (auto item = animals_list.begin(); item != animals_list.end(); ++item) {
+        if(enabled)
+            item->second->setAcceptedMouseButtons(Qt::AllButtons);
+        else
+            item->second->setAcceptedMouseButtons(0);
+    }
+
+    for (auto item = supply_list.begin(); item != supply_list.end(); ++item) {
+        if(enabled)
+            item->second->setAcceptedMouseButtons(Qt::AllButtons);
+        else
+            item->second->setAcceptedMouseButtons(0);
+    }
+}
+
 SimuElements* SimuElements::getInstance() {
     static SimuElements *instance = new SimuElements();
     return instance;

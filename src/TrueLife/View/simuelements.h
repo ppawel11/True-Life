@@ -30,6 +30,9 @@ public:
     std::map<int, SimuEllipse*> getAnimals();
     std::map<int, SimuEllipse*> getSupply();
 
+    void setItemsMovable(bool enabled = true);
+    void setItemsClickable(bool enabled = true);
+
 private:
     /**
      * @brief list of animals
