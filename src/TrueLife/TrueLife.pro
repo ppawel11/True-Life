@@ -37,7 +37,9 @@ SOURCES += \
     Entities/timewizard.cpp \
     View/simuelements.cpp \
     View/simuellipse.cpp \
-    View/creatorwidget.cpp
+    View/creatorwidget.cpp \
+    Entities/environment.cpp \
+    Use-cases/observer.cpp
 
 HEADERS += \
         View/mainwindow.h \
@@ -54,7 +56,10 @@ HEADERS += \
     Entities/timewizard.h \
     View/simuelements.h \
     View/simuellipse.h \
-    View/creatorwidget.h
+    View/creatorwidget.h \
+    Entities/environment.h \
+    Use-cases/observer.h \
+    Model/model.h
 
 FORMS += \
         View/mainwindow.ui \
