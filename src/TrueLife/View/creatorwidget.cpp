@@ -26,6 +26,8 @@ CreatorWidget::CreatorWidget(QWidget *mainWindow, QWidget *parent) :
 
     // setting up a signal for MainWindow to start simulation
     startAction = new QAction("Zaczynamy symulację!", this);
+
+    ui->startButton->setEnabled(false);
 }
 
 CreatorWidget::~CreatorWidget()
@@ -41,26 +43,31 @@ QAction *CreatorWidget::getStartAction()
 
 void CreatorWidget::on_addPredatorButton_clicked()
 {
-    SimuEllipse *item = simuEmelents.addAnimal(PREDATOR);
+    SimuEllipse *item = simuEmelents->addAnimal(PREDATOR);
     item->setFlag(QGraphicsItem::ItemIsMovable);
     scene->addItem(item);
+    ui->startButton->setEnabled(true);
 }
 
 void CreatorWidget::on_addHerbivoreButton_clicked()
 {
-    SimuEllipse *item = simuEmelents.addAnimal(HERBIVORE);
+    SimuEllipse *item = simuEmelents->addAnimal(HERBIVORE);
     item->setFlag(QGraphicsItem::ItemIsMovable);
     scene->addItem(item);
+    ui->startButton->setEnabled(true);
 }
 
 void CreatorWidget::on_addWaterButton_clicked()
 {
-    SimuEllipse *item = simuEmelents.addSupply(WATER);
+    SimuEllipse *item = simuEmelents->addSupply(WATER);
     item->setFlag(QGraphicsItem::ItemIsMovable);
     scene->addItem(item);
+    ui->startButton->setEnabled(true);
 }
 
 void CreatorWidget::on_startButton_clicked()
 {
+    simuEmelents->setItemsMovable(false);
     startAction->activate(QAction::Trigger);
+    ui->startButton->setEnabled(false);
 }

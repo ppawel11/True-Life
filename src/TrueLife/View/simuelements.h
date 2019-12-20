@@ -19,7 +19,7 @@ public:
     SimuElements();
     ~SimuElements();
 
-    static SimuElements& getInstance();
+    static SimuElements* getInstance();
 
     void addAnimal(SimuEllipse *animal);
     void addSupply(SimuEllipse *supply);
@@ -28,6 +28,10 @@ public:
     SimuEllipse * addSupply(ElementType type);
 
     std::map<int, SimuEllipse*> getAnimals();
+    std::map<int, SimuEllipse*> getSupply();
+
+    void setItemsMovable(bool enabled = true);
+    void setItemsClickable(bool enabled = true);
 
 private:
     /**
