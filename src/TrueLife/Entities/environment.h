@@ -22,7 +22,7 @@ public:
     void addAnimal(Animal*);
     void moveAnimals();
     void showAnimals(); /* only for debuging */
-    virtual void notify(InitDataModel*);
+    virtual void update(InitDataModel*);
 };
 
 #endif // ENVIRONMENT_H

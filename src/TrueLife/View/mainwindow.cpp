@@ -3,8 +3,9 @@
 
 #include <QPixmap>
 
-MainWindow::MainWindow(QWidget *parent) :
+MainWindow::MainWindow(Controller * contr, QWidget *parent) :
     QMainWindow(parent),
+    Observer(contr),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
@@ -36,6 +37,11 @@ MainWindow::~MainWindow()
     delete home_widget;
     qDebug() << "home_widget usunięty";
     qDebug() << "Main Window usunięty";
+}
+
+void MainWindow::update(StatisticsModel *)
+{
+    qDebug()<<"Update on MainWindow!";
 }
 
 void MainWindow::startSimulation()

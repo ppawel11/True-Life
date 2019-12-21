@@ -21,7 +21,8 @@
 #include "statwidget.h"
 #include "common.h"
 #include "Controller/controller.h"
-#include "Entities/timewizard.h"
+#include "Entities/timewizard.h" // wywalić
+#include "Use-cases/observer.h"
 
 namespace Ui {
 class MainWindow;
@@ -30,13 +31,15 @@ class MainWindow;
 /**
  * @brief Main window of the application
  */
-class MainWindow : public QMainWindow
+class MainWindow : public QMainWindow, public Observer
 {
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
+    explicit MainWindow(Controller * contr, QWidget *parent = 0);
     ~MainWindow();
+
+    virtual void update(StatisticsModel*);
 
 private slots:
     void startSimulation();

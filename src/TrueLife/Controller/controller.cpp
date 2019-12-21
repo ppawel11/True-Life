@@ -11,13 +11,13 @@ void Controller::attach(Observer* obs){
 
 void Controller::notify(InitDataModel* m){
     for(auto obs : observers){
-        obs->notify(m);
+        obs->update(m);
     }
 }
 
 void Controller::notify(StatisticsModel* m){
     for(auto obs : observers){
-        obs->notify(m);
+        obs->update(m);
     }
 }
 

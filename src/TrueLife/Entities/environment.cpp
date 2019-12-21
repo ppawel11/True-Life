@@ -18,7 +18,7 @@ void Environment::showAnimals(){
     }
 }
 
-void Environment::notify(InitDataModel * m){
+void Environment::update(InitDataModel * m){
     cout<<"notified"<<endl;
     for(auto animal : m->animals)
         addAnimal(animal);

@@ -11,8 +11,8 @@ protected:
     Controller * controller;
 public:
     Observer(Controller*);
-    virtual void notify(InitDataModel*) {}
-    virtual void notify(StatisticsModel*) {}
+    virtual void update(InitDataModel*) {}
+    virtual void update(StatisticsModel*) {}
 };
 
 #endif // OBSERVER_H
