@@ -59,7 +59,8 @@ HEADERS += \
     View/creatorwidget.h \
     Entities/environment.h \
     Use-cases/observer.h \
-    Model/model.h
+    Model/model.h \
+    Use-cases/timeobserver.h
 
 FORMS += \
         View/mainwindow.ui \

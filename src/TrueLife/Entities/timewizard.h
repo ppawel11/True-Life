@@ -1,9 +1,12 @@
 #ifndef TIMEWIZARD_H
 #define TIMEWIZARD_H
 
+#include <vector>
+
 #include <QObject>
 #include <QTimer>
 
+#include "Use-cases/timeobserver.h"
 #include "common.h"
 
 /**
@@ -36,6 +39,8 @@ public:
     void resetPeriod(bool restart_timer = false);
     bool isRunning();
 
+    void addObserver(TimeObserver *observer);
+
 public slots:
     /**
      * @brief Timer's interrupt funcion
@@ -54,6 +59,8 @@ private:
      * It is period between interrupts
      */
     int period;
+
+    std::vector<TimeObserver*> observers;
 };
 
 #endif // TIMEWIZARD_H

@@ -22,16 +22,18 @@ SimuWidget::SimuWidget(QWidget *parent) :
 
     // assigning instance of container for sumulated elements
     simuEmelents = SimuElements::getInstance();
-
-    // timer settings
-    time_wizard = boost::make_shared<TimeWizard>(new TimeWizard());
-    time_wizard->setPeriod(500);
 }
 
 SimuWidget::~SimuWidget()
 {
     delete ui;
     qDebug() << "simu_widget usunięty";
+}
+
+void SimuWidget::setTimeWizard(time_ptr time_wizard)
+{
+    // timer settings
+    this->time_wizard = time_wizard;
 }
 
 void SimuWidget::startSimulation()

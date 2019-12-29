@@ -38,7 +38,15 @@ bool TimeWizard::isRunning()
     return timer->isActive();
 }
 
+void TimeWizard::addObserver(TimeObserver *observer)
+{
+    observers.push_back(observer);
+}
+
 void TimeWizard::interrupt()
 {
     qDebug()<< "Minął czas!";
+    for(auto obs : observers) {
+        obs->timeTick();
+    }
 }

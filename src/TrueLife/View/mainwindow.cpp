@@ -3,7 +3,7 @@
 
 #include <QPixmap>
 
-MainWindow::MainWindow(Controller * contr, QWidget *parent) :
+MainWindow::MainWindow(Controller *contr, simu_ptr simu_widget, QWidget *parent) :
     QMainWindow(parent),
     Observer(contr),
     ui(new Ui::MainWindow)
@@ -18,12 +18,9 @@ MainWindow::MainWindow(Controller * contr, QWidget *parent) :
     // central widget settings
     home_widget = this->centralWidget();
     creator_widget = std::make_unique<CreatorWidget>(new CreatorWidget(this));
-    simu_widget = boost::make_shared<SimuWidget>(new SimuWidget());
+    this->simu_widget = std::move(simu_widget);
+//    simu_widget = boost::make_shared<SimuWidget>(new SimuWidget());
     stat_widget = std::make_unique<StatWidget>(new StatWidget());
-
-    // timer settings
-    time_wizard = boost::make_shared<TimeWizard>(new TimeWizard());
-    time_wizard->setPeriod(500);
 
     // actions from centralWidgets settings
     connect(creator_widget->getStartAction(),
@@ -80,14 +77,5 @@ void MainWindow::on_actionNew_triggered()
 
 void MainWindow::on_pushButton_clicked()
 {
-    static bool running = false;
-
-    if(!running) {
-        time_wizard->startTimer();
-        running = true;
-    }
-    else {
-        time_wizard->stopTimer();
-        running = false;
-    }
+    qDebug()<<"Button clicked!";
 }

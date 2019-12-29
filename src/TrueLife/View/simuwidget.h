@@ -16,6 +16,8 @@ namespace Ui {
 class SimuWidget;
 }
 
+typedef boost::shared_ptr<TimeWizard> time_ptr;
+
 /**
  * @brief Central widget of main window to show current simulation environment
  */
@@ -27,6 +29,7 @@ public:
     explicit SimuWidget(QWidget *parent = 0);
     ~SimuWidget();
 
+    void setTimeWizard(time_ptr time_wizard);
     void startSimulation();
     void setUpMap();
 
@@ -40,7 +43,7 @@ private:
 
     SimuElements *simuEmelents;
 
-    boost::shared_ptr<TimeWizard> time_wizard;
+    time_ptr time_wizard;
 };
 
 #endif // SIMUWIDGET_H

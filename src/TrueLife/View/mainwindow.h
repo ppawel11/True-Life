@@ -13,20 +13,21 @@
  * - https://studiofreya.com/cpp/boost/boost-scoped_ptr-vs-unique_ptr/
  */
 #include <memory> // std::unique_ptr
-#include <boost/shared_ptr.hpp>
-#include <boost/make_shared.hpp>
+//#include <boost/shared_ptr.hpp>
+//#include <boost/make_shared.hpp>
 
 #include "creatorwidget.h"
 #include "simuwidget.h"
 #include "statwidget.h"
 #include "common.h"
 #include "Controller/controller.h"
-#include "Entities/timewizard.h" // wywalić
 #include "Use-cases/observer.h"
 
 namespace Ui {
 class MainWindow;
 }
+
+typedef std::unique_ptr<SimuWidget> simu_ptr;
 
 /**
  * @brief Main window of the application
@@ -36,7 +37,7 @@ class MainWindow : public QMainWindow, public Observer
     Q_OBJECT
 
 public:
-    explicit MainWindow(Controller * contr, QWidget *parent = 0);
+    explicit MainWindow(Controller *contr, simu_ptr simu_widget, QWidget *parent = 0);
     ~MainWindow();
 
     virtual void update(StatisticsModel*);
@@ -59,10 +60,9 @@ private:
 
     QWidget* home_widget;
     std::unique_ptr<CreatorWidget> creator_widget;
-    boost::shared_ptr<SimuWidget> simu_widget;
+    simu_ptr simu_widget;
+//    boost::shared_ptr<SimuWidget> simu_widget;
     std::unique_ptr<StatWidget> stat_widget;
-
-    boost::shared_ptr<TimeWizard> time_wizard;
 };
 
 #endif // MAINWINDOW_H
