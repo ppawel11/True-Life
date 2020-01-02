@@ -12,6 +12,8 @@
  * BOOST_LOG_TRIVIAL(error) << "An error severity message";
  */
 
+enum ElementType {PREDATOR, HERBIVORE, WATER, FOOD};
+
 /**
  * @brief Holds our colour schemes.
  */

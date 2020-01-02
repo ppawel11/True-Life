@@ -8,6 +8,7 @@ MainWindow::MainWindow(Controller *contr, simu_ptr simu_widget, QWidget *parent)
     Observer(contr),
     ui(new Ui::MainWindow)
 {
+    contr->attach_window(this);
     ui->setupUi(this);
 
     // logo settings
@@ -44,7 +45,7 @@ void MainWindow::update(StatisticsModel *)
 void MainWindow::startSimulation()
 {
     qDebug()<<"Starting simulation...";
-    simu_widget->startSimulation();
+    this->controller->notify_env(simu_widget->startSimulation());
     this->takeCentralWidget(); // to preserve it from deletion
     this->setCentralWidget(simu_widget.get());
 }

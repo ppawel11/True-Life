@@ -7,7 +7,6 @@
 
 #include "common.h"
 
-enum ElementType {PREDATOR, HERBIVORE, WATER, FOOD};
 
 /**
  * @brief Visual representation of symulated elements
@@ -17,6 +16,8 @@ class SimuEllipse : public QGraphicsEllipseItem
 public:
     SimuEllipse(ElementType type, int x, int y, int width, int height, QPen pen, QBrush brush);
     SimuEllipse(ElementType type, int x, int y, int width, int height, QBrush brush);
+
+    ElementType getType() {return type;}
 
 protected:
     /**

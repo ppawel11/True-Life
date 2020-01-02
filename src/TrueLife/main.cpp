@@ -9,7 +9,7 @@ using namespace std;
 int main(int argc, char *argv[])
 {
     Controller* controller = new Controller();
-    Environment env = Environment(controller);
+
 
     // timer settings
     boost::shared_ptr<TimeWizard> time_wizard;
@@ -17,15 +17,17 @@ int main(int argc, char *argv[])
     time_wizard->setPeriod(500);
 //    time_wizard->addObserver(Environment);
 
-    Animal a = Animal(0, 0);
+    Environment env = Environment(controller, time_wizard);
 
-    controller->initSim();
-    env.addAnimal(&a);
+//    Animal a = Animal(0, 0, 0);
 
-    env.showAnimals();
-    env.moveAnimals();
-    cout<<"po ruchu:"<<endl;
-    env.showAnimals();
+//    controller->initSim();
+//    env.addAnimal(&a);
+
+//    env.showAnimals();
+//    env.moveAnimals();
+//    cout<<"po ruchu:"<<endl;
+//    env.showAnimals();
 
 //    return 0;
 
@@ -40,5 +42,6 @@ int main(int argc, char *argv[])
     w.show();
 
     int status = app.exec();
+    env.showAnimals();
     return status;
 }

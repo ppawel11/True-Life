@@ -39,7 +39,8 @@ SOURCES += \
     View/simuellipse.cpp \
     View/creatorwidget.cpp \
     Entities/environment.cpp \
-    Use-cases/observer.cpp
+    Use-cases/observer.cpp \
+    Use-cases/timeobserver.cpp
 
 HEADERS += \
         View/mainwindow.h \
@@ -60,7 +61,8 @@ HEADERS += \
     Entities/environment.h \
     Use-cases/observer.h \
     Model/model.h \
-    Use-cases/timeobserver.h
+    Use-cases/timeobserver.h \
+    Model/animalmodel.h
 
 FORMS += \
         View/mainwindow.ui \

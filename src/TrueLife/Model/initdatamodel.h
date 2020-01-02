@@ -5,13 +5,13 @@
  * @brief Holds inital data of simulations
  */
 #include "model.h"
-#include "Entities/animal.h"
+#include "animalmodel.h"
 #include "vector"
 
 using namespace std;
 
 struct InitDataModel: Model {
-    vector<Animal*> animals;
+    vector<AnimalModel*> animals;
 };
 
 #endif // INITDATAMODEL_H

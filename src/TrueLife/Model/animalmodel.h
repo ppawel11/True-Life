@@ -4,8 +4,7 @@
 #include "common.h"
 
 
-struct AnimalModel
-{
+struct AnimalModel{
     AnimalModel(int id, int x, int y, ElementType type): id(id), x(x), y(y), type(type) {}
     int id, x, y;
     ElementType type;

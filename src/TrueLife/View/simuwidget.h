@@ -11,6 +11,7 @@
 #include "simuelements.h"
 #include "Controller/controller.h"
 #include "Entities/timewizard.h"
+#include "Model/initdatamodel.h"
 
 namespace Ui {
 class SimuWidget;
@@ -30,8 +31,9 @@ public:
     ~SimuWidget();
 
     void setTimeWizard(time_ptr time_wizard);
-    void startSimulation();
+    boost::shared_ptr<InitDataModel> startSimulation();
     void setUpMap();
+    boost::shared_ptr<InitDataModel> createInitialModel();
 
 private slots:
     void on_playPauseButton_clicked();

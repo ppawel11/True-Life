@@ -2,5 +2,4 @@
 
 Observer::Observer(Controller * contr){
     controller = contr;
-    controller->attach(this);
 }

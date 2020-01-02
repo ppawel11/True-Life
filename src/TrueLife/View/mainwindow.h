@@ -22,6 +22,7 @@
 #include "common.h"
 #include "Controller/controller.h"
 #include "Use-cases/observer.h"
+#include "Model/initdatamodel.h"
 
 namespace Ui {
 class MainWindow;

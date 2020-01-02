@@ -36,12 +36,21 @@ void SimuWidget::setTimeWizard(time_ptr time_wizard)
     this->time_wizard = time_wizard;
 }
 
-void SimuWidget::startSimulation()
+boost::shared_ptr<InitDataModel> SimuWidget::startSimulation()
 {
     setUpMap();
     time_wizard->startTimer();
     simuEmelents->setItemsClickable(false);
     ui->playPauseButton->setText("Pauza");
+    return createInitialModel();
+}
+
+boost::shared_ptr<InitDataModel> SimuWidget::createInitialModel(){
+    boost::shared_ptr<InitDataModel> model(new InitDataModel());
+    for(auto an : simuEmelents->getAnimals()){
+        model->animals.push_back(new AnimalModel(an.first, an.second->x(), an.second->y(), an.second->getType()));
+    }
+    return model;
 }
 
 void SimuWidget::setUpMap()
@@ -60,6 +69,8 @@ void SimuWidget::setUpMap()
 //        qDebug()<<it->first; // id
     }
 }
+
+
 
 void SimuWidget::on_playPauseButton_clicked()
 {
