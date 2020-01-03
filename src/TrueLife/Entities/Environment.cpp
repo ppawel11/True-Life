@@ -1,7 +1,19 @@
 #include "Environment.h"
 
-Environment::Environment(Controller * contr, boost::shared_ptr<TimeWizard> wizard) : Observer(contr), TimeObserver(wizard) {
-    contr->attach_env(this);
+Environment::Environment(Controller * contr) : Observer(contr) {
+//    contr->attach_env(this);
+}
+
+Environment::Environment(const Environment &toCopy)
+    : Observer(toCopy.controller)
+{
+    toCopy.controller->attach_env(this);
+    std::cout<<"Utworzono kopię enva"<<std::endl;
+}
+
+Environment::~Environment()
+{
+    std::cout<<"Usunięto enva"<<std::endl;
 }
 
 void Environment::addAnimal(Animal * animal){

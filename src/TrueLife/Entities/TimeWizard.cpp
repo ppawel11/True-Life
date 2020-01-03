@@ -38,7 +38,7 @@ bool TimeWizard::isRunning()
     return timer->isActive();
 }
 
-void TimeWizard::addObserver(TimeObserver *observer)
+void TimeWizard::addObserver(obs_ptr observer)
 {
     observers.push_back(observer);
 }

@@ -1,7 +1,7 @@
 #include "SimuWidget.h"
 #include "ui_simuwidget.h"
 
-SimuWidget::SimuWidget(QWidget *parent) :
+SimuWidget::SimuWidget(time_ptr time_wizard, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::SimuWidget)
 {
@@ -22,18 +22,15 @@ SimuWidget::SimuWidget(QWidget *parent) :
 
     // assigning instance of container for sumulated elements
     simuEmelents = SimuElements::getInstance();
+
+    // timer settings
+    this->time_wizard = time_wizard;
 }
 
 SimuWidget::~SimuWidget()
 {
     delete ui;
     qDebug() << "simu_widget usunięty";
-}
-
-void SimuWidget::setTimeWizard(time_ptr time_wizard)
-{
-    // timer settings
-    this->time_wizard = time_wizard;
 }
 
 boost::shared_ptr<EnvironmentDataModel> SimuWidget::startSimulation()

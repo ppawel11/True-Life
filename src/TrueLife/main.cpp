@@ -10,14 +10,16 @@ int main(int argc, char *argv[])
 {
     Controller* controller = new Controller();
 
+    boost::shared_ptr<Environment> env;
+    env = boost::make_shared<Environment>(Environment(controller));
 
     // timer settings
-    boost::shared_ptr<TimeWizard> time_wizard;
+    time_ptr time_wizard;
     time_wizard = boost::make_shared<TimeWizard>(new TimeWizard());
     time_wizard->setPeriod(500);
-//    time_wizard->addObserver(Environment);
+    time_wizard->addObserver(env);
+//    time_wizard->addObserver(w);
 
-    Environment env = Environment(controller, time_wizard);
 
 //    Animal a = Animal(0, 0, 0);
 
@@ -36,12 +38,12 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     simu_ptr simu_widget;
-    simu_widget = std::make_unique<SimuWidget>(new SimuWidget());
-    simu_widget->setTimeWizard(time_wizard);
+    simu_widget = std::make_unique<SimuWidget>(SimuWidget(time_wizard));
+
     MainWindow w(controller, std::move(simu_widget));
     w.show();
 
     int status = app.exec();
-    env.showAnimals();
+    env->showAnimals();
     return status;
 }

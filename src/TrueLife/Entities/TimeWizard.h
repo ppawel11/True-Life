@@ -2,13 +2,15 @@
 #define TIMEWIZARD_H
 
 #include <vector>
+#include <boost/shared_ptr.hpp>
 
 #include <QObject>
 #include <QTimer>
 
-#include "Use-cases/TimeObserver.h"
 #include "Common.h"
 #include "Use-cases/TimeObserver.h"
+
+typedef boost::shared_ptr<TimeObserver> obs_ptr;
 
 /**
  * @brief Handles time measurement and makes movement possible
@@ -16,8 +18,6 @@
  * Contains Environment (brain of the symulation) and calls it in timer interrupt
  * that is every period.
  */
-class TimeObserver;
-
 class TimeWizard : public QObject
 {
     Q_OBJECT
@@ -42,7 +42,7 @@ public:
     void resetPeriod(bool restart_timer = false);
     bool isRunning();
 
-    void addObserver(TimeObserver *observer);
+    void addObserver(obs_ptr observer);
 
 public slots:
     /**
@@ -63,7 +63,7 @@ private:
      */
     int period;
 
-    std::vector<TimeObserver*> observers;
+    std::vector<obs_ptr> observers;
 };
 
 #endif // TIMEWIZARD_H

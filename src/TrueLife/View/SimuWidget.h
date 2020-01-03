@@ -18,6 +18,7 @@ class SimuWidget;
 }
 
 typedef boost::shared_ptr<TimeWizard> time_ptr;
+typedef boost::shared_ptr<EnvironmentDataModel> data_ptr;
 
 /**
  * @brief Central widget of main window to show current simulation environment
@@ -27,13 +28,14 @@ class SimuWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit SimuWidget(QWidget *parent = 0);
+    explicit SimuWidget(time_ptr time_wizard, QWidget *parent = 0);
+    SimuWidget(const SimuWidget &toCopy)
+        : SimuWidget(toCopy.time_wizard, toCopy.parentWidget()) {}
     ~SimuWidget();
 
-    void setTimeWizard(time_ptr time_wizard);
-    boost::shared_ptr<EnvironmentDataModel> startSimulation();
+    data_ptr startSimulation();
+    data_ptr createInitialModel();
     void setUpMap();
-    boost::shared_ptr<EnvironmentDataModel> createInitialModel();
 
 private slots:
     void on_playPauseButton_clicked();

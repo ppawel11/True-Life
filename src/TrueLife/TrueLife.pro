@@ -34,7 +34,6 @@ SOURCES += \
     Entities/Environment.cpp \
     Entities/TimeWizard.cpp \
     Use-cases/Observer.cpp \
-    Use-cases/TimeObserver.cpp \
     View/CreatorWidget.cpp \
     View/MainWindow.cpp \
     View/SimuElements.cpp \
