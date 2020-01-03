@@ -1,4 +1,4 @@
-#include "simuelements.h"
+#include "SimuElements.h"
 
 SimuElements::SimuElements():
     id_counter_animals(0), id_counter_supply(0) {}

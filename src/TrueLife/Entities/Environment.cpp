@@ -1,4 +1,4 @@
-#include "environment.h"
+#include "Environment.h"
 
 Environment::Environment(Controller * contr, boost::shared_ptr<TimeWizard> wizard) : Observer(contr), TimeObserver(wizard) {
     contr->attach_env(this);
@@ -20,9 +20,9 @@ void Environment::showAnimals(){
     }
 }
 
-void Environment::update(boost::shared_ptr<InitDataModel> m){
-    for(auto animal : m->animals)
-        addAnimal(new Animal(animal));
+void Environment::update(boost::shared_ptr<EnvironmentDataModel> m){
+    for(auto animal_model : m->animals)
+        addAnimal(animal_factory.createAnimal(animal_model));
 }
 
 void Environment::timeTick(){

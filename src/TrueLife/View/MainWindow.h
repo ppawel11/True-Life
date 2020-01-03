@@ -16,13 +16,13 @@
 //#include <boost/shared_ptr.hpp>
 //#include <boost/make_shared.hpp>
 
-#include "creatorwidget.h"
-#include "simuwidget.h"
-#include "statwidget.h"
-#include "common.h"
-#include "Controller/controller.h"
-#include "Use-cases/observer.h"
-#include "Model/initdatamodel.h"
+#include "CreatorWidget.h"
+#include "SimuWidget.h"
+#include "StatWidget.h"
+#include "Common.h"
+#include "Controller/Controller.h"
+#include "Use-cases/Observer.h"
+#include "Model/EnvironmentDataModel.h"
 
 namespace Ui {
 class MainWindow;
@@ -42,6 +42,7 @@ public:
     ~MainWindow();
 
     virtual void update(StatisticsModel*);
+    virtual void update(shared_ptr<EnvironmentDataModel>);
 
 private slots:
     void startSimulation();

@@ -7,11 +7,11 @@
 #include <QWidget>
 #include <QGraphicsScene>
 
-#include "common.h"
-#include "simuelements.h"
-#include "Controller/controller.h"
-#include "Entities/timewizard.h"
-#include "Model/initdatamodel.h"
+#include "Common.h"
+#include "SimuElements.h"
+#include "Controller/Controller.h"
+#include "Entities/TimeWizard.h"
+#include "Model/EnvironmentDataModel.h"
 
 namespace Ui {
 class SimuWidget;
@@ -31,9 +31,9 @@ public:
     ~SimuWidget();
 
     void setTimeWizard(time_ptr time_wizard);
-    boost::shared_ptr<InitDataModel> startSimulation();
+    boost::shared_ptr<EnvironmentDataModel> startSimulation();
     void setUpMap();
-    boost::shared_ptr<InitDataModel> createInitialModel();
+    boost::shared_ptr<EnvironmentDataModel> createInitialModel();
 
 private slots:
     void on_playPauseButton_clicked();

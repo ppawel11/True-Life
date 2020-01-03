@@ -4,7 +4,7 @@
 /**
  * @brief Holds statistics of simulations
  */
-#include "model.h"
+#include "Model.h"
 
 struct StatisticsModel: Model {};
 

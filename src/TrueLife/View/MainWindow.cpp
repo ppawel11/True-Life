@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "MainWindow.h"
 #include "ui_mainwindow.h"
 
 #include <QPixmap>
@@ -40,6 +40,10 @@ MainWindow::~MainWindow()
 void MainWindow::update(StatisticsModel *)
 {
     qDebug()<<"Update on MainWindow!";
+}
+
+void MainWindow::update(shared_ptr<EnvironmentDataModel>){
+
 }
 
 void MainWindow::startSimulation()

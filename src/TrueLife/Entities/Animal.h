@@ -3,28 +3,32 @@
 
 #include "string"
 #include <iostream>
-#include <Model/animalmodel.h>
-#include <common.h>
+#include <Model/AnimalModel.h>
+#include <Common.h>
 
 using namespace std;
 /**
  * @brief Base for predators and herbivares
  */
+
+enum MoveState {WALK, SLEEP, CHASE, ESCAPE};
+
 class Animal
 {
 protected:
     int id;
-    int x;
-    int y;
-    int velo_x;
-    int velo_y;
-    ElementType type;
+    int x, y;
+    int velo_x, velo_y;
 public:
     Animal(int, int, int);
-    Animal(AnimalModel * animal);
+//    Animal(AnimalModel * animal);
     int getId();
+
     void step();
-    void show();
+    void eat();
+    void die();
+
+    void show(); // debuging
 };
 
 #endif // ANIMAL_H

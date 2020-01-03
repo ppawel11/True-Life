@@ -1,7 +1,7 @@
 #ifndef ANIMALMODEL_H
 #define ANIMALMODEL_H
 
-#include "common.h"
+#include "Common.h"
 
 
 struct AnimalModel{

@@ -1,7 +1,7 @@
 #ifndef TIMEOBSERVER_H
 #define TIMEOBSERVER_H
 
-#include "Entities/timewizard.h"
+#include "Entities/TimeWizard.h"
 #include <boost/shared_ptr.hpp>
 
 class TimeWizard;

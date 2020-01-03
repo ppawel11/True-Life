@@ -5,7 +5,7 @@
 #include <QPen>
 #include <QBrush>
 
-#include "common.h"
+#include "Common.h"
 
 
 /**

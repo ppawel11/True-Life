@@ -1,4 +1,4 @@
-#include "creatorwidget.h"
+#include "CreatorWidget.h"
 #include "ui_creatorwidget.h"
 
 CreatorWidget::CreatorWidget(QWidget *mainWindow, QWidget *parent) :

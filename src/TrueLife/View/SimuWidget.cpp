@@ -1,4 +1,4 @@
-#include "simuwidget.h"
+#include "SimuWidget.h"
 #include "ui_simuwidget.h"
 
 SimuWidget::SimuWidget(QWidget *parent) :
@@ -36,7 +36,7 @@ void SimuWidget::setTimeWizard(time_ptr time_wizard)
     this->time_wizard = time_wizard;
 }
 
-boost::shared_ptr<InitDataModel> SimuWidget::startSimulation()
+boost::shared_ptr<EnvironmentDataModel> SimuWidget::startSimulation()
 {
     setUpMap();
     time_wizard->startTimer();
@@ -45,8 +45,8 @@ boost::shared_ptr<InitDataModel> SimuWidget::startSimulation()
     return createInitialModel();
 }
 
-boost::shared_ptr<InitDataModel> SimuWidget::createInitialModel(){
-    boost::shared_ptr<InitDataModel> model(new InitDataModel());
+boost::shared_ptr<EnvironmentDataModel> SimuWidget::createInitialModel(){
+    boost::shared_ptr<EnvironmentDataModel> model(new EnvironmentDataModel());
     for(auto an : simuEmelents->getAnimals()){
         model->animals.push_back(new AnimalModel(an.first, an.second->x(), an.second->y(), an.second->getType()));
     }

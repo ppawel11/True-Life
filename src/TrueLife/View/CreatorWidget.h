@@ -5,9 +5,9 @@
 #include <QGraphicsScene>
 #include <QActionEvent>
 
-#include "common.h"
-#include "simuelements.h"
-#include "Controller/controller.h"
+#include "Common.h"
+#include "SimuElements.h"
+#include "Controller/Controller.h"
 
 namespace Ui {
 class CreatorWidget;

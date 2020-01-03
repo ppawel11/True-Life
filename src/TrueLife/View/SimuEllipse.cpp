@@ -1,4 +1,4 @@
-#include "simuellipse.h"
+#include "SimuEllipse.h"
 
 SimuEllipse::SimuEllipse(ElementType type, int x, int y, int width, int height, QPen pen, QBrush brush)
     : QGraphicsEllipseItem::QGraphicsEllipseItem(x, y, width, height)

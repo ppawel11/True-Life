@@ -1,4 +1,4 @@
-#include "observer.h"
+#include "Observer.h"
 
 Observer::Observer(Controller * contr){
     controller = contr;

@@ -1,4 +1,4 @@
-#include "timewizard.h"
+#include "TimeWizard.h"
 
 TimeWizard::TimeWizard(QObject *parent, int period) : QObject(parent)
 {

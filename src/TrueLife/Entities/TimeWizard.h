@@ -6,9 +6,9 @@
 #include <QObject>
 #include <QTimer>
 
-#include "Use-cases/timeobserver.h"
-#include "common.h"
-#include "Use-cases/timeobserver.h"
+#include "Use-cases/TimeObserver.h"
+#include "Common.h"
+#include "Use-cases/TimeObserver.h"
 
 /**
  * @brief Handles time measurement and makes movement possible

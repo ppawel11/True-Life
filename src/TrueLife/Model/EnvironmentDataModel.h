@@ -4,13 +4,13 @@
 /**
  * @brief Holds inital data of simulations
  */
-#include "model.h"
-#include "animalmodel.h"
+#include "Model.h"
+#include "AnimalModel.h"
 #include "vector"
 
 using namespace std;
 
-struct InitDataModel: Model {
+struct EnvironmentDataModel: Model {
     vector<AnimalModel*> animals;
 };
 

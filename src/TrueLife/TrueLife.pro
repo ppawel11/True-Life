@@ -26,43 +26,49 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        View/mainwindow.cpp \
-    View/statwidget.cpp \
-    View/simuwidget.cpp \
-    Controller/controller.cpp \
     Use-cases/feeder.cpp \
     Use-cases/multiplier.cpp \
     Use-cases/creator.cpp \
-    Entities/animal.cpp \
-    Entities/timewizard.cpp \
-    View/simuelements.cpp \
-    View/simuellipse.cpp \
-    View/creatorwidget.cpp \
-    Entities/environment.cpp \
-    Use-cases/observer.cpp \
-    Use-cases/timeobserver.cpp
+    Controller/Controller.cpp \
+    Entities/Animal.cpp \
+    Entities/Environment.cpp \
+    Entities/TimeWizard.cpp \
+    Use-cases/Observer.cpp \
+    Use-cases/TimeObserver.cpp \
+    View/CreatorWidget.cpp \
+    View/MainWindow.cpp \
+    View/SimuElements.cpp \
+    View/SimuEllipse.cpp \
+    View/SimuWidget.cpp \
+    View/StatWidget.cpp \
+    Use-cases/AnimalFactory.cpp \
+    Entities/Predator.cpp \
+    Entities/Herbivore.cpp
 
 HEADERS += \
-        View/mainwindow.h \
-    View/statwidget.h \
-    View/simuwidget.h \
-    common.h \
-    Controller/controller.h \
-    Model/initdatamodel.h \
-    Model/statisticsmodel.h \
     Use-cases/feeder.h \
     Use-cases/multiplier.h \
     Use-cases/creator.h \
-    Entities/animal.h \
-    Entities/timewizard.h \
-    View/simuelements.h \
-    View/simuellipse.h \
-    View/creatorwidget.h \
-    Entities/environment.h \
-    Use-cases/observer.h \
-    Model/model.h \
-    Use-cases/timeobserver.h \
-    Model/animalmodel.h
+    Model/Model.h \
+    Controller/Controller.h \
+    Entities/Animal.h \
+    Entities/Environment.h \
+    Entities/TimeWizard.h \
+    Model/AnimalModel.h \
+    Model/EnvironmentDataModel.h \
+    Model/StatisticsModel.h \
+    Use-cases/Observer.h \
+    Use-cases/TimeObserver.h \
+    View/CreatorWidget.h \
+    View/MainWindow.h \
+    View/SimuElements.h \
+    View/SimuEllipse.h \
+    View/SimuWidget.h \
+    View/StatWidget.h \
+    Common.h \
+    Use-cases/AnimalFactory.h \
+    Entities/Predator.h \
+    Entities/Herbivore.h
 
 FORMS += \
         View/mainwindow.ui \

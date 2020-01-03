@@ -1,7 +1,7 @@
 #ifndef OBSERVER_H
 #define OBSERVER_H
 
-#include <Controller/controller.h>
+#include <Controller/Controller.h>
 #include <boost/shared_ptr.hpp>
 
 class Controller;
@@ -12,7 +12,7 @@ protected:
     Controller * controller;
 public:
     Observer(Controller*);
-    virtual void update(boost::shared_ptr<InitDataModel>) {}
+    virtual void update(boost::shared_ptr<EnvironmentDataModel>) {}
     virtual void update(StatisticsModel*) {}
 };
 

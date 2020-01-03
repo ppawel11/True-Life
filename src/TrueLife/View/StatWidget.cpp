@@ -1,4 +1,4 @@
-#include "statwidget.h"
+#include "StatWidget.h"
 #include "ui_statwidget.h"
 
 StatWidget::StatWidget(QWidget *parent) :

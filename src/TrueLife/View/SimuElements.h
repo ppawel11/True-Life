@@ -1,8 +1,8 @@
 #ifndef SIMUELEMENTS_H
 #define SIMUELEMENTS_H
 
-#include "simuellipse.h"
-#include "common.h"
+#include "SimuEllipse.h"
+#include "Common.h"
 
 namespace Map {
     static const int WIDTH = 500;

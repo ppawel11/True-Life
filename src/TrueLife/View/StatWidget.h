@@ -2,8 +2,8 @@
 #define STATWIDGET_H
 
 #include <QWidget>
-#include "common.h"
-#include "Controller/controller.h"
+#include "Common.h"
+#include "Controller/Controller.h"
 
 namespace Ui {
 class StatWidget;

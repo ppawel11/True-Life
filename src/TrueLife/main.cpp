@@ -1,8 +1,8 @@
-#include "View/mainwindow.h"
+#include "View/MainWindow.h"
 #include <QApplication>
-#include "Entities/animal.h"
-#include "Entities/environment.h"
-#include "Entities/timewizard.h"
+#include "Entities/Animal.h"
+#include "Entities/Environment.h"
+#include "Entities/TimeWizard.h"
 
 using namespace std;
 
