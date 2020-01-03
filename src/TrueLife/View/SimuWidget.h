@@ -29,10 +29,10 @@ class SimuWidget : public QWidget
 
 public:
     explicit SimuWidget(time_ptr time_wizard, QWidget *parent = 0);
-    SimuWidget(const SimuWidget &toCopy)
-        : SimuWidget(toCopy.time_wizard, toCopy.parentWidget()) {}
+    SimuWidget(const SimuWidget &toCopy);
     ~SimuWidget();
 
+    void initWidget();
     data_ptr startSimulation();
     data_ptr createInitialModel();
     void setUpMap();

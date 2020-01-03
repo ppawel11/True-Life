@@ -3,12 +3,37 @@
 
 #include <QPixmap>
 
-MainWindow::MainWindow(Controller *contr, simu_ptr simu_widget, QWidget *parent) :
-    QMainWindow(parent),
-    Observer(contr),
-    ui(new Ui::MainWindow)
+MainWindow::MainWindow(
+        Controller *contr, simu_ptr simu_widget, QWidget *parent)
+    : QMainWindow(parent),
+      Observer(contr),
+      ui(new Ui::MainWindow)
 {
-    contr->attach_window(this);
+    this->simu_widget = std::move(simu_widget);
+    home_widget = nullptr;
+}
+
+MainWindow::MainWindow(const MainWindow &toCopy)
+    : MainWindow(toCopy.controller,
+                 std::move(const_cast<MainWindow&>(toCopy).simu_widget),
+                 toCopy.parentWidget())
+{
+//    toCopy.controller->attach_window(this);
+    initWindow();
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+    if(home_widget != nullptr) {
+        delete home_widget;
+        qDebug() << "home_widget usunięty";
+    }
+    qDebug() << "Main Window usunięty";
+}
+
+void MainWindow::initWindow()
+{
     ui->setupUi(this);
 
     // logo settings
@@ -19,22 +44,12 @@ MainWindow::MainWindow(Controller *contr, simu_ptr simu_widget, QWidget *parent)
     // central widget settings
     home_widget = this->centralWidget();
     creator_widget = std::make_unique<CreatorWidget>(new CreatorWidget(this));
-    this->simu_widget = std::move(simu_widget);
-//    simu_widget = boost::make_shared<SimuWidget>(new SimuWidget());
     stat_widget = std::make_unique<StatWidget>(new StatWidget());
 
     // actions from centralWidgets settings
     connect(creator_widget->getStartAction(),
             SIGNAL(triggered()), this,
             SLOT(startSimulation()));
-}
-
-MainWindow::~MainWindow()
-{
-    delete ui;
-    delete home_widget;
-    qDebug() << "home_widget usunięty";
-    qDebug() << "Main Window usunięty";
 }
 
 void MainWindow::update(StatisticsModel *)

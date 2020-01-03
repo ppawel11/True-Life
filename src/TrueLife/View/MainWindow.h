@@ -16,13 +16,11 @@
 //#include <boost/shared_ptr.hpp>
 //#include <boost/make_shared.hpp>
 
+#include "Common.h"
 #include "CreatorWidget.h"
 #include "SimuWidget.h"
 #include "StatWidget.h"
-#include "Common.h"
-#include "Controller/Controller.h"
 #include "Use-cases/Observer.h"
-#include "Model/EnvironmentDataModel.h"
 
 namespace Ui {
 class MainWindow;
@@ -38,8 +36,12 @@ class MainWindow : public QMainWindow, public Observer
     Q_OBJECT
 
 public:
-    explicit MainWindow(Controller *contr, simu_ptr simu_widget, QWidget *parent = 0);
+    explicit MainWindow(
+            Controller *contr, simu_ptr simu_widget, QWidget *parent = 0);
+    MainWindow(const MainWindow &toCopy);
     ~MainWindow();
+
+    void initWindow();
 
     virtual void update(StatisticsModel*);
     virtual void update(shared_ptr<EnvironmentDataModel>);
@@ -63,7 +65,6 @@ private:
     QWidget* home_widget;
     std::unique_ptr<CreatorWidget> creator_widget;
     simu_ptr simu_widget;
-//    boost::shared_ptr<SimuWidget> simu_widget;
     std::unique_ptr<StatWidget> stat_widget;
 };
 

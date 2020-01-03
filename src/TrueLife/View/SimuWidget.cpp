@@ -5,6 +5,24 @@ SimuWidget::SimuWidget(time_ptr time_wizard, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::SimuWidget)
 {
+    // timer settings
+    this->time_wizard = time_wizard;
+}
+
+SimuWidget::SimuWidget(const SimuWidget &toCopy)
+    : SimuWidget(toCopy.time_wizard, toCopy.parentWidget())
+{
+    initWidget();
+}
+
+SimuWidget::~SimuWidget()
+{
+    delete ui;
+    qDebug() << "simu_widget usunięty";
+}
+
+void SimuWidget::initWidget()
+{
     ui->setupUi(this);
 
     // Setting up the graphics scene
@@ -22,15 +40,6 @@ SimuWidget::SimuWidget(time_ptr time_wizard, QWidget *parent) :
 
     // assigning instance of container for sumulated elements
     simuEmelents = SimuElements::getInstance();
-
-    // timer settings
-    this->time_wizard = time_wizard;
-}
-
-SimuWidget::~SimuWidget()
-{
-    delete ui;
-    qDebug() << "simu_widget usunięty";
 }
 
 boost::shared_ptr<EnvironmentDataModel> SimuWidget::startSimulation()
@@ -66,8 +75,6 @@ void SimuWidget::setUpMap()
 //        qDebug()<<it->first; // id
     }
 }
-
-
 
 void SimuWidget::on_playPauseButton_clicked()
 {

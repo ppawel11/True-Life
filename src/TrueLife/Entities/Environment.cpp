@@ -7,7 +7,7 @@ Environment::Environment(Controller * contr) : Observer(contr) {
 Environment::Environment(const Environment &toCopy)
     : Observer(toCopy.controller)
 {
-    toCopy.controller->attach_env(this);
+//    toCopy.controller->attach_env(this);
     std::cout<<"Utworzono kopię enva"<<std::endl;
 }
 

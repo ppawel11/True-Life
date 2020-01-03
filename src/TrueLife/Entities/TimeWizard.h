@@ -10,7 +10,7 @@
 #include "Common.h"
 #include "Use-cases/TimeObserver.h"
 
-typedef boost::shared_ptr<TimeObserver> obs_ptr;
+typedef boost::shared_ptr<TimeObserver> t_obs_ptr;
 
 /**
  * @brief Handles time measurement and makes movement possible
@@ -42,7 +42,7 @@ public:
     void resetPeriod(bool restart_timer = false);
     bool isRunning();
 
-    void addObserver(obs_ptr observer);
+    void addObserver(t_obs_ptr observer);
 
 public slots:
     /**
@@ -63,7 +63,7 @@ private:
      */
     int period;
 
-    std::vector<obs_ptr> observers;
+    std::vector<t_obs_ptr> observers;
 };
 
 #endif // TIMEWIZARD_H

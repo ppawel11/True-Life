@@ -2,7 +2,8 @@
 #define OBSERVER_H
 
 #include <Controller/Controller.h>
-#include <boost/shared_ptr.hpp>
+#include "Model/EnvironmentDataModel.h"
+#include "Model/StatisticsModel.h"
 
 class Controller;
 
