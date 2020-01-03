@@ -2,8 +2,6 @@
 #define OBSERVER_H
 
 #include <Controller/Controller.h>
-#include "Model/EnvironmentDataModel.h"
-#include "Model/StatisticsModel.h"
 
 class Controller;
 

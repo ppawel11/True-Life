@@ -18,8 +18,8 @@ MainWindow::MainWindow(const MainWindow &toCopy)
                  std::move(const_cast<MainWindow&>(toCopy).simu_widget),
                  toCopy.parentWidget())
 {
-//    toCopy.controller->attach_window(this);
     initWindow();
+    qDebug()<<"Kopia MainWindow utworzona";
 }
 
 MainWindow::~MainWindow()
@@ -29,7 +29,7 @@ MainWindow::~MainWindow()
         delete home_widget;
         qDebug() << "home_widget usunięty";
     }
-    qDebug() << "Main Window usunięty";
+    qDebug() << "MainWindow usunięty";
 }
 
 void MainWindow::initWindow()

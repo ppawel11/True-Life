@@ -1,19 +1,16 @@
 #include "Environment.h"
 
-Environment::Environment(Controller * contr) : Observer(contr) {
-//    contr->attach_env(this);
-}
+Environment::Environment(Controller * contr) : Observer(contr) {}
 
 Environment::Environment(const Environment &toCopy)
     : Observer(toCopy.controller)
 {
-//    toCopy.controller->attach_env(this);
-    std::cout<<"Utworzono kopię enva"<<std::endl;
+    std::cout<<"Kopia Environment utworzona"<<std::endl;
 }
 
 Environment::~Environment()
 {
-    std::cout<<"Usunięto enva"<<std::endl;
+    std::cout<<"Environment usunięty"<<std::endl;
 }
 
 void Environment::addAnimal(Animal * animal){

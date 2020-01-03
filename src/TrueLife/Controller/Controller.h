@@ -6,10 +6,10 @@
 #include <boost/make_shared.hpp>
 
 #include "Common.h"
-#include <Use-cases/Observer.h>
 #include "Model/EnvironmentDataModel.h"
 #include "Model/StatisticsModel.h"
 #include "Model/AnimalModel.h"
+#include <Use-cases/Observer.h>
 
 using namespace std;
 
