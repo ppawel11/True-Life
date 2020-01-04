@@ -14,6 +14,7 @@
 class Observer;
 
 typedef boost::shared_ptr<Observer> obs_ptr;
+typedef boost::shared_ptr<EnvironmentDataModel> data_ptr;
 
 /**
  * @brief Controls flow of data between View and Environment
@@ -22,15 +23,16 @@ class Controller
 {
 private:
     obs_ptr env_observer;
-    obs_ptr window_observer;
+    obs_ptr simu_observer;
+
 public:
     Controller();
 
-    void attach_env(obs_ptr);
-    void attach_simu(obs_ptr);
+    void attachEnv(obs_ptr);
+    void attachSimu(obs_ptr);
 
-    void notify_env(boost::shared_ptr<EnvironmentDataModel>);
-    void notify_window(StatisticsModel*);
+    void notifyEnv(data_ptr data);
+    void notifySimu(data_ptr data);
 
     void initSim(); //testing
 };

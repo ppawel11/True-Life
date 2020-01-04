@@ -29,6 +29,20 @@ void Environment::showAnimals(){
     }
 }
 
+data_ptr Environment::createDataModel()
+{
+    data_ptr model(new EnvironmentDataModel());
+    for(auto an : animals){
+        model->animals.push_back(
+                    new AnimalModel(
+                                an->getId(),
+                                an->getX(),
+                                an->getY()
+                    ));
+    }
+    return model;
+}
+
 void Environment::update(data_ptr m){
     for(auto animal_model : m->animals)
         addAnimal(animal_factory.createAnimal(animal_model));
@@ -37,5 +51,5 @@ void Environment::update(data_ptr m){
 void Environment::timeTick(){
     moveAnimals();
     showAnimals();
-//    controller->notify_window();
+    controller->notifySimu(createDataModel());
 }

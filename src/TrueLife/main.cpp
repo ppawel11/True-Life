@@ -33,8 +33,8 @@ int main(int argc, char *argv[])
 
     simu_ptr simu_widget(new SimuWidget(controller, time_wizard));
 
-    controller->attach_env(env);
-    controller->attach_simu(simu_widget);
+    controller->attachEnv(env);
+    controller->attachSimu(simu_widget);
 
     //-------------------------------------------
 

@@ -18,7 +18,6 @@ class SimuWidget;
 }
 
 typedef boost::shared_ptr<TimeWizard> time_ptr;
-typedef boost::shared_ptr<EnvironmentDataModel> data_ptr;
 
 /**
  * @brief Central widget of main window to show current simulation environment
@@ -38,8 +37,7 @@ public:
     void startSimulation();
     data_ptr createDataModel();
 
-    virtual void update(data_ptr);
-    virtual void update(StatisticsModel*);
+    virtual void update(data_ptr data);
 
 private slots:
     void on_playPauseButton_clicked();

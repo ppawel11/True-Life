@@ -55,7 +55,7 @@ void SimuWidget::startSimulation()
     simuEmelents->setItemsClickable(false);
     ui->playPauseButton->setText("Pauza");
 
-    controller->notify_env(createDataModel());
+    controller->notifyEnv(createDataModel());
 }
 
 data_ptr SimuWidget::createDataModel(){
@@ -72,14 +72,12 @@ data_ptr SimuWidget::createDataModel(){
     return model;
 }
 
-void SimuWidget::update(data_ptr)
+void SimuWidget::update(data_ptr data)
 {
-    qDebug()<<"SimuWidget updated with data!";
-}
-
-void SimuWidget::update(StatisticsModel *)
-{
-    qDebug()<<"SimuWidget updated with stats!";
+    std::map<int, SimuEllipse *> a_list = simuEmelents->getAnimals();
+    for(auto animal : data->animals) {
+        a_list[animal->id]->setPos(animal->x, animal->y);
+    }
 }
 
 void SimuWidget::setUpMap()
