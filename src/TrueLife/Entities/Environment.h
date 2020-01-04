@@ -15,8 +15,6 @@ using namespace std;
 /**
  * @brief Environment brain, containing all animals and managing them
  */
-
-
 class Environment: public Observer, public TimeObserver {
 private:
     vector<Animal*> animals;
@@ -33,10 +31,22 @@ public:
     Environment(const Environment &toCopy);
     ~Environment();
 
+    /**
+     * @brief adds pointer to next Animal to animals vector of Environment
+     */
     void addAnimal(Animal*);
+    /**
+     * @brief Move all Animals using Animal::step() method
+     */
     void moveAnimals();
     void showAnimals(); /* only for debuging */
+    /**
+     * @brief Gets initial data, used to create first set of Animals
+     */
     virtual void update(boost::shared_ptr<EnvironmentDataModel>);
+    /**
+     * @brief Run by TimeWizard, runs moveAnimals method periodically
+     */
     virtual void timeTick();
 };
 

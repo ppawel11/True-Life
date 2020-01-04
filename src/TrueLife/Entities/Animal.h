@@ -8,7 +8,7 @@
 
 using namespace std;
 /**
- * @brief Base for predators and herbivares
+ * @brief Base for predators and herbivores
  */
 
 enum MoveState {WALK, SLEEP, CHASE, ESCAPE};
@@ -24,8 +24,17 @@ public:
 //    Animal(AnimalModel * animal);
     int getId();
 
+    /**
+     * @brief Single animal movement
+     */
     void step();
+    /**
+     * @brief Animal gets energy and destroys the eaten Food
+     */
     void eat();
+    /**
+     * @brief End of Animal's life
+     */
     void die();
 
     void show(); // debuging

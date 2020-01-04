@@ -3,6 +3,10 @@
 
 #include "Animal.h"
 
+/**
+ * @brief Herbivore, kind of animal which is eaten by Predator and eats randomly generated food
+ */
+
 class Herbivore: public Animal
 {
 public:

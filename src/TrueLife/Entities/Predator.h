@@ -3,6 +3,10 @@
 
 #include "Animal.h"
 
+/**
+ * @brief Predator, kind of animal which eats Herbivore
+ */
+
 class Predator: public Animal
 {
 public:

@@ -11,14 +11,12 @@
 #include "Model/AnimalModel.h"
 #include <Use-cases/Observer.h>
 
-using namespace std;
-
 class Observer;
 
 typedef boost::shared_ptr<Observer> obs_ptr;
 
 /**
- * @brief Controls flow of data between View and Use-cases
+ * @brief Controls flow of data between View and Environment
  */
 class Controller
 {
