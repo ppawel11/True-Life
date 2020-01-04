@@ -2,7 +2,7 @@
 #define INITDATAMODEL_H
 
 /**
- * @brief Holds inital data of simulations
+ * @brief Hold models of Animals used in communication between Environment and MainWindow
  */
 #include "Model.h"
 #include "AnimalModel.h"

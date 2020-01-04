@@ -11,7 +11,7 @@
 #include <Use-cases/Observer.h>
 #include "Common.h"
 /**
- * @brief Controls flow of data between View and Use-cases
+ * @brief Controls flow of data between View and Environment
  */
 using namespace std;
 

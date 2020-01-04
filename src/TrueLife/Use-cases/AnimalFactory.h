@@ -7,6 +7,10 @@
 #include "Model/AnimalModel.h"
 #include "Common.h"
 
+/**
+ * @brief Used to produce specific kinds of Animals inside Environment
+ */
+
 class AnimalFactory
 {
 public:
