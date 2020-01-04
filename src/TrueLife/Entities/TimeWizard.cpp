@@ -21,6 +21,7 @@ void TimeWizard::stopTimer()
 void TimeWizard::setPeriod(int new_period, bool restart_timer)
 {
     period = new_period;
+    tick_counter = 0;
 
     if(restart_timer) {
         stopTimer();
@@ -45,7 +46,7 @@ void TimeWizard::addObserver(t_obs_ptr observer)
 
 void TimeWizard::interrupt()
 {
-    qDebug()<< "Minął czas!";
+    qDebug()<< "tick! " << ++tick_counter;
     for(auto obs : observers) {
         obs->timeTick();
     }

@@ -50,6 +50,6 @@ void Environment::update(data_ptr m){
 
 void Environment::timeTick(){
     moveAnimals();
-    showAnimals();
+//    showAnimals();
     controller->notifySimu(createDataModel());
 }

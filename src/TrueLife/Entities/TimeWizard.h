@@ -63,6 +63,11 @@ private:
      */
     int period;
 
+    /**
+     * @brief Counter of ticks during simulation.
+     */
+    int tick_counter;
+
     std::vector<t_obs_ptr> observers;
 };
 

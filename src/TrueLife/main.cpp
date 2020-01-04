@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
 
     // timer settings
     time_ptr time_wizard(new TimeWizard());
-    time_wizard->setPeriod(500);
+    time_wizard->setPeriod(30);
     time_wizard->addObserver(env);
 
     QApplication app(argc, argv);

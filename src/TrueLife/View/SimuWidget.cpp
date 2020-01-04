@@ -103,10 +103,12 @@ void SimuWidget::on_playPauseButton_clicked()
         time_wizard->startTimer();
         simuEmelents->setItemsClickable(false);
         ui->playPauseButton->setText("Pauza");
+        ui->timeSlider->setEnabled(true);
     }
     else {
         time_wizard->stopTimer();
         simuEmelents->setItemsClickable(true);
         ui->playPauseButton->setText("Kontynuuj");
+        ui->timeSlider->setEnabled(false);
     }
 }
