@@ -1,11 +1,23 @@
-#include "View/MainWindow.h"
 #include <QApplication>
+
+#include "View/MainWindow.h"
 #include "Entities/Animal.h"
 #include "Entities/Environment.h"
 #include "Entities/TimeWizard.h"
 
-using namespace std;
-
+/**
+ * @brief Starting function of the application
+ *
+ * Creates:
+ * - Controller
+ * - Environment
+ * - TimeWizard
+ * - MainWindow (SimuWidget first)
+ *
+ * @param argc
+ * @param argv
+ * @return status of the apllicatin execution
+ */
 int main(int argc, char *argv[])
 {
     Controller* controller = new Controller();

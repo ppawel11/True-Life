@@ -44,7 +44,7 @@ public:
     void initWindow();
 
     virtual void update(StatisticsModel*);
-    virtual void update(shared_ptr<EnvironmentDataModel>);
+    virtual void update(data_ptr);
 
 private slots:
     void startSimulation();

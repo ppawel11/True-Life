@@ -10,7 +10,7 @@
 #include "Use-cases/TimeObserver.h"
 #include "Use-cases/AnimalFactory.h"
 
-using namespace std;
+typedef boost::shared_ptr<EnvironmentDataModel> data_ptr;
 
 /**
  * @brief Environment brain, containing all animals and managing them
@@ -43,7 +43,7 @@ public:
     /**
      * @brief Gets initial data, used to create first set of Animals
      */
-    virtual void update(boost::shared_ptr<EnvironmentDataModel>);
+    virtual void update(data_ptr);
     /**
      * @brief Run by TimeWizard, runs moveAnimals method periodically
      */

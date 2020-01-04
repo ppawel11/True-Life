@@ -29,7 +29,7 @@ void Environment::showAnimals(){
     }
 }
 
-void Environment::update(boost::shared_ptr<EnvironmentDataModel> m){
+void Environment::update(data_ptr m){
     for(auto animal_model : m->animals)
         addAnimal(animal_factory.createAnimal(animal_model));
 }
@@ -37,4 +37,5 @@ void Environment::update(boost::shared_ptr<EnvironmentDataModel> m){
 void Environment::timeTick(){
     moveAnimals();
     showAnimals();
+//    controller->notify_window();
 }

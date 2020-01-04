@@ -57,7 +57,8 @@ void MainWindow::update(StatisticsModel *)
     qDebug()<<"Update on MainWindow!";
 }
 
-void MainWindow::update(shared_ptr<EnvironmentDataModel>){
+void MainWindow::update(data_ptr)
+{
 
 }
 

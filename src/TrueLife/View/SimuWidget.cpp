@@ -42,19 +42,25 @@ void SimuWidget::initWidget()
     simuEmelents = SimuElements::getInstance();
 }
 
-boost::shared_ptr<EnvironmentDataModel> SimuWidget::startSimulation()
+data_ptr SimuWidget::startSimulation()
 {
     setUpMap();
     time_wizard->startTimer();
     simuEmelents->setItemsClickable(false);
     ui->playPauseButton->setText("Pauza");
-    return createInitialModel();
+    return createDataModel();
 }
 
-boost::shared_ptr<EnvironmentDataModel> SimuWidget::createInitialModel(){
-    boost::shared_ptr<EnvironmentDataModel> model(new EnvironmentDataModel());
+data_ptr SimuWidget::createDataModel(){
+    data_ptr model(new EnvironmentDataModel());
     for(auto an : simuEmelents->getAnimals()){
-        model->animals.push_back(new AnimalModel(an.first, an.second->x(), an.second->y(), an.second->getType()));
+        model->animals.push_back(
+                    new AnimalModel(
+                                an.first,
+                                an.second->x(),
+                                an.second->y(),
+                                an.second->getType()
+                    ));
     }
     return model;
 }

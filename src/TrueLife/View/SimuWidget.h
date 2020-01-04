@@ -34,7 +34,7 @@ public:
 
     void initWidget();
     data_ptr startSimulation();
-    data_ptr createInitialModel();
+    data_ptr createDataModel();
     void setUpMap();
 
 private slots:
