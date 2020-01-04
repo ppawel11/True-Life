@@ -7,17 +7,19 @@ SimuWidget::SimuWidget(
     Observer(contr),
     ui(new Ui::SimuWidget)
 {
+    initWidget();
+
     // timer settings
     this->time_wizard = time_wizard;
 }
 
-SimuWidget::SimuWidget(const SimuWidget &toCopy)
-    : SimuWidget(toCopy.controller,
-                 toCopy.time_wizard,
-                 toCopy.parentWidget())
-{
-    initWidget();
-}
+//SimuWidget::SimuWidget(const SimuWidget &toCopy)
+//    : SimuWidget(toCopy.controller,
+//                 toCopy.time_wizard,
+//                 toCopy.parentWidget())
+//{
+////    initWidget();
+//}
 
 SimuWidget::~SimuWidget()
 {

@@ -2,11 +2,11 @@
 
 Environment::Environment(Controller * contr) : Observer(contr) {}
 
-Environment::Environment(const Environment &toCopy)
-    : Observer(toCopy.controller)
-{
-    std::cout<<"Kopia Environment utworzona"<<std::endl;
-}
+//Environment::Environment(const Environment &toCopy)
+//    : Observer(toCopy.controller)
+//{
+//    std::cout<<"Kopia Environment utworzona"<<std::endl;
+//}
 
 Environment::~Environment()
 {

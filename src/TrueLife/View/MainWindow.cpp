@@ -3,23 +3,22 @@
 
 #include <QPixmap>
 
-MainWindow::MainWindow(
-        simu_ptr simu_widget, QWidget *parent)
-    : QMainWindow(parent),
-      ui(new Ui::MainWindow)
+MainWindow::MainWindow(simu_ptr simu_widget, QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
 {
     this->simu_widget = std::move(simu_widget);
 //    home_widget = nullptr;
     initWindow();
 }
 
-MainWindow::MainWindow(const MainWindow &toCopy)
-    : MainWindow(std::move(const_cast<MainWindow&>(toCopy).simu_widget),
-                 toCopy.parentWidget())
-{
-//    initWindow();
-    qDebug()<<"Kopia MainWindow utworzona";
-}
+//MainWindow::MainWindow(const MainWindow &toCopy)
+//    : MainWindow(std::move(const_cast<MainWindow&>(toCopy).simu_widget),
+//                 toCopy.parentWidget())
+//{
+////    initWindow();
+//    qDebug()<<"Kopia MainWindow utworzona";
+//}
 
 MainWindow::~MainWindow()
 {

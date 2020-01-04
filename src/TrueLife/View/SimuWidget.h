@@ -30,7 +30,7 @@ class SimuWidget : public QWidget, public Observer
 public:
     explicit SimuWidget(
             Controller *contr, time_ptr time_wizard, QWidget *parent = 0);
-    SimuWidget(const SimuWidget &toCopy);
+//    SimuWidget(const SimuWidget &toCopy);
     ~SimuWidget();
 
     void initWidget();

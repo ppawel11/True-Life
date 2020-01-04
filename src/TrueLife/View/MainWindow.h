@@ -37,7 +37,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(
             simu_ptr simu_widget, QWidget *parent = 0);
-    MainWindow(const MainWindow &toCopy);
+//    MainWindow(const MainWindow &toCopy);
     ~MainWindow();
 
     void initWindow();
