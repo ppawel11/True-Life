@@ -1,8 +1,10 @@
 #include "SimuWidget.h"
 #include "ui_simuwidget.h"
 
-SimuWidget::SimuWidget(time_ptr time_wizard, QWidget *parent) :
+SimuWidget::SimuWidget(
+        Controller *contr, time_ptr time_wizard, QWidget *parent) :
     QWidget(parent),
+    Observer(contr),
     ui(new Ui::SimuWidget)
 {
     // timer settings
@@ -10,7 +12,9 @@ SimuWidget::SimuWidget(time_ptr time_wizard, QWidget *parent) :
 }
 
 SimuWidget::SimuWidget(const SimuWidget &toCopy)
-    : SimuWidget(toCopy.time_wizard, toCopy.parentWidget())
+    : SimuWidget(toCopy.controller,
+                 toCopy.time_wizard,
+                 toCopy.parentWidget())
 {
     initWidget();
 }
@@ -42,13 +46,14 @@ void SimuWidget::initWidget()
     simuEmelents = SimuElements::getInstance();
 }
 
-data_ptr SimuWidget::startSimulation()
+void SimuWidget::startSimulation()
 {
     setUpMap();
     time_wizard->startTimer();
     simuEmelents->setItemsClickable(false);
     ui->playPauseButton->setText("Pauza");
-    return createDataModel();
+
+    controller->notify_env(createDataModel());
 }
 
 data_ptr SimuWidget::createDataModel(){
@@ -63,6 +68,16 @@ data_ptr SimuWidget::createDataModel(){
                     ));
     }
     return model;
+}
+
+void SimuWidget::update(data_ptr)
+{
+    qDebug()<<"SimuWidget updated with data!";
+}
+
+void SimuWidget::update(StatisticsModel *)
+{
+    qDebug()<<"SimuWidget updated with stats!";
 }
 
 void SimuWidget::setUpMap()

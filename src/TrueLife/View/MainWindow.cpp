@@ -4,21 +4,20 @@
 #include <QPixmap>
 
 MainWindow::MainWindow(
-        Controller *contr, simu_ptr simu_widget, QWidget *parent)
+        simu_ptr simu_widget, QWidget *parent)
     : QMainWindow(parent),
-      Observer(contr),
       ui(new Ui::MainWindow)
 {
     this->simu_widget = std::move(simu_widget);
-    home_widget = nullptr;
+//    home_widget = nullptr;
+    initWindow();
 }
 
 MainWindow::MainWindow(const MainWindow &toCopy)
-    : MainWindow(toCopy.controller,
-                 std::move(const_cast<MainWindow&>(toCopy).simu_widget),
+    : MainWindow(std::move(const_cast<MainWindow&>(toCopy).simu_widget),
                  toCopy.parentWidget())
 {
-    initWindow();
+//    initWindow();
     qDebug()<<"Kopia MainWindow utworzona";
 }
 
@@ -52,20 +51,10 @@ void MainWindow::initWindow()
             SLOT(startSimulation()));
 }
 
-void MainWindow::update(StatisticsModel *)
-{
-    qDebug()<<"Update on MainWindow!";
-}
-
-void MainWindow::update(data_ptr)
-{
-
-}
-
 void MainWindow::startSimulation()
 {
     qDebug()<<"Starting simulation...";
-    this->controller->notify_env(simu_widget->startSimulation());
+    simu_widget->startSimulation();
     this->takeCentralWidget(); // to preserve it from deletion
     this->setCentralWidget(simu_widget.get());
 }

@@ -27,7 +27,7 @@ public:
     Controller();
 
     void attach_env(obs_ptr);
-    void attach_window(obs_ptr);
+    void attach_simu(obs_ptr);
 
     void notify_env(boost::shared_ptr<EnvironmentDataModel>);
     void notify_window(StatisticsModel*);

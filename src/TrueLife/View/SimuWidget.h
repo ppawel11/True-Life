@@ -9,7 +9,7 @@
 
 #include "Common.h"
 #include "SimuElements.h"
-#include "Controller/Controller.h"
+#include "Use-cases/Observer.h"
 #include "Entities/TimeWizard.h"
 #include "Model/EnvironmentDataModel.h"
 
@@ -23,19 +23,23 @@ typedef boost::shared_ptr<EnvironmentDataModel> data_ptr;
 /**
  * @brief Central widget of main window to show current simulation environment
  */
-class SimuWidget : public QWidget
+class SimuWidget : public QWidget, public Observer
 {
     Q_OBJECT
 
 public:
-    explicit SimuWidget(time_ptr time_wizard, QWidget *parent = 0);
+    explicit SimuWidget(
+            Controller *contr, time_ptr time_wizard, QWidget *parent = 0);
     SimuWidget(const SimuWidget &toCopy);
     ~SimuWidget();
 
     void initWidget();
-    data_ptr startSimulation();
-    data_ptr createDataModel();
     void setUpMap();
+    void startSimulation();
+    data_ptr createDataModel();
+
+    virtual void update(data_ptr);
+    virtual void update(StatisticsModel*);
 
 private slots:
     void on_playPauseButton_clicked();

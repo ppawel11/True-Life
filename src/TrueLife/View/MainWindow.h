@@ -13,38 +13,34 @@
  * - https://studiofreya.com/cpp/boost/boost-scoped_ptr-vs-unique_ptr/
  */
 #include <memory> // std::unique_ptr
-//#include <boost/shared_ptr.hpp>
+#include <boost/shared_ptr.hpp>
 //#include <boost/make_shared.hpp>
 
 #include "Common.h"
 #include "CreatorWidget.h"
 #include "SimuWidget.h"
 #include "StatWidget.h"
-#include "Use-cases/Observer.h"
 
 namespace Ui {
 class MainWindow;
 }
 
-typedef std::unique_ptr<SimuWidget> simu_ptr;
+typedef boost::shared_ptr<SimuWidget> simu_ptr;
 
 /**
  * @brief Main window of the application
  */
-class MainWindow : public QMainWindow, public Observer
+class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
     explicit MainWindow(
-            Controller *contr, simu_ptr simu_widget, QWidget *parent = 0);
+            simu_ptr simu_widget, QWidget *parent = 0);
     MainWindow(const MainWindow &toCopy);
     ~MainWindow();
 
     void initWindow();
-
-    virtual void update(StatisticsModel*);
-    virtual void update(data_ptr);
 
 private slots:
     void startSimulation();

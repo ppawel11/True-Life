@@ -9,7 +9,7 @@ void Controller::attach_env(obs_ptr obs){
     env_observer = obs;
 }
 
-void Controller::attach_window(obs_ptr obs){
+void Controller::attach_simu(obs_ptr obs){
     window_observer = obs;
 }
 

@@ -34,15 +34,17 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
 
     simu_ptr simu_widget;
-    simu_widget = std::make_unique<SimuWidget>(SimuWidget(time_wizard));
+    simu_widget = boost::make_shared<SimuWidget>(
+                    SimuWidget(controller, time_wizard)
+                );
 
-    boost::shared_ptr<MainWindow> m_win;
-    m_win = boost::make_shared<MainWindow>(
-                MainWindow(controller, std::move(simu_widget))
+    std::unique_ptr<MainWindow> m_win;
+    m_win = std::make_unique<MainWindow>(
+                MainWindow(simu_widget)
             );
 
     controller->attach_env(env);
-    controller->attach_window(m_win);
+    controller->attach_simu(simu_widget);
 
     //-------------------------------------------
 
