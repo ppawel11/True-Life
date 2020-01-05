@@ -2,12 +2,16 @@
 
 using namespace std;
 
-Animal::Animal(int id, int x, int y){
+Animal::Animal(int id, float x, float y){
     this->id = id;
     this->x = x;
     this->y = y;
-    this->velo_x = 1;
-    this->velo_y = 1;
+    velocity = (rand() % (MAX_VELOCITY-1)) + 1;
+    velo_x = (rand() % VELOCITY_PRECISION*2)/float(VELOCITY_PRECISION) - 1;
+    velo_y = round(VELOCITY_PRECISION*sqrt(1.0-(velo_x*velo_x)))/float(VELOCITY_PRECISION);
+    if (rand() % 2)
+        velo_y *= -1;
+    std::cout<<"animal id:"<<id<<"velo_ver: "<<velo_x<<" "<<velo_y<<" "<<"velo: "<<velocity<<std::endl;
 }
 
 //Animal::Animal(AnimalModel *animal){
@@ -36,8 +40,4 @@ void Animal::eat(){
 
 void Animal::show(){
     cout<<x<<" "<<y<<endl;
-}
-
-int Animal::getId(){
-    return id;
 }

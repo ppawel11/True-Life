@@ -48,6 +48,6 @@ void TimeWizard::interrupt()
 {
     qDebug()<< "tick! " << ++tick_counter;
     for(auto obs : observers) {
-        obs->timeTick();
+        obs->timeTick(tick_counter);
     }
 }

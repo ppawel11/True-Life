@@ -3,7 +3,6 @@
 
 #include <QDebug> // qDebug()<<"Hello!";
 #include <QColor>
-
 #include <boost/log/trivial.hpp>
 /* [lecture 8, slide 31]
  * BOOST_LOG_TRIVIAL(debug) << "A debug severity message";
@@ -13,7 +12,6 @@
  */
 
 enum ElementType {PREDATOR, HERBIVORE, WATER, FOOD};
-
 /**
  * @brief Holds our colour schemes.
  */

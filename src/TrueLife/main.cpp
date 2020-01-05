@@ -5,6 +5,8 @@
 #include "Entities/Environment.h"
 #include "Entities/TimeWizard.h"
 
+#include <stdlib.h>
+
 /**
  * @brief Starting function of the application
  *
@@ -20,6 +22,7 @@
  */
 int main(int argc, char *argv[])
 {
+    srand(time(NULL));
     Controller* controller = new Controller();
 
     boost::shared_ptr<Environment> env(new Environment(controller));

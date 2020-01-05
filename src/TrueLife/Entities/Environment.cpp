@@ -17,9 +17,10 @@ void Environment::addAnimal(Animal * animal){
     animals.push_back(animal);
 }
 
-void Environment::moveAnimals(){
+void Environment::moveAnimals(int time_tick){
     for(auto &animal : animals){
-        animal->step();
+        if (time_tick % (MAX_VELOCITY - animal->getVelocity() + 1) == 0)
+            animal->step();
     }
 }
 
@@ -48,8 +49,8 @@ void Environment::update(data_ptr m){
         addAnimal(animal_factory.createAnimal(animal_model));
 }
 
-void Environment::timeTick(){
-    moveAnimals();
+void Environment::timeTick(int time_tick){
+    moveAnimals(time_tick);
 //    showAnimals();
     controller->notifySimu(createDataModel());
 }

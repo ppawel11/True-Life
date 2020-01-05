@@ -38,7 +38,7 @@ public:
     /**
      * @brief Move all Animals using Animal::step() method
      */
-    void moveAnimals();
+    void moveAnimals(int time_tick);
 
     void showAnimals(); /* only for debuging */
 
@@ -52,7 +52,7 @@ public:
     /**
      * @brief Run by TimeWizard, runs moveAnimals method periodically
      */
-    virtual void timeTick();
+    virtual void timeTick(int tick_counter);
 };
 
 #endif // ENVIRONMENT_H

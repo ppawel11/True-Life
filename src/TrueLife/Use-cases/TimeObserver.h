@@ -6,7 +6,7 @@ class TimeWizard;
 class TimeObserver
 {
 public:
-    virtual void timeTick() = 0;
+    virtual void timeTick(int tick_counter) = 0;
 };
 
 #endif // TIMEOBSERVER_H
