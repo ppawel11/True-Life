@@ -1,6 +1,7 @@
 #include "TimeWizard.h"
 
-TimeWizard::TimeWizard(QObject *parent, int period) : QObject(parent)
+TimeWizard::TimeWizard(int period, QObject *parent) :
+    QObject(parent), tick_counter(0), duration_ms(0)
 {
     this->period = period;
     timer = new QTimer();
@@ -20,6 +21,8 @@ void TimeWizard::stopTimer()
 
 void TimeWizard::setPeriod(int new_period, bool restart_timer)
 {
+    duration_ms += period*tick_counter;
+
     period = new_period;
     tick_counter = 0;
 

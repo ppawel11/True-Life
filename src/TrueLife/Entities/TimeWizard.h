@@ -34,7 +34,7 @@ public:
      * @param parent parent object
      * @param period period
      */
-    explicit TimeWizard(QObject *parent = nullptr, int period = DEFAULT_PERIOD);
+    explicit TimeWizard(int period = DEFAULT_PERIOD, QObject *parent = nullptr);
 
     void startTimer();
     void stopTimer();
@@ -67,6 +67,11 @@ private:
      * @brief Counter of ticks during simulation.
      */
     int tick_counter;
+
+    /**
+     * @brief Stores real time of the simulation in milliseconds
+     */
+    double duration_ms;
 
     std::vector<t_obs_ptr> observers;
 };

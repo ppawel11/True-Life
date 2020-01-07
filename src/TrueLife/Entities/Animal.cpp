@@ -11,7 +11,7 @@ Animal::Animal(int id, float x, float y){
     velo_y = round(VELOCITY_PRECISION*sqrt(1.0-(velo_x*velo_x)))/float(VELOCITY_PRECISION);
     if (rand() % 2)
         velo_y *= -1;
-    std::cout<<"animal id:"<<id<<"velo_ver: "<<velo_x<<" "<<velo_y<<" "<<"velo: "<<velocity<<std::endl;
+    std::cout<<"animal id:"<<id<<" velo_ver: "<<velo_x<<" "<<velo_y<<" velo: "<<velocity<<std::endl;
 }
 
 //Animal::Animal(AnimalModel *animal){
