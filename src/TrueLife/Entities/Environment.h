@@ -28,6 +28,7 @@ public:
 //     * Needed to make unique_ptr.
 //     */
 //    Environment(const Environment &toCopy);
+
     ~Environment();
 
     /**

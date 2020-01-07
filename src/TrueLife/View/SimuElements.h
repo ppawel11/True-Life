@@ -4,12 +4,6 @@
 #include "SimuEllipse.h"
 #include "Common.h"
 
-namespace Map {
-    static const int WIDTH = 500;
-    static const int HEIGHT = 500;
-    static const int BORDER = 10;
-}
-
 /**
  * @brief Container for objects being visual representations of sumulated elements.
  */

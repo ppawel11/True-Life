@@ -35,8 +35,10 @@ SimuEllipse * SimuElements::addAnimal(ElementType type)
     }
 
     SimuEllipse *animal =
-            new SimuEllipse(type, Map::WIDTH/2, Map::HEIGHT/2,
-                            15, 15, pen, brush);
+            new SimuEllipse(type,
+                            Map::WIDTH/2, Map::HEIGHT/2,
+                            Ani::WIDTH, Ani::HEIGHT,
+                            pen, brush);
     addAnimal(animal);
     return animal;
 }
@@ -51,14 +53,14 @@ SimuEllipse * SimuElements::addSupply(ElementType type)
     if(type == WATER) {
         brush.setColor(OurColors::blue);
         brush.setStyle(Qt::SolidPattern);
-        width = 50;
-        height = 33;
+        width = Wat::WIDTH;
+        height = Wat::HEIGHT;
     }
     else if(type == FOOD) {
         brush.setColor(OurColors::green);
         brush.setStyle(Qt::SolidPattern);
-        width = 10;
-        height = 10;
+        width = Foo::WIDTH;
+        height = Foo::HEIGHT;
     }
     else {
         qDebug()<<"Proba utworzenia zasobu nieistniejącego typu!";

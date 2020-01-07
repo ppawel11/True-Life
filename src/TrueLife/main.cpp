@@ -1,11 +1,11 @@
+#include <stdlib.h>
+
 #include <QApplication>
 
 #include "View/MainWindow.h"
 #include "Entities/Animal.h"
 #include "Entities/Environment.h"
 #include "Entities/TimeWizard.h"
-
-#include <stdlib.h>
 
 /**
  * @brief Starting function of the application
