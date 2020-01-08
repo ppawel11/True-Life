@@ -1,3 +1,5 @@
 src/build-TrueLife-Desktop-Debug/
 src/TrueLife/TrueLife.pro.user
-.autosave
+*.autosave
+*.o
+*.stash

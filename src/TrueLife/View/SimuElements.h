@@ -2,7 +2,7 @@
 #define SIMUELEMENTS_H
 
 #include "SimuEllipse.h"
-#include "Common.h"
+#include "../Common.h"
 
 /**
  * @brief Container for objects being visual representations of sumulated elements.
