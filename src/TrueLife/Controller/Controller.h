@@ -33,8 +33,6 @@ public:
 
     void notifyEnv(data_ptr data);
     void notifySimu(data_ptr data);
-
-    void initSim(); //testing
 };
 
 #endif // CONTROLLER_H

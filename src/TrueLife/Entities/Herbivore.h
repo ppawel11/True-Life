@@ -2,6 +2,7 @@
 #define HERBIVORE_H
 
 #include "Animal.h"
+#include "../Model/AnimalModel.h"
 
 /**
  * @brief Herbivore, kind of animal which is eaten by Predator and eats randomly generated food

@@ -47,7 +47,6 @@ SOURCES += \
 HEADERS += \
     Use-cases/feeder.h \
     Use-cases/multiplier.h \
-    Use-cases/creator.h \
     Model/Model.h \
     Controller/Controller.h \
     Entities/Animal.h \

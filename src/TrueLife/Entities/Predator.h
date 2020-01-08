@@ -2,6 +2,7 @@
 #define PREDATOR_H
 
 #include "Animal.h"
+#include "../Model/AnimalModel.h"
 
 /**
  * @brief Predator, kind of animal which eats Herbivore

@@ -21,11 +21,3 @@ void Controller::notifyEnv(data_ptr data){
 void Controller::notifySimu(data_ptr data){
     simu_observer->update(data);
 }
-
-void Controller::initSim(){
-    boost::shared_ptr<EnvironmentDataModel> init;
-   // boost::make_shared<InitDataModel>(new InitDataModel());
-    for(int i =0; i<5; i++)
-        init->animals.push_back(new AnimalModel(i, i, i+3, PREDATOR));
-    notifyEnv(init);
-}
