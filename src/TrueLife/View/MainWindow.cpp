@@ -86,5 +86,10 @@ void MainWindow::on_actionNew_triggered()
 
 void MainWindow::on_pushButton_clicked()
 {
-    qDebug()<<"Button clicked!";
+    on_actionNew_triggered();
+}
+
+void MainWindow::on_actionExit_triggered()
+{
+    QApplication::quit();
 }

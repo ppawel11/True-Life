@@ -30,7 +30,6 @@ class Ui_MainWindow
 {
 public:
     QAction *actionNew;
-    QAction *actionSave;
     QAction *actionExit;
     QAction *actionSimulation;
     QAction *actionStatistics;
@@ -56,8 +55,6 @@ public:
         MainWindow->setWindowIcon(icon);
         actionNew = new QAction(MainWindow);
         actionNew->setObjectName(QStringLiteral("actionNew"));
-        actionSave = new QAction(MainWindow);
-        actionSave->setObjectName(QStringLiteral("actionSave"));
         actionExit = new QAction(MainWindow);
         actionExit->setObjectName(QStringLiteral("actionExit"));
         actionSimulation = new QAction(MainWindow);
@@ -111,7 +108,6 @@ public:
         menubar->addAction(menuPlik->menuAction());
         menubar->addAction(menuWidok->menuAction());
         menuPlik->addAction(actionNew);
-        menuPlik->addAction(actionSave);
         menuPlik->addSeparator();
         menuPlik->addAction(actionExit);
         menuWidok->addAction(actionSimulation);
@@ -127,7 +123,6 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
         actionNew->setText(QApplication::translate("MainWindow", "Nowa symulacja", Q_NULLPTR));
-        actionSave->setText(QApplication::translate("MainWindow", "Zapisz do pliku", Q_NULLPTR));
         actionExit->setText(QApplication::translate("MainWindow", "Wyjd\305\272", Q_NULLPTR));
         actionSimulation->setText(QApplication::translate("MainWindow", "Symulacja", Q_NULLPTR));
         actionStatistics->setText(QApplication::translate("MainWindow", "Statystyki", Q_NULLPTR));
@@ -139,7 +134,7 @@ public:
 "</style></head><body style=\" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Lorem ipsum dolores Amrit.</p></body></html>", Q_NULLPTR));
         logo_label->setText(QString());
-        pushButton->setText(QApplication::translate("MainWindow", "Don't even try to click it", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("MainWindow", "Create new simulation!", Q_NULLPTR));
         menuPlik->setTitle(QApplication::translate("MainWindow", "Plik", Q_NULLPTR));
         menuWidok->setTitle(QApplication::translate("MainWindow", "Widok", Q_NULLPTR));
     } // retranslateUi

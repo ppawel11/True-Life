@@ -1,5 +1,6 @@
-src/build-TrueLife-Desktop-Debug/
-src/TrueLife/TrueLife.pro.user
+#src/build-TrueLife-Desktop-Debug/
+src/build-TrueLife-Desktop-Debug/TrueLife
+*.user
 *.autosave
 *.o
 *.stash

@@ -1,10 +1,12 @@
 /****************************************************************
  *
- * compile (old):		g++ -o test test.cpp
+ * compile (old):
+ *      g++ -o test test.cpp
  * compile (new):
  *      qmake -o Makefile test.pro [only after change of .pro file]
  *      make
- * run:			./test --log_level=test_suite
+ * run:
+ *      ./test --log_level=test_suite
  *
  * Boost documentary:
  * https://www.boost.org/doc/libs/1_72_0/libs/test/doc/html/index.html
