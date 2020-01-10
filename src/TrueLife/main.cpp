@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
 
     // timer settings
     boost::shared_ptr<TimeWizard> time_wizard(new TimeWizard());
-    time_wizard->setPeriod(10);
+    time_wizard->setPeriod(20, false);
     time_wizard->addObserver(env);
 
     QApplication app(argc, argv);

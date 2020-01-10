@@ -8,9 +8,15 @@ TimeWizard::TimeWizard(int period, QObject *parent) :
     connect(timer, SIGNAL(timeout()), this, SLOT(interrupt()));
 }
 
+TimeWizard::~TimeWizard()
+{
+    duration_ms += period*tick_counter;
+    qDebug()<<"Upłynęło: "<< double(duration_ms)/1000 <<" s";
+}
+
 void TimeWizard::startTimer()
 {
-    qDebug()<<period;
+//    qDebug()<<period;
     timer->start(period);
 }
 
@@ -27,9 +33,13 @@ void TimeWizard::setPeriod(int new_period, bool restart_timer)
     tick_counter = 0;
 
     if(restart_timer) {
-        stopTimer();
         startTimer();
     }
+}
+
+int TimeWizard::getPeriod()
+{
+    return period;
 }
 
 void TimeWizard::resetPeriod(bool restartTimer)
@@ -49,7 +59,8 @@ void TimeWizard::addObserver(t_obs_ptr observer)
 
 void TimeWizard::interrupt()
 {
-    qDebug()<< "tick! " << ++tick_counter;
+//    qDebug()<< "tick! " << tick_counter;
+    ++tick_counter;
     for(auto obs : observers) {
         obs->timeTick(tick_counter);
     }

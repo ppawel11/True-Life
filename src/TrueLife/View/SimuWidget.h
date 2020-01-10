@@ -25,18 +25,17 @@ public:
             Controller *contr,
             boost::shared_ptr<TimeWizard> time_wizard,
             QWidget *parent = 0);
-//    SimuWidget(const SimuWidget &toCopy);
     ~SimuWidget();
 
-    void initWidget();
-    void setUpMap();
     void startSimulation();
-    boost::shared_ptr<EnvDataModel> createDataModel();
+    void setUpMap();
 
     virtual void update(boost::shared_ptr<EnvDataModel> data);
 
 private slots:
     void on_playPauseButton_clicked();
+
+    void on_timeSlider_sliderReleased();
 
 private:
     Ui::SimuWidget *ui;

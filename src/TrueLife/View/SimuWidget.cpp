@@ -9,28 +9,6 @@ SimuWidget::SimuWidget(
     Observer(contr),
     ui(new Ui::SimuWidget)
 {
-    initWidget();
-
-    // timer settings
-    this->time_wizard = time_wizard;
-}
-
-//SimuWidget::SimuWidget(const SimuWidget &toCopy)
-//    : SimuWidget(toCopy.controller,
-//                 toCopy.time_wizard,
-//                 toCopy.parentWidget())
-//{
-////    initWidget();
-//}
-
-SimuWidget::~SimuWidget()
-{
-    delete ui;
-    qDebug() << "simu_widget usunięty";
-}
-
-void SimuWidget::initWidget()
-{
     ui->setupUi(this);
 
     // Setting up the graphics scene
@@ -46,8 +24,22 @@ void SimuWidget::initWidget()
     pen.setWidth(3);
     scene->addRect(0,0,Map::WIDTH,Map::HEIGHT,pen,brush);
 
+    // Setting up time slider
+//    ui->timeSlider->setTickInterval(1);
+    ui->timeSlider->setRange(-30,-1);
+    ui->timeSlider->setEnabled(false);
+
     // assigning instance of container for simulated elements
     simu_emelents = SimuElements::getInstance();
+
+    // timer settings
+    this->time_wizard = time_wizard;
+}
+
+SimuWidget::~SimuWidget()
+{
+    delete ui;
+    qDebug() << "simu_widget usunięty";
 }
 
 void SimuWidget::startSimulation()
@@ -56,18 +48,10 @@ void SimuWidget::startSimulation()
     time_wizard->startTimer();
     simu_emelents->setItemsClickable(false);
     ui->playPauseButton->setText("Pauza");
+    ui->timeSlider->setValue(-time_wizard->getPeriod());
+    ui->timeSlider->setEnabled(true);
 
-    controller->notifyEnv(createDataModel());
-}
-
-boost::shared_ptr<EnvDataModel> SimuWidget::createDataModel()
-{
-    return simu_emelents->createDataModel();
-}
-
-void SimuWidget::update(boost::shared_ptr<EnvDataModel> data)
-{
-    simu_emelents->updateAnimals(data);
+    controller->notifyEnv(simu_emelents->createDataModel());
 }
 
 void SimuWidget::setUpMap()
@@ -87,6 +71,11 @@ void SimuWidget::setUpMap()
     }
 }
 
+void SimuWidget::update(boost::shared_ptr<EnvDataModel> data)
+{
+    simu_emelents->updateAnimals(data);
+}
+
 void SimuWidget::on_playPauseButton_clicked()
 {
     if(!time_wizard->isRunning()) {
@@ -101,4 +90,9 @@ void SimuWidget::on_playPauseButton_clicked()
         ui->playPauseButton->setText("Kontynuuj");
         ui->timeSlider->setEnabled(false);
     }
+}
+
+void SimuWidget::on_timeSlider_sliderReleased()
+{
+    time_wizard->setPeriod(-ui->timeSlider->value());
 }

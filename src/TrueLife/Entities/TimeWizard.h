@@ -26,7 +26,7 @@ private:
     /**
      * @brief Default period of the timer in milliseconds
      */
-    static const int DEFAULT_PERIOD = 200;
+    static const int DEFAULT_PERIOD = 20;
 
 public:
     /**
@@ -34,12 +34,15 @@ public:
      * @param parent parent object
      * @param period period
      */
-    explicit TimeWizard(int period = DEFAULT_PERIOD, QObject *parent = nullptr);
+    explicit TimeWizard(
+            int period = DEFAULT_PERIOD, QObject *parent = nullptr);
+    ~TimeWizard();
 
     void startTimer();
     void stopTimer();
-    void setPeriod(int new_period, bool restart_timer = false);
-    void resetPeriod(bool restart_timer = false);
+    void setPeriod(int new_period, bool restart_timer = true);
+    int getPeriod();
+    void resetPeriod(bool restart_timer = true);
     bool isRunning();
 
     void addObserver(t_obs_ptr observer);
