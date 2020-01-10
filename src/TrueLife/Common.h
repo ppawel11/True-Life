@@ -8,6 +8,7 @@
  * BOOST_LOG_TRIVIAL(error) << "An error severity message";
  */
 #include <boost/log/trivial.hpp>
+#include <boost/shared_ptr.hpp>
 
 #include <QDebug> // qDebug()<<"Hello!";
 #include <QColor>

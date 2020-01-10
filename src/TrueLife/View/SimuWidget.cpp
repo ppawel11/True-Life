@@ -46,53 +46,41 @@ void SimuWidget::initWidget()
     pen.setWidth(3);
     scene->addRect(0,0,Map::WIDTH,Map::HEIGHT,pen,brush);
 
-    // assigning instance of container for sumulated elements
-    simuEmelents = SimuElements::getInstance();
+    // assigning instance of container for simulated elements
+    simu_emelents = SimuElements::getInstance();
 }
 
 void SimuWidget::startSimulation()
 {
     setUpMap();
     time_wizard->startTimer();
-    simuEmelents->setItemsClickable(false);
+    simu_emelents->setItemsClickable(false);
     ui->playPauseButton->setText("Pauza");
 
     controller->notifyEnv(createDataModel());
 }
 
-boost::shared_ptr<EnvDataModel> SimuWidget::createDataModel(){
-    boost::shared_ptr<EnvDataModel> model(new EnvDataModel());
-    for(auto an : simuEmelents->getAnimals()){
-        model->animals.push_back(
-                    new AnimalModel(
-                                an.first,
-                                an.second->x(),
-                                an.second->y(),
-                                an.second->getType()
-                    ));
-    }
-    return model;
+boost::shared_ptr<EnvDataModel> SimuWidget::createDataModel()
+{
+    return simu_emelents->createDataModel();
 }
 
 void SimuWidget::update(boost::shared_ptr<EnvDataModel> data)
 {
-    std::map<int, SimuEllipse *> a_list = simuEmelents->getAnimals();
-    for(auto animal : data->animals) {
-        a_list[animal->id]->setPos(animal->x, animal->y);
-    }
+    simu_emelents->updateAnimals(data);
 }
 
 void SimuWidget::setUpMap()
 {
-    std::map<int, SimuEllipse*> animals = simuEmelents->getAnimals();
-    qDebug()<<"Amount of animals: "<<animals.size();
+    std::map<int, SimuEllipse*> animals = simu_emelents->getAnimals();
+    qDebug()<<"Amount of animals: "<< simu_emelents->animalsCount();
     for (auto it = animals.begin(); it != animals.end(); ++it) {
         scene->addItem(it->second);
 //        qDebug()<<it->first; // id
     }
 
-    std::map<int, SimuEllipse*> supply = simuEmelents->getSupply();
-    qDebug()<<"Amount of supply: "<<supply.size();
+    std::map<int, SimuEllipse*> supply = simu_emelents->getSupply();
+    qDebug()<<"Amount of supply: "<< simu_emelents->supplyCount();
     for (auto it = supply.begin(); it != supply.end(); ++it) {
         scene->addItem(it->second);
 //        qDebug()<<it->first; // id
@@ -103,13 +91,13 @@ void SimuWidget::on_playPauseButton_clicked()
 {
     if(!time_wizard->isRunning()) {
         time_wizard->startTimer();
-        simuEmelents->setItemsClickable(false);
+        simu_emelents->setItemsClickable(false);
         ui->playPauseButton->setText("Pauza");
         ui->timeSlider->setEnabled(true);
     }
     else {
         time_wizard->stopTimer();
-        simuEmelents->setItemsClickable(true);
+        simu_emelents->setItemsClickable(true);
         ui->playPauseButton->setText("Kontynuuj");
         ui->timeSlider->setEnabled(false);
     }

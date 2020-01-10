@@ -84,6 +84,21 @@ std::map<int, SimuEllipse *> SimuElements::getSupply()
     return supply_list;
 }
 
+SimuEllipse *SimuElements::getAnimal(int id)
+{
+    return animals_list[id];
+}
+
+int SimuElements::animalsCount()
+{
+    return animals_list.size();
+}
+
+int SimuElements::supplyCount()
+{
+    return supply_list.size();
+}
+
 void SimuElements::setItemsMovable(bool enabled)
 {
     for (auto item = animals_list.begin(); item != animals_list.end(); ++item) {
@@ -97,11 +112,11 @@ void SimuElements::setItemsMovable(bool enabled)
 
 void SimuElements::setItemsClickable(bool enabled)
 {
-    for (auto item = animals_list.begin(); item != animals_list.end(); ++item) {
+    for (auto item : animals_list) {
         if(enabled)
-            item->second->setAcceptedMouseButtons(Qt::AllButtons);
+            item.second->setAcceptedMouseButtons(Qt::AllButtons);
         else
-            item->second->setAcceptedMouseButtons(0);
+            item.second->setAcceptedMouseButtons(0);
     }
 
     for (auto item = supply_list.begin(); item != supply_list.end(); ++item) {
@@ -110,6 +125,29 @@ void SimuElements::setItemsClickable(bool enabled)
         else
             item->second->setAcceptedMouseButtons(0);
     }
+}
+
+void SimuElements::updateAnimals(
+        boost::shared_ptr<EnvDataModel> data)
+{
+    for(auto animal : data->animals) {
+        animals_list[animal->id]->setPos(animal->x, animal->y);
+    }
+}
+
+boost::shared_ptr<EnvDataModel> SimuElements::createDataModel()
+{
+    boost::shared_ptr<EnvDataModel> model(new EnvDataModel());
+    for(auto an : animals_list){
+        model->animals.push_back(
+            new AnimalModel(
+                an.first,
+                an.second->x(),
+                an.second->y(),
+                an.second->getType()
+            ));
+    }
+    return model;
 }
 
 SimuElements* SimuElements::getInstance() {

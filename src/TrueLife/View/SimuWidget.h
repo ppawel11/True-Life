@@ -1,8 +1,6 @@
 #ifndef SIMUWIDGET_H
 #define SIMUWIDGET_H
 
-#include <boost/shared_ptr.hpp>
-
 #include <QWidget>
 #include <QGraphicsScene>
 
@@ -10,7 +8,6 @@
 #include "SimuElements.h"
 #include "Use-cases/Observer.h"
 #include "Entities/TimeWizard.h"
-#include "Model/EnvDataModel.h"
 
 namespace Ui {
 class SimuWidget;
@@ -46,7 +43,7 @@ private:
 
     QGraphicsScene *scene;
 
-    SimuElements *simuEmelents;
+    SimuElements *simu_emelents;
 
     boost::shared_ptr<TimeWizard> time_wizard;
 };

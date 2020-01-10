@@ -1,7 +1,8 @@
-#ifndef SIMUELEMENTS_H
+﻿#ifndef SIMUELEMENTS_H
 #define SIMUELEMENTS_H
 
 #include "SimuEllipse.h"
+#include "Model/EnvDataModel.h"
 #include "../Common.h"
 
 /**
@@ -24,8 +25,16 @@ public:
     std::map<int, SimuEllipse*> getAnimals();
     std::map<int, SimuEllipse*> getSupply();
 
+    SimuEllipse * getAnimal(int id);
+    int animalsCount();
+    int supplyCount();
+
     void setItemsMovable(bool enabled = true);
     void setItemsClickable(bool enabled = true);
+
+    void updateAnimals(boost::shared_ptr<EnvDataModel> data);
+    boost::shared_ptr<EnvDataModel> createDataModel();
+
 
 private:
     /**
@@ -43,7 +52,6 @@ private:
      * SymuEllipse* pointer to representation of simulated element
      */
     std::map<int, SimuEllipse*> supply_list;
-
     /**
      * @brief Increment-only counter for id generation for animals
      */
