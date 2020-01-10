@@ -6,15 +6,12 @@
 #include <boost/make_shared.hpp>
 
 #include "Common.h"
-#include "Model/EnvironmentDataModel.h"
+#include "Model/EnvDataModel.h"
 #include "Model/StatisticsModel.h"
 #include "Model/AnimalModel.h"
 #include <Use-cases/Observer.h>
 
 class Observer;
-
-typedef boost::shared_ptr<Observer> obs_ptr;
-typedef boost::shared_ptr<EnvironmentDataModel> data_ptr;
 
 /**
  * @brief Controls flow of data between View and Environment
@@ -22,17 +19,17 @@ typedef boost::shared_ptr<EnvironmentDataModel> data_ptr;
 class Controller
 {
 private:
-    obs_ptr env_observer;
-    obs_ptr simu_observer;
+    boost::shared_ptr<Observer> env_observer;
+    boost::shared_ptr<Observer> simu_observer;
 
 public:
     Controller();
 
-    void attachEnv(obs_ptr);
-    void attachSimu(obs_ptr);
+    void attachEnv(boost::shared_ptr<Observer>);
+    void attachSimu(boost::shared_ptr<Observer>);
 
-    void notifyEnv(data_ptr data);
-    void notifySimu(data_ptr data);
+    void notifyEnv(boost::shared_ptr<EnvDataModel> data);
+    void notifySimu(boost::shared_ptr<EnvDataModel> data);
 };
 
 #endif // CONTROLLER_H

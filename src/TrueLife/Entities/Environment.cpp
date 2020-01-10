@@ -30,9 +30,9 @@ void Environment::showAnimals(){
     }
 }
 
-data_ptr Environment::createDataModel()
+boost::shared_ptr<EnvDataModel> Environment::createDataModel()
 {
-    data_ptr model(new EnvironmentDataModel());
+    boost::shared_ptr<EnvDataModel> model(new EnvDataModel());
     for(auto an : animals){
         model->animals.push_back(
                     new AnimalModel(
@@ -44,7 +44,7 @@ data_ptr Environment::createDataModel()
     return model;
 }
 
-void Environment::update(data_ptr m){
+void Environment::update(boost::shared_ptr<EnvDataModel> m){
     for(auto animal_model : m->animals)
         addAnimal(animal_factory.createAnimal(animal_model));
 }

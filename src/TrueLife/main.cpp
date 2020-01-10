@@ -28,13 +28,14 @@ int main(int argc, char *argv[])
     boost::shared_ptr<Environment> env(new Environment(controller));
 
     // timer settings
-    time_ptr time_wizard(new TimeWizard());
+    boost::shared_ptr<TimeWizard> time_wizard(new TimeWizard());
     time_wizard->setPeriod(10);
     time_wizard->addObserver(env);
 
     QApplication app(argc, argv);
 
-    simu_ptr simu_widget(new SimuWidget(controller, time_wizard));
+    boost::shared_ptr<SimuWidget> simu_widget(
+                new SimuWidget(controller, time_wizard));
 
     controller->attachEnv(env);
     controller->attachSimu(simu_widget);
@@ -43,7 +44,6 @@ int main(int argc, char *argv[])
 
     MainWindow m_win(simu_widget);
     m_win.show();
-    int status = app.exec();
 
-    return status;
+    return app.exec();
 }

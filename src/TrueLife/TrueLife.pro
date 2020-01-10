@@ -25,51 +25,46 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-        main.cpp \
-    Use-cases/feeder.cpp \
-    Use-cases/multiplier.cpp \
-    Use-cases/creator.cpp \
+    main.cpp \
     Controller/Controller.cpp \
     Entities/Animal.cpp \
     Entities/Environment.cpp \
     Entities/TimeWizard.cpp \
+    Entities/Predator.cpp \
+    Entities/Herbivore.cpp \
     Use-cases/Observer.cpp \
+    Use-cases/AnimalFactory.cpp \
     View/CreatorWidget.cpp \
     View/MainWindow.cpp \
     View/SimuElements.cpp \
     View/SimuEllipse.cpp \
     View/SimuWidget.cpp \
-    View/StatWidget.cpp \
-    Use-cases/AnimalFactory.cpp \
-    Entities/Predator.cpp \
-    Entities/Herbivore.cpp
+    View/StatWidget.cpp
 
 HEADERS += \
-    Use-cases/feeder.h \
-    Use-cases/multiplier.h \
-    Model/Model.h \
     Controller/Controller.h \
     Entities/Animal.h \
     Entities/Environment.h \
     Entities/TimeWizard.h \
+    Entities/Predator.h \
+    Entities/Herbivore.h \
+    Model/EnvDataModel.h \
+    Model/Model.h \
     Model/AnimalModel.h \
-    Model/EnvironmentDataModel.h \
     Model/StatisticsModel.h \
     Use-cases/Observer.h \
     Use-cases/TimeObserver.h \
+    Use-cases/AnimalFactory.h \
     View/CreatorWidget.h \
     View/MainWindow.h \
     View/SimuElements.h \
     View/SimuEllipse.h \
     View/SimuWidget.h \
     View/StatWidget.h \
-    Common.h \
-    Use-cases/AnimalFactory.h \
-    Entities/Predator.h \
-    Entities/Herbivore.h
+    Common.h
 
 FORMS += \
-        View/mainwindow.ui \
+    View/mainwindow.ui \
     View/statwidget.ui \
     View/simuwidget.ui \
     View/creatorwidget.ui

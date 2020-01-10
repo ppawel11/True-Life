@@ -5,7 +5,7 @@
 #include <iostream>
 
 #include "Animal.h"
-#include "Model/EnvironmentDataModel.h"
+#include "Model/EnvDataModel.h"
 #include "Use-cases/Observer.h"
 #include "Use-cases/TimeObserver.h"
 #include "Use-cases/AnimalFactory.h"
@@ -43,12 +43,12 @@ public:
 
     void showAnimals(); /* only for debuging */
 
-    data_ptr createDataModel();
+    boost::shared_ptr<EnvDataModel> createDataModel();
 
     /**
      * @brief Gets initial data, used to create first set of Animals
      */
-    virtual void update(data_ptr);
+    virtual void update(boost::shared_ptr<EnvDataModel>);
 
     /**
      * @brief Run by TimeWizard, runs moveAnimals method periodically

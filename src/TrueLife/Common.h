@@ -12,6 +12,7 @@
 #include <QDebug> // qDebug()<<"Hello!";
 #include <QColor>
 
+
 enum ElementType {PREDATOR, HERBIVORE, WATER, FOOD};
 
 namespace Map {

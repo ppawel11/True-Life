@@ -9,7 +9,7 @@
 /**
  * @brief Hold models of Animals used in communication between Environment and MainWindow
  */
-struct EnvironmentDataModel: Model {
+struct EnvDataModel: Model {
     std::vector<AnimalModel*> animals;
 };
 

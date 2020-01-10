@@ -3,7 +3,7 @@
 
 #include <QPixmap>
 
-MainWindow::MainWindow(simu_ptr simu_widget, QWidget *parent) :
+MainWindow::MainWindow(boost::shared_ptr<SimuWidget> simu_widget, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {

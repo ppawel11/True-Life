@@ -2,7 +2,9 @@
 #include "ui_simuwidget.h"
 
 SimuWidget::SimuWidget(
-        Controller *contr, time_ptr time_wizard, QWidget *parent) :
+        Controller *contr,
+        boost::shared_ptr<TimeWizard> time_wizard,
+        QWidget *parent) :
     QWidget(parent),
     Observer(contr),
     ui(new Ui::SimuWidget)
@@ -58,8 +60,8 @@ void SimuWidget::startSimulation()
     controller->notifyEnv(createDataModel());
 }
 
-data_ptr SimuWidget::createDataModel(){
-    data_ptr model(new EnvironmentDataModel());
+boost::shared_ptr<EnvDataModel> SimuWidget::createDataModel(){
+    boost::shared_ptr<EnvDataModel> model(new EnvDataModel());
     for(auto an : simuEmelents->getAnimals()){
         model->animals.push_back(
                     new AnimalModel(
@@ -72,7 +74,7 @@ data_ptr SimuWidget::createDataModel(){
     return model;
 }
 
-void SimuWidget::update(data_ptr data)
+void SimuWidget::update(boost::shared_ptr<EnvDataModel> data)
 {
     std::map<int, SimuEllipse *> a_list = simuEmelents->getAnimals();
     for(auto animal : data->animals) {

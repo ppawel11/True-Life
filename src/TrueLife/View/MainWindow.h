@@ -25,8 +25,6 @@ namespace Ui {
 class MainWindow;
 }
 
-typedef boost::shared_ptr<SimuWidget> simu_ptr;
-
 /**
  * @brief Main window of the application
  */
@@ -36,7 +34,8 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(
-            simu_ptr simu_widget, QWidget *parent = 0);
+            boost::shared_ptr<SimuWidget> simu_widget,
+            QWidget *parent = 0);
 //    MainWindow(const MainWindow &toCopy);
     ~MainWindow();
 
@@ -62,7 +61,7 @@ private:
 
     QWidget* home_widget;
     std::unique_ptr<CreatorWidget> creator_widget;
-    simu_ptr simu_widget;
+    boost::shared_ptr<SimuWidget> simu_widget;
     std::unique_ptr<StatWidget> stat_widget;
 };
 

@@ -2,7 +2,6 @@
 #define SIMUWIDGET_H
 
 #include <boost/shared_ptr.hpp>
-#include <boost/make_shared.hpp>
 
 #include <QWidget>
 #include <QGraphicsScene>
@@ -11,13 +10,11 @@
 #include "SimuElements.h"
 #include "Use-cases/Observer.h"
 #include "Entities/TimeWizard.h"
-#include "Model/EnvironmentDataModel.h"
+#include "Model/EnvDataModel.h"
 
 namespace Ui {
 class SimuWidget;
 }
-
-typedef boost::shared_ptr<TimeWizard> time_ptr;
 
 /**
  * @brief Central widget of main window to show current simulation environment
@@ -28,16 +25,18 @@ class SimuWidget : public QWidget, public Observer
 
 public:
     explicit SimuWidget(
-            Controller *contr, time_ptr time_wizard, QWidget *parent = 0);
+            Controller *contr,
+            boost::shared_ptr<TimeWizard> time_wizard,
+            QWidget *parent = 0);
 //    SimuWidget(const SimuWidget &toCopy);
     ~SimuWidget();
 
     void initWidget();
     void setUpMap();
     void startSimulation();
-    data_ptr createDataModel();
+    boost::shared_ptr<EnvDataModel> createDataModel();
 
-    virtual void update(data_ptr data);
+    virtual void update(boost::shared_ptr<EnvDataModel> data);
 
 private slots:
     void on_playPauseButton_clicked();
@@ -49,7 +48,7 @@ private:
 
     SimuElements *simuEmelents;
 
-    time_ptr time_wizard;
+    boost::shared_ptr<TimeWizard> time_wizard;
 };
 
 #endif // SIMUWIDGET_H

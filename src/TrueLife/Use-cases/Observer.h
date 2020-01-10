@@ -19,7 +19,7 @@ public:
     /**
      * @brief Gives information about Aniamls currently living in the simulation
      */
-    virtual void update(boost::shared_ptr<EnvironmentDataModel>) {}
+    virtual void update(boost::shared_ptr<EnvDataModel>) {}
     /**
      * @brief Gives information about simulation statistics
      */
