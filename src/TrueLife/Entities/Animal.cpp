@@ -30,17 +30,18 @@ void Animal::die(){
     dead = true;
 }
 
-void Animal::eat(Food* food){
-    energy += food->getCalories();
-    food->beEeaten();
-}
+//void Animal::eat(Food* food){
+//    energy += food->getCalories();
+//    food->beEeaten();
+//}
+
 
 void Animal::show(){
-    std::cout<<x<<" "<<y<<std::endl;
+    std::cout<<x<<" "<<y<<" "<<mobility<<" "<<velocity<<" "<<energy<<std::endl;
 }
 
 void Animal::reduceEnergy(){
-    if (--energy <= 0)
+    if (energy <= 0)
         die();
 }
 

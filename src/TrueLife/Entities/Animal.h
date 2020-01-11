@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include "Food.h"
+#include "../Use-cases/AnimalVisitator.h"
 
 #include "../Common.h"
 
@@ -29,6 +30,9 @@ protected:
     int velocity;
     int mobility;
     int energy;
+    /**
+     * @brief When dead changes to true animal will be removed from environment animals vector during next time_tick
+     */
     bool dead;
 
 public:
@@ -46,7 +50,7 @@ public:
     /**
      * @brief Animal gets energy and destroys the eaten Food
      */
-    void eat(Food*);
+//    void eat(Food*);
     /**
      * @brief End of Animal's life
      */
@@ -59,6 +63,8 @@ public:
      * @brief Animal's energy decreases after movement, returns true if energy < 0
      */
     void reduceEnergy();
+
+    virtual void accept(AnimalVisitator*) = 0;
 
     bool isDead();
 

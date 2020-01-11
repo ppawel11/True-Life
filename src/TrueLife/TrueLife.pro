@@ -43,7 +43,8 @@ SOURCES += \
     Use-cases/AnimalFactory.cpp \
     Entities/Predator.cpp \
     Entities/Herbivore.cpp \
-    Entities/Food.cpp
+    Entities/Food.cpp \
+    Use-cases/AnimalVisitator.cpp
 
 HEADERS += \
     Use-cases/feeder.h \
@@ -68,7 +69,8 @@ HEADERS += \
     Use-cases/AnimalFactory.h \
     Entities/Predator.h \
     Entities/Herbivore.h \
-    Entities/Food.h
+    Entities/Food.h \
+    Use-cases/AnimalVisitator.h
 
 FORMS += \
         View/mainwindow.ui \
