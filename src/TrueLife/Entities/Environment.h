@@ -39,6 +39,7 @@ public:
     /**
      * @brief Move all Animals using Animal::step() method
      */
+
     void moveAnimals(int time_tick);
 
     void showAnimals(); /* only for debuging */

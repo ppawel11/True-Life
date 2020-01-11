@@ -42,7 +42,8 @@ SOURCES += \
     View/StatWidget.cpp \
     Use-cases/AnimalFactory.cpp \
     Entities/Predator.cpp \
-    Entities/Herbivore.cpp
+    Entities/Herbivore.cpp \
+    Entities/Food.cpp
 
 HEADERS += \
     Use-cases/feeder.h \
@@ -66,7 +67,8 @@ HEADERS += \
     Common.h \
     Use-cases/AnimalFactory.h \
     Entities/Predator.h \
-    Entities/Herbivore.h
+    Entities/Herbivore.h \
+    Entities/Food.h
 
 FORMS += \
         View/mainwindow.ui \

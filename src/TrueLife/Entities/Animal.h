@@ -5,6 +5,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include <math.h>
+#include "Food.h"
 
 #include "../Common.h"
 
@@ -26,6 +27,8 @@ protected:
      */
     float velo_x, velo_y;
     int velocity;
+    int mobility;
+    int energy;
 
 public:
     Animal(int, float, float);
@@ -33,6 +36,8 @@ public:
     int getX() {return x;}
     int getY() {return y;}
     int getVelocity() {return velocity;}
+    int getMobility() {return mobility;}
+
 
     /**
      * @brief Single animal movement
@@ -41,11 +46,15 @@ public:
     /**
      * @brief Animal gets energy and destroys the eaten Food
      */
-    void eat();
+    void eat(Food*);
     /**
      * @brief End of Animal's life
      */
     void die();
+
+    void changeDirectionRandomly();
+
+    void reduceEnergy();
 
     void show(); // debuging
 };

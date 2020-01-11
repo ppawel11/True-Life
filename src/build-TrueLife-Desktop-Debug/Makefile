@@ -35,7 +35,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = TrueLife1.0.0
-DISTDIR = /home/pawel/true_life/TrueLife/src/build-TrueLife-Desktop-Debug/.tmp/TrueLife1.0.0
+DISTDIR = /home/pawel/cpp/true_life/TrueLife/src/build-TrueLife-Desktop-Debug/.tmp/TrueLife1.0.0
 LINK          = g++
 LFLAGS        = 
 LIBS          = $(SUBLIBS) -lQt5Charts -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
@@ -64,7 +64,8 @@ SOURCES       = ../TrueLife/main.cpp \
 		../TrueLife/View/StatWidget.cpp \
 		../TrueLife/Use-cases/AnimalFactory.cpp \
 		../TrueLife/Entities/Predator.cpp \
-		../TrueLife/Entities/Herbivore.cpp qrc_images.cpp \
+		../TrueLife/Entities/Herbivore.cpp \
+		../TrueLife/Entities/Food.cpp qrc_images.cpp \
 		moc_TimeWizard.cpp \
 		moc_CreatorWidget.cpp \
 		moc_MainWindow.cpp \
@@ -85,6 +86,7 @@ OBJECTS       = main.o \
 		AnimalFactory.o \
 		Predator.o \
 		Herbivore.o \
+		Food.o \
 		qrc_images.o \
 		moc_TimeWizard.o \
 		moc_CreatorWidget.o \
@@ -146,6 +148,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		../TrueLife/.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -184,7 +187,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../TrueLife/Common.h \
 		../TrueLife/Use-cases/AnimalFactory.h \
 		../TrueLife/Entities/Predator.h \
-		../TrueLife/Entities/Herbivore.h ../TrueLife/main.cpp \
+		../TrueLife/Entities/Herbivore.h \
+		../TrueLife/Entities/Food.h ../TrueLife/main.cpp \
 		../TrueLife/Controller/Controller.cpp \
 		../TrueLife/Entities/Animal.cpp \
 		../TrueLife/Entities/Environment.cpp \
@@ -198,7 +202,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../TrueLife/View/StatWidget.cpp \
 		../TrueLife/Use-cases/AnimalFactory.cpp \
 		../TrueLife/Entities/Predator.cpp \
-		../TrueLife/Entities/Herbivore.cpp
+		../TrueLife/Entities/Herbivore.cpp \
+		../TrueLife/Entities/Food.cpp
 QMAKE_TARGET  = TrueLife
 DESTDIR       = 
 TARGET        = TrueLife
@@ -265,6 +270,7 @@ Makefile: ../TrueLife/TrueLife.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -346,6 +352,7 @@ Makefile: ../TrueLife/TrueLife.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -387,8 +394,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../TrueLife/images.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../TrueLife/Model/Model.h ../TrueLife/Controller/Controller.h ../TrueLife/Entities/Animal.h ../TrueLife/Entities/Environment.h ../TrueLife/Entities/TimeWizard.h ../TrueLife/Model/AnimalModel.h ../TrueLife/Model/EnvironmentDataModel.h ../TrueLife/Model/StatisticsModel.h ../TrueLife/Use-cases/Observer.h ../TrueLife/Use-cases/TimeObserver.h ../TrueLife/View/CreatorWidget.h ../TrueLife/View/MainWindow.h ../TrueLife/View/SimuElements.h ../TrueLife/View/SimuEllipse.h ../TrueLife/View/SimuWidget.h ../TrueLife/View/StatWidget.h ../TrueLife/Common.h ../TrueLife/Use-cases/AnimalFactory.h ../TrueLife/Entities/Predator.h ../TrueLife/Entities/Herbivore.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../TrueLife/main.cpp ../TrueLife/Controller/Controller.cpp ../TrueLife/Entities/Animal.cpp ../TrueLife/Entities/Environment.cpp ../TrueLife/Entities/TimeWizard.cpp ../TrueLife/Use-cases/Observer.cpp ../TrueLife/View/CreatorWidget.cpp ../TrueLife/View/MainWindow.cpp ../TrueLife/View/SimuElements.cpp ../TrueLife/View/SimuEllipse.cpp ../TrueLife/View/SimuWidget.cpp ../TrueLife/View/StatWidget.cpp ../TrueLife/Use-cases/AnimalFactory.cpp ../TrueLife/Entities/Predator.cpp ../TrueLife/Entities/Herbivore.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents Use-cases/multiplier.h ../TrueLife/Model/Model.h ../TrueLife/Controller/Controller.h ../TrueLife/Entities/Animal.h ../TrueLife/Entities/Environment.h ../TrueLife/Entities/TimeWizard.h ../TrueLife/Model/AnimalModel.h ../TrueLife/Model/EnvironmentDataModel.h ../TrueLife/Model/StatisticsModel.h ../TrueLife/Use-cases/Observer.h ../TrueLife/Use-cases/TimeObserver.h ../TrueLife/View/CreatorWidget.h ../TrueLife/View/MainWindow.h ../TrueLife/View/SimuElements.h ../TrueLife/View/SimuEllipse.h ../TrueLife/View/SimuWidget.h ../TrueLife/View/StatWidget.h ../TrueLife/Common.h ../TrueLife/Use-cases/AnimalFactory.h ../TrueLife/Entities/Predator.h ../TrueLife/Entities/Herbivore.h ../TrueLife/Entities/Food.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../TrueLife/main.cpp ../TrueLife/Controller/Controller.cpp ../TrueLife/Entities/Animal.cpp ../TrueLife/Entities/Environment.cpp ../TrueLife/Entities/TimeWizard.cpp ../TrueLife/Use-cases/Observer.cpp ../TrueLife/View/CreatorWidget.cpp ../TrueLife/View/MainWindow.cpp ../TrueLife/View/SimuElements.cpp ../TrueLife/View/SimuEllipse.cpp ../TrueLife/View/SimuWidget.cpp ../TrueLife/View/StatWidget.cpp ../TrueLife/Use-cases/AnimalFactory.cpp ../TrueLife/Entities/Predator.cpp ../TrueLife/Entities/Herbivore.cpp ../TrueLife/Entities/Food.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../TrueLife/View/mainwindow.ui ../TrueLife/View/statwidget.ui ../TrueLife/View/simuwidget.ui ../TrueLife/View/creatorwidget.ui $(DISTDIR)/
 
 
@@ -435,7 +442,7 @@ moc_TimeWizard.cpp: ../TrueLife/Common.h \
 		../TrueLife/Entities/TimeWizard.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/pawel/true_life/TrueLife/src/TrueLife -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TrueLife/Entities/TimeWizard.h -o moc_TimeWizard.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/pawel/cpp/true_life/TrueLife/src/TrueLife -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TrueLife/Entities/TimeWizard.h -o moc_TimeWizard.cpp
 
 moc_CreatorWidget.cpp: ../TrueLife/Common.h \
 		../TrueLife/View/SimuElements.h \
@@ -449,7 +456,7 @@ moc_CreatorWidget.cpp: ../TrueLife/Common.h \
 		../TrueLife/View/CreatorWidget.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/pawel/true_life/TrueLife/src/TrueLife -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TrueLife/View/CreatorWidget.h -o moc_CreatorWidget.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/pawel/cpp/true_life/TrueLife/src/TrueLife -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TrueLife/View/CreatorWidget.h -o moc_CreatorWidget.cpp
 
 moc_MainWindow.cpp: ../TrueLife/Common.h \
 		../TrueLife/View/CreatorWidget.h \
@@ -468,7 +475,7 @@ moc_MainWindow.cpp: ../TrueLife/Common.h \
 		../TrueLife/View/MainWindow.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/pawel/true_life/TrueLife/src/TrueLife -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TrueLife/View/MainWindow.h -o moc_MainWindow.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/pawel/cpp/true_life/TrueLife/src/TrueLife -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TrueLife/View/MainWindow.h -o moc_MainWindow.cpp
 
 moc_SimuWidget.cpp: ../TrueLife/Common.h \
 		../TrueLife/View/SimuElements.h \
@@ -484,7 +491,7 @@ moc_SimuWidget.cpp: ../TrueLife/Common.h \
 		../TrueLife/View/SimuWidget.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/pawel/true_life/TrueLife/src/TrueLife -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TrueLife/View/SimuWidget.h -o moc_SimuWidget.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/pawel/cpp/true_life/TrueLife/src/TrueLife -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TrueLife/View/SimuWidget.h -o moc_SimuWidget.cpp
 
 moc_StatWidget.cpp: ../TrueLife/Common.h \
 		../TrueLife/Controller/Controller.h \
@@ -496,7 +503,7 @@ moc_StatWidget.cpp: ../TrueLife/Common.h \
 		../TrueLife/View/StatWidget.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/pawel/true_life/TrueLife/src/TrueLife -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TrueLife/View/StatWidget.h -o moc_StatWidget.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include ./moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/pawel/cpp/true_life/TrueLife/src/TrueLife -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtCharts -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/backward -I/usr/lib/gcc/x86_64-linux-gnu/7/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../TrueLife/View/StatWidget.h -o moc_StatWidget.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -545,12 +552,12 @@ main.o: ../TrueLife/main.cpp ../TrueLife/View/MainWindow.h \
 		../TrueLife/Use-cases/TimeObserver.h \
 		../TrueLife/View/StatWidget.h \
 		../TrueLife/Entities/Animal.h \
+		../TrueLife/Entities/Food.h \
 		../TrueLife/Entities/Environment.h \
 		../TrueLife/Use-cases/AnimalFactory.h \
 		../TrueLife/Entities/Predator.h \
 		../TrueLife/Entities/Herbivore.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../TrueLife/main.cpp
-
 
 Controller.o: ../TrueLife/Controller/Controller.cpp ../TrueLife/Controller/Controller.h \
 		../TrueLife/Common.h \
@@ -562,11 +569,13 @@ Controller.o: ../TrueLife/Controller/Controller.cpp ../TrueLife/Controller/Contr
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Controller.o ../TrueLife/Controller/Controller.cpp
 
 Animal.o: ../TrueLife/Entities/Animal.cpp ../TrueLife/Entities/Animal.h \
+		../TrueLife/Entities/Food.h \
 		../TrueLife/Common.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Animal.o ../TrueLife/Entities/Animal.cpp
 
 Environment.o: ../TrueLife/Entities/Environment.cpp ../TrueLife/Entities/Environment.h \
 		../TrueLife/Entities/Animal.h \
+		../TrueLife/Entities/Food.h \
 		../TrueLife/Common.h \
 		../TrueLife/Model/EnvironmentDataModel.h \
 		../TrueLife/Model/Model.h \
@@ -662,6 +671,7 @@ StatWidget.o: ../TrueLife/View/StatWidget.cpp ../TrueLife/View/StatWidget.h \
 
 AnimalFactory.o: ../TrueLife/Use-cases/AnimalFactory.cpp ../TrueLife/Use-cases/AnimalFactory.h \
 		../TrueLife/Entities/Animal.h \
+		../TrueLife/Entities/Food.h \
 		../TrueLife/Common.h \
 		../TrueLife/Entities/Predator.h \
 		../TrueLife/Model/AnimalModel.h \
@@ -670,15 +680,20 @@ AnimalFactory.o: ../TrueLife/Use-cases/AnimalFactory.cpp ../TrueLife/Use-cases/A
 
 Predator.o: ../TrueLife/Entities/Predator.cpp ../TrueLife/Entities/Predator.h \
 		../TrueLife/Entities/Animal.h \
+		../TrueLife/Entities/Food.h \
 		../TrueLife/Common.h \
 		../TrueLife/Model/AnimalModel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Predator.o ../TrueLife/Entities/Predator.cpp
 
 Herbivore.o: ../TrueLife/Entities/Herbivore.cpp ../TrueLife/Entities/Herbivore.h \
 		../TrueLife/Entities/Animal.h \
+		../TrueLife/Entities/Food.h \
 		../TrueLife/Common.h \
 		../TrueLife/Model/AnimalModel.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Herbivore.o ../TrueLife/Entities/Herbivore.cpp
+
+Food.o: ../TrueLife/Entities/Food.cpp ../TrueLife/Entities/Food.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Food.o ../TrueLife/Entities/Food.cpp
 
 qrc_images.o: qrc_images.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_images.o qrc_images.cpp
