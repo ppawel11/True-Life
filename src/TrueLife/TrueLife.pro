@@ -39,7 +39,12 @@ SOURCES += \
     View/SimuElements.cpp \
     View/SimuEllipse.cpp \
     View/SimuWidget.cpp \
-    View/StatWidget.cpp
+    View/StatWidget.cpp \
+    Use-cases/AnimalFactory.cpp \
+    Entities/Predator.cpp \
+    Entities/Herbivore.cpp \
+    Entities/Food.cpp \
+    Use-cases/AnimalVisitator.cpp
 
 HEADERS += \
     Controller/Controller.h \
@@ -61,7 +66,12 @@ HEADERS += \
     View/SimuEllipse.h \
     View/SimuWidget.h \
     View/StatWidget.h \
-    Common.h
+    Common.h \
+    Use-cases/AnimalFactory.h \
+    Entities/Predator.h \
+    Entities/Herbivore.h \
+    Entities/Food.h \
+    Use-cases/AnimalVisitator.h
 
 FORMS += \
     View/mainwindow.ui \

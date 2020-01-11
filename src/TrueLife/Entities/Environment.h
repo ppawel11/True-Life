@@ -3,6 +3,8 @@
 
 #include <vector>
 #include <iostream>
+#include <boost/shared_ptr.hpp>
+#include <cmath>
 
 #include "Animal.h"
 #include "Model/EnvDataModel.h"
@@ -16,6 +18,8 @@
 class Environment: public Observer, public TimeObserver {
 private:
     std::vector<Animal*> animals;
+//    std::vector<Herbivore*> herbivores;
+//    std::vector<Predator*> predators;
     AnimalFactory animal_factory;
 
 public:
@@ -40,15 +44,27 @@ public:
      * @brief Move all Animals using Animal::step() method
      */
     void moveAnimals(int time_tick);
+    /**
+     * @brief Checks if animal
+     */
+    Animal* detectColision(Animal*);
 
     void showAnimals(); /* only for debuging */
 
     boost::shared_ptr<EnvDataModel> createDataModel();
 
+    void updateAnimals(int);
+
+    void moveAnimal(Animal*, int);
+
+    void interactAnimals(std::vector<Animal*>::iterator);
+
     /**
      * @brief Gets initial data, used to create first set of Animals
      */
     virtual void update(boost::shared_ptr<EnvDataModel>);
+
+    bool areClose(Animal*, Animal*);
 
     /**
      * @brief Run by TimeWizard, runs moveAnimals method periodically

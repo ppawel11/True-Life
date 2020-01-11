@@ -17,10 +17,34 @@ void Environment::addAnimal(Animal * animal){
     animals.push_back(animal);
 }
 
-void Environment::moveAnimals(int time_tick){
-    for(auto &animal : animals){
-        if (time_tick % (MAX_VELOCITY - animal->getVelocity() + 1) == 0)
-            animal->step();
+void Environment::moveAnimal(Animal* animal, int time_tick){
+    if ((random() % 100) < animal->getMobility())
+        animal->changeDirectionRandomly();
+    if (time_tick % (MAX_VELOCITY - animal->getVelocity() + 1) == 0){
+        animal->step();
+        animal->reduceEnergy();
+    }
+}
+
+void Environment::interactAnimals(std::vector<Animal*>::iterator animal_iterator){
+    if(AnimalVisitator *p = dynamic_cast<AnimalVisitator*>((*animal_iterator))){
+        auto it = animal_iterator;
+        while(++it != animals.end())
+            if (areClose((*animal_iterator), (*it)))
+                (*it)->accept(p);
+    }
+}
+
+void Environment::updateAnimals(int time_tick){
+    for(auto animal_iterator = animals.begin(); animal_iterator != animals.end(); ++animal_iterator){
+
+        if ((*animal_iterator)->isDead()){
+            animals.erase(animal_iterator--);
+            continue;
+        }
+
+        moveAnimal(*animal_iterator, time_tick);
+        interactAnimals(animal_iterator);
     }
 }
 
@@ -28,6 +52,12 @@ void Environment::showAnimals(){
     for(auto &animal : animals){
         animal->show();
     }
+}
+
+bool Environment::areClose(Animal* animal1, Animal* animal2){
+    if((fabs(animal1->getX() - animal2->getX()) < 10.0) && (fabs(animal1->getY() - animal2->getY()) < 10.0))
+        return true;
+    return false;
 }
 
 boost::shared_ptr<EnvDataModel> Environment::createDataModel()
@@ -50,6 +80,6 @@ void Environment::update(boost::shared_ptr<EnvDataModel> m){
 }
 
 void Environment::timeTick(int time_tick){
-    moveAnimals(time_tick);
+    updateAnimals(time_tick);
     controller->notifySimu(createDataModel());
 }

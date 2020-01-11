@@ -5,6 +5,8 @@
 #include <iostream>
 #include <stdlib.h>
 #include <math.h>
+#include "Food.h"
+#include "../Use-cases/AnimalVisitator.h"
 
 #include "../Common.h"
 
@@ -26,6 +28,12 @@ protected:
      */
     float velo_x, velo_y;
     int velocity;
+    int mobility;
+    int energy;
+    /**
+     * @brief When dead changes to true animal will be removed from environment animals vector during next time_tick
+     */
+    bool dead;
 
 public:
     Animal(int, float, float);
@@ -33,6 +41,7 @@ public:
     int getX() {return x;}
     int getY() {return y;}
     int getVelocity() {return velocity;}
+    int getMobility() {return mobility;}
 
     /**
      * @brief Single animal movement
@@ -41,11 +50,23 @@ public:
     /**
      * @brief Animal gets energy and destroys the eaten Food
      */
-    void eat();
+//    void eat(Food*);
     /**
      * @brief End of Animal's life
      */
     void die();
+    /**
+     * @brief Animal changes direction of movement, how often it happens depends on mobility
+     */
+    void changeDirectionRandomly();
+    /**
+     * @brief Animal's energy decreases after movement, returns true if energy < 0
+     */
+    void reduceEnergy();
+
+    virtual void accept(AnimalVisitator*) = 0;
+
+    bool isDead();
 
     void show(); // debuging
 };
