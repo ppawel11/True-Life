@@ -29,6 +29,7 @@ protected:
     int velocity;
     int mobility;
     int energy;
+    bool dead;
 
 public:
     Animal(int, float, float);
@@ -37,7 +38,6 @@ public:
     int getY() {return y;}
     int getVelocity() {return velocity;}
     int getMobility() {return mobility;}
-
 
     /**
      * @brief Single animal movement
@@ -51,10 +51,16 @@ public:
      * @brief End of Animal's life
      */
     void die();
-
+    /**
+     * @brief Animal changes direction of movement, how often it happens depends on mobility
+     */
     void changeDirectionRandomly();
-
+    /**
+     * @brief Animal's energy decreases after movement, returns true if energy < 0
+     */
     void reduceEnergy();
+
+    bool isDead();
 
     void show(); // debuging
 };

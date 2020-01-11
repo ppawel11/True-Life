@@ -18,16 +18,19 @@ void Environment::addAnimal(Animal * animal){
 }
 
 void Environment::moveAnimals(int time_tick){
-    for(auto &animal : animals){
-        if ((random() % 100) < animal->getMobility())
-            animal->changeDirectionRandomly();
-        if (time_tick % (MAX_VELOCITY - animal->getVelocity() + 1) == 0){
-            animal->step();
-            animal->reduceEnergy();
+    for(auto it = animals.begin(); it != animals.end(); it++){
+        if ((*it)->isDead())
+            animals.erase(it--);
+        else{
+            if ((random() % 100) < (*it)->getMobility())
+                (*it)->changeDirectionRandomly();
+            if (time_tick % (MAX_VELOCITY - (*it)->getVelocity() + 1) == 0){
+                (*it)->step();
+                ((*it)->reduceEnergy());
+            }
         }
     }
 }
-
 
 void Environment::showAnimals(){
     for(auto &animal : animals){

@@ -4,6 +4,7 @@ Animal::Animal(int id, float x, float y){
     this->id = id;
     this->x = x;
     this->y = y;
+    dead = false;
     velocity = (rand() % (MAX_VELOCITY-1)) + 1;
     velo_x = (rand() % VELOCITY_PRECISION*2)/float(VELOCITY_PRECISION) - 1;
     velo_y = round(VELOCITY_PRECISION*sqrt(1.0-(velo_x*velo_x)))/float(VELOCITY_PRECISION);
@@ -26,7 +27,7 @@ void Animal::changeDirectionRandomly(){
 }
 
 void Animal::die(){
-    delete this;
+    dead = true;
 }
 
 void Animal::eat(Food* food){
@@ -41,4 +42,8 @@ void Animal::show(){
 void Animal::reduceEnergy(){
     if (--energy <= 0)
         die();
+}
+
+bool Animal::isDead(){
+    return dead;
 }

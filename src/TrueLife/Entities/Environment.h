@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <iostream>
+#include <boost/shared_ptr.hpp>
 
 #include "Animal.h"
 #include "Model/EnvironmentDataModel.h"
@@ -39,8 +40,11 @@ public:
     /**
      * @brief Move all Animals using Animal::step() method
      */
-
     void moveAnimals(int time_tick);
+    /**
+     * @brief Checks if animal
+     */
+    Animal* detectColision(Animal*);
 
     void showAnimals(); /* only for debuging */
 
