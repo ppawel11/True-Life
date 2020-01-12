@@ -30,7 +30,7 @@ void Environment::interactAnimals(std::vector<Animal*>::iterator animal_iterator
     auto it = animal_iterator;
     while(++it != animals.end())
         if (areClose((*animal_iterator), (*it)))
-            (*it)->accept((*animal_iterator));
+            (*it)->accept(dynamic_cast<AnimalVisitator*>(*animal_iterator));
 }
 
 void Environment::updateAnimals(int time_tick){

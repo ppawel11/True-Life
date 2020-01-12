@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include "Food.h"
+#include "Use-cases/AnimalVisitator.h"
 
 #include "../Common.h"
 
@@ -67,7 +68,7 @@ public:
      */
     void reduceEnergy();
 
-    virtual void accept(Animal*) = 0;
+    virtual void accept(AnimalVisitator*) = 0;
 
     virtual void interact(Predator*) = 0;
     virtual void interact(Herbivore*) = 0;
