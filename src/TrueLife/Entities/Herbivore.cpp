@@ -4,7 +4,7 @@ void Herbivore::beEaten(){
     die();
 }
 
-void Herbivore::accept(AnimalVisitator * av){
+void Herbivore::accept(Animal * av){
     av->interact(this);
 }
 

@@ -27,12 +27,10 @@ void Environment::moveAnimal(Animal* animal, int time_tick){
 }
 
 void Environment::interactAnimals(std::vector<Animal*>::iterator animal_iterator){
-    if(AnimalVisitator *p = dynamic_cast<AnimalVisitator*>((*animal_iterator))){
-        auto it = animal_iterator;
-        while(++it != animals.end())
-            if (areClose((*animal_iterator), (*it)))
-                (*it)->accept(p);
-    }
+    auto it = animal_iterator;
+    while(++it != animals.end())
+        if (areClose((*animal_iterator), (*it)))
+            (*it)->accept((*animal_iterator));
 }
 
 void Environment::updateAnimals(int time_tick){

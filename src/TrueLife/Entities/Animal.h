@@ -6,7 +6,6 @@
 #include <stdlib.h>
 #include <math.h>
 #include "Food.h"
-#include "../Use-cases/AnimalVisitator.h"
 
 #include "../Common.h"
 
@@ -18,6 +17,10 @@ enum MoveState {WALK, SLEEP, CHASE, ESCAPE};
 /**
  * @brief Base for predators and herbivores
  */
+
+class Predator;
+class Herbivore;
+
 class Animal
 {
 protected:
@@ -64,7 +67,10 @@ public:
      */
     void reduceEnergy();
 
-    virtual void accept(AnimalVisitator*) = 0;
+    virtual void accept(Animal*) = 0;
+
+    virtual void interact(Predator*) = 0;
+    virtual void interact(Herbivore*) = 0;
 
     bool isDead();
 

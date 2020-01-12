@@ -3,7 +3,7 @@
 
 #include "Animal.h"
 #include "../Model/AnimalModel.h"
-#include "../Use-cases/AnimalVisitator.h"
+
 #include "Herbivore.h"
 
 
@@ -11,15 +11,13 @@
  * @brief Predator, kind of animal which eats Herbivore
  */
 
-class AnimalVisitator;
-
-class Predator: public Animal, public AnimalVisitator
+class Predator: public Animal
 {
 public:
     Predator(int id, int x, int y): Animal(id, x, y) {}
     Predator(AnimalModel * am): Animal(am->id, am->x, am->y) {}
 
-    void accept(AnimalVisitator*);
+    void accept(Animal*);
 
     virtual void interact(Herbivore *);
     virtual void interact(Predator *);

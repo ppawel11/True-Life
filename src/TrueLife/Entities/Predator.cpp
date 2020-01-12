@@ -9,6 +9,6 @@ void Predator::interact(Predator *){
 
 }
 
-void Predator::accept(AnimalVisitator * av){
+void Predator::accept(Animal * av){
     av->interact(this);
 }
