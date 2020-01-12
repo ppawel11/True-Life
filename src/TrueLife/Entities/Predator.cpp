@@ -1,4 +1,5 @@
 #include "Predator.h"
+#include "Herbivore.h"
 
 void Predator::interact(Herbivore * prey){
     energy += prey->getCalories();
@@ -9,6 +10,6 @@ void Predator::interact(Predator *){
 
 }
 
-void Predator::accept(Animal * av){
+void Predator::accept(AnimalVisitator * av){
     av->interact(this);
 }
