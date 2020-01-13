@@ -7,20 +7,32 @@
 
 /**
  * @brief Container for objects being visual representations of sumulated elements.
+ *
+ * The class is a singleton.
  */
 class SimuElements
 {
-public:
+private:
+    /**
+     * @brief Constructor
+     */
     SimuElements();
+
+public:
+    /**
+     * @brief Destructor
+     */
     ~SimuElements();
 
+    /**
+     * @brief By this function an instance of the class can be obtained
+     * @return pointer to an instance of the class
+     */
     static SimuElements* getInstance();
 
-    void addAnimal(SimuEllipse *animal);
-    void addSupply(SimuEllipse *supply);
+    void addElement(SimuEllipse *supply);
 
-    SimuEllipse * addAnimal(ElementType type);
-    SimuEllipse * addSupply(ElementType type);
+    SimuEllipse * addElement(ElementType type);
 
     std::map<int, SimuEllipse*> getAnimals();
     std::map<int, SimuEllipse*> getSupply();
@@ -32,7 +44,7 @@ public:
     void setItemsMovable(bool enabled = true);
     void setItemsClickable(bool enabled = true);
 
-    void updateAnimals(boost::shared_ptr<EnvDataModel> data);
+    void updateElements(boost::shared_ptr<EnvDataModel> data);
     boost::shared_ptr<EnvDataModel> createDataModel();
 
 

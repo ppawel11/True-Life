@@ -5,56 +5,33 @@ SimuElements::SimuElements():
 
 SimuElements::~SimuElements(){}
 
-void SimuElements::addAnimal(SimuEllipse *animal)
+void SimuElements::addElement(SimuEllipse *element)
 {
-    animals_list.insert({++id_counter_animals, animal});
+    int type = element->getType();
+    if(type == PREDATOR || type == HERBIVORE)
+        animals_list.insert({++id_counter_animals, element});
+    else
+        supply_list.insert({++id_counter_supply, element});
 }
 
-void SimuElements::addSupply(SimuEllipse *supply)
-{
-    supply_list.insert({++id_counter_supply, supply});
-}
-
-SimuEllipse * SimuElements::addAnimal(ElementType type)
-{
-    QPen pen(Qt::black);
-    pen.setWidth(1);
-
-    QBrush brush;
-    if(type == PREDATOR) {
-        brush.setColor(OurColors::red);
-        brush.setStyle(Qt::SolidPattern);
-    }
-    else if(type == HERBIVORE) {
-        brush.setColor(OurColors::green);
-        brush.setStyle(Qt::SolidPattern);
-    }
-    else {
-        qDebug()<<"Proba utworzenia zwierzęcia nieistniejącego typu!";
-        return nullptr;
-    }
-
-    SimuEllipse *animal =
-            new SimuEllipse(type,
-                            Map::WIDTH/2, Map::HEIGHT/2,
-                            Ani::WIDTH, Ani::HEIGHT,
-                            pen, brush);
-    addAnimal(animal);
-    return animal;
-}
-
-SimuEllipse * SimuElements::addSupply(ElementType type)
+SimuEllipse * SimuElements::addElement(ElementType type)
 {
     QPen pen(Qt::black);
     pen.setWidth(1);
 
     QBrush brush;
     int width, height;
-    if(type == WATER) {
-        brush.setColor(OurColors::blue);
+    if(type == PREDATOR) {
+        brush.setColor(OurColors::red);
         brush.setStyle(Qt::SolidPattern);
-        width = Wat::WIDTH;
-        height = Wat::HEIGHT;
+        width = Ani::WIDTH;
+        height = Ani::HEIGHT;
+    }
+    else if(type == HERBIVORE) {
+        brush.setColor(OurColors::green);
+        brush.setStyle(Qt::SolidPattern);
+        width = Ani::WIDTH;
+        height = Ani::HEIGHT;
     }
     else if(type == FOOD) {
         brush.setColor(OurColors::green);
@@ -62,16 +39,24 @@ SimuEllipse * SimuElements::addSupply(ElementType type)
         width = Foo::WIDTH;
         height = Foo::HEIGHT;
     }
+    else if(type == WATER) {
+        brush.setColor(OurColors::blue);
+        brush.setStyle(Qt::SolidPattern);
+        width = Wat::WIDTH;
+        height = Wat::HEIGHT;
+    }
     else {
         qDebug()<<"Proba utworzenia zasobu nieistniejącego typu!";
         return nullptr;
     }
 
-    SimuEllipse *supply =
-            new SimuEllipse(type, Map::WIDTH/2, Map::HEIGHT/2,
-                            width, height, pen, brush);
-    addSupply(supply);
-    return supply;
+    SimuEllipse *element =
+            new SimuEllipse(type,
+                            Map::WIDTH/2, Map::HEIGHT/2,
+                            width, height,
+                            pen, brush);
+    addElement(element);
+    return element;
 }
 
 std::map<int, SimuEllipse *> SimuElements::getAnimals()
@@ -127,7 +112,7 @@ void SimuElements::setItemsClickable(bool enabled)
     }
 }
 
-void SimuElements::updateAnimals(
+void SimuElements::updateElements(
         boost::shared_ptr<EnvDataModel> data)
 {
     for(auto animal : data->alive) {
@@ -140,7 +125,7 @@ void SimuElements::updateAnimals(
     }
 
     for(auto animal : data->born) {
-        addAnimal(animal->type);
+        addElement(animal->type);
         animals_list[id_counter_animals]->setPos(animal->x, animal->y);
         animal->id = id_counter_animals;
     }

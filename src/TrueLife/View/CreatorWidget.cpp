@@ -43,16 +43,16 @@ QAction *CreatorWidget::getStartAction()
     return startAction;
 }
 
-void CreatorWidget::createAnimals(ElementType type, int amount)
+void CreatorWidget::createElements(ElementType type, int amount)
 {
     int x, y;
-    int range_x = Map::WIDTH - 2*Ani::WIDTH;
-    int range_y = Map::HEIGHT - 2*Ani::HEIGHT;
+    int range_x = Map::WIDTH - 2*width(type);
+    int range_y = Map::HEIGHT - 2*height(type);
 
     srand (time(NULL));
 
     for(int i=0; i<amount; ++i) {
-        SimuEllipse *item = simuEmelents->addAnimal(type);
+        SimuEllipse *item = simuEmelents->addElement(type);
         x = rand() % range_x - range_x/2;
         y = rand() % range_y - range_y/2;
         item->setPos(x, y);
@@ -62,22 +62,43 @@ void CreatorWidget::createAnimals(ElementType type, int amount)
     }
 }
 
+int CreatorWidget::width(ElementType type)
+{
+    if(type == PREDATOR || type == HERBIVORE)
+        return Ani::WIDTH;
+    else if(type == FOOD)
+        return Foo::WIDTH;
+    else if(type == WATER)
+        return Wat::WIDTH;
+    else
+        return 0;
+}
+
+int CreatorWidget::height(ElementType type)
+{
+    if(type == PREDATOR || type == HERBIVORE)
+        return Ani::HEIGHT;
+    else if(type == FOOD)
+        return Foo::HEIGHT;
+    else if(type == WATER)
+        return Wat::HEIGHT;
+    else
+        return 0;
+}
+
 void CreatorWidget::on_addPredatorButton_clicked()
 {
-    createAnimals(PREDATOR, ui->predatorSpinBox->value());
+    createElements(PREDATOR, ui->predatorSpinBox->value());
 }
 
 void CreatorWidget::on_addHerbivoreButton_clicked()
 {
-    createAnimals(HERBIVORE, ui->herbivoreSpinBox->value());
+    createElements(HERBIVORE, ui->herbivoreSpinBox->value());
 }
 
 void CreatorWidget::on_addWaterButton_clicked()
 {
-    SimuEllipse *item = simuEmelents->addSupply(WATER);
-    item->setFlag(QGraphicsItem::ItemIsMovable);
-    scene->addItem(item);
-    ui->startButton->setEnabled(true);
+    createElements(WATER, ui->herbivoreSpinBox->value());
 }
 
 void CreatorWidget::on_startButton_clicked()

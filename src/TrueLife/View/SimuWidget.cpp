@@ -73,7 +73,7 @@ void SimuWidget::setUpMap()
 
 void SimuWidget::update(boost::shared_ptr<EnvDataModel> data)
 {
-    simu_emelents->updateAnimals(data);
+    simu_emelents->updateElements(data);
     for (auto animal : data->born) {
         scene->addItem(simu_emelents->getAnimal(animal->id));
     }
