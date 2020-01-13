@@ -16,24 +16,25 @@ void Environment::moveAnimal(Animal* animal, int time_tick){
         if ((random() % 100) < animal->getMobility())
             animal->changeDirectionRandomly();
         animal->step();
-        animal->reduceEnergy();
     }
+    animal->reduceEnergy();
 }
 
 void Environment::interactAnimals(std::vector<Animal*>::iterator animal_iterator){
-    auto it = animal_iterator;
-    while(++it != animals.end())
-        if (areClose((*animal_iterator), (*it))){
+//    auto it = animal_iterator;
+    for(auto it = animals.begin(); it != animals.end(); ++it){
+        if(it == animal_iterator){
+            continue;
+        }
+//        if (areClose((*animal_iterator), (*it)))
             AnimalModel* new_born = (*it)->accept((*animal_iterator));
             if (new_born != nullptr)
                 new_borns.push_back(new_born);
-        }
-
+    }
 }
 
 void Environment::updateAnimals(int time_tick){
-    for(auto animal_iterator = animals.begin();
-        animal_iterator != animals.end(); ++animal_iterator){
+    for(auto animal_iterator = animals.begin(); animal_iterator != animals.end(); ++animal_iterator){
 
         if ((*animal_iterator)->isDead()){
             died.push_back((*animal_iterator)->getId());

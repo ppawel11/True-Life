@@ -12,10 +12,5 @@ AnimalModel* Predator::interact(Herbivore * prey){
 }
 
 AnimalModel* Predator::interact(Predator * pred){
-    if(this->isReady() && pred->isReady()){
-        this->unready();
-        pred->unready();
-        return new AnimalModel(this->getX(), this->getY(), PREDATOR);
-    }
-    return nullptr;
+    return cooperate(pred, PREDATOR);
 }

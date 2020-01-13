@@ -8,7 +8,7 @@
 #include "Food.h"
 
 #include "../Common.h"
-
+#include "../Model/AnimalModel.h"
 
 enum MoveState {WALK, SLEEP, CHASE, ESCAPE};
 #define MAX_VELOCITY 10
@@ -20,7 +20,6 @@ enum MoveState {WALK, SLEEP, CHASE, ESCAPE};
 
 class Predator;
 class Herbivore;
-class AnimalModel;
 
 class Animal
 {
@@ -39,6 +38,10 @@ protected:
      */
     bool dead;
     int ready_cooldown;
+    int view_range;
+
+    Animal* mate_target;
+    MoveState move_state;
 
 public:
     Animal(int, float, float);
@@ -74,11 +77,20 @@ public:
     virtual AnimalModel* interact(Predator*) = 0;
     virtual AnimalModel* interact(Herbivore*) = 0;
 
+    virtual AnimalModel* cooperate(Animal*, ElementType);
+
     bool isDead();
 
     void unready();
     bool isReady();
     void reduceReadyCooldown();
+//    void setMoveState(MoveState);
+    void follow(Animal*);
+    void resetFollow();
+    double howFarIs(Animal*);
+    Animal* getTarget() {return mate_target;}
+    MoveState getMoveState() {return move_state;}
+    int getViewRange() {return view_range;}
 
     void show(); // debuging
 };

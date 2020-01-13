@@ -58,6 +58,7 @@ public:
     virtual void update(boost::shared_ptr<EnvDataModel>);
 
     bool areClose(Animal*, Animal*);
+//    double distanceBetweenAnimals(Animal*, Animal*);
 
     /**
      * @brief Run by TimeWizard, runs moveAnimals method periodically

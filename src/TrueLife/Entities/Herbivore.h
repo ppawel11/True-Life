@@ -2,7 +2,6 @@
 #define HERBIVORE_H
 
 #include "Animal.h"
-#include "../Model/AnimalModel.h"
 #include "Food.h"
 
 /**

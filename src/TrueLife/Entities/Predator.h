@@ -2,7 +2,6 @@
 #define PREDATOR_H
 
 #include "Animal.h"
-#include "../Model/AnimalModel.h"
 #include <QDebug>
 
 /**
