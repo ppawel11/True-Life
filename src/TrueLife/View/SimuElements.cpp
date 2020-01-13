@@ -130,8 +130,20 @@ void SimuElements::setItemsClickable(bool enabled)
 void SimuElements::updateAnimals(
         boost::shared_ptr<EnvDataModel> data)
 {
-    for(auto animal : data->animals) {
-        animals_list[animal->id]->setPos(animal->x, animal->y);
+    for(auto view_animal = animals_list.begin();
+            view_animal != animals_list.end(); ++view_animal) {
+        if(data->animals.find(view_animal->first)
+                != data->animals.end()) {
+            view_animal->second->setPos(
+                data->animals[view_animal->first]->x,
+                data->animals[view_animal->first]->y
+            );
+        }
+        else {
+            delete view_animal->second;
+            --view_animal;
+            animals_list.erase(std::next(view_animal)->first);
+        }
     }
 }
 
@@ -139,13 +151,13 @@ boost::shared_ptr<EnvDataModel> SimuElements::createDataModel()
 {
     boost::shared_ptr<EnvDataModel> model(new EnvDataModel());
     for(auto an : animals_list){
-        model->animals.push_back(
+        model->animals[an.first] =
             new AnimalModel(
                 an.first,
                 an.second->x(),
                 an.second->y(),
                 an.second->getType()
-            ));
+            );
     }
     return model;
 }

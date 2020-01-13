@@ -10,7 +10,8 @@
  * @brief Hold models of Animals used in communication between Environment and MainWindow
  */
 struct EnvDataModel: Model {
-    std::vector<AnimalModel*> animals;
+//    std::vector<AnimalModel*> animals;
+    std::map<int, AnimalModel*> animals;
 };
 
 #endif // INITDATAMODEL_H

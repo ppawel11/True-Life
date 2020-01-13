@@ -52,6 +52,7 @@ private:
      * SymuEllipse* pointer to representation of simulated element
      */
     std::map<int, SimuEllipse*> supply_list;
+
     /**
      * @brief Increment-only counter for id generation for animals
      */
