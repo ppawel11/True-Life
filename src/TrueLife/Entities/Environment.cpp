@@ -62,19 +62,24 @@ boost::shared_ptr<EnvDataModel> Environment::createDataModel()
 {
     boost::shared_ptr<EnvDataModel> model(new EnvDataModel());
     for(auto an : animals){
-        model->animals[an->getId()] =
+        model->alive.push_back(
             new AnimalModel(
                 an->getId(),
                 an->getX(),
                 an->getY()
-            );
+            ));
     }
     return model;
 }
 
 void Environment::update(boost::shared_ptr<EnvDataModel> data){
-    for(auto animal_model : data->animals)
-        addAnimal(animal_factory.createAnimal(animal_model.second));
+    for(auto animal_model : data->alive)
+        addAnimal(animal_factory.createAnimal(animal_model));
+}
+
+void Environment::update(std::vector<int> born_ids)
+{
+    // TO DO
 }
 
 void Environment::timeTick(int time_tick){

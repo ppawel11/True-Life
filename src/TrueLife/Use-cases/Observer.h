@@ -20,6 +20,9 @@ public:
      * @brief Gives information about Aniamls currently living in the simulation
      */
     virtual void update(boost::shared_ptr<EnvDataModel>) {}
+
+    virtual void update(std::vector<int>) {}
+
     /**
      * @brief Gives information about simulation statistics
      */

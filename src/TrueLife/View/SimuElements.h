@@ -32,7 +32,8 @@ public:
     void setItemsMovable(bool enabled = true);
     void setItemsClickable(bool enabled = true);
 
-    void updateAnimals(boost::shared_ptr<EnvDataModel> data);
+    std::vector<int> updateAnimals(
+            boost::shared_ptr<EnvDataModel> data);
     boost::shared_ptr<EnvDataModel> createDataModel();
 
 
@@ -55,11 +56,15 @@ private:
 
     /**
      * @brief Increment-only counter for id generation for animals
+     *
+     * its value is equal to the last created animal's ID
      */
     int id_counter_animals;
 
     /**
      * @brief Increment-only counter for id generation for supply
+     *
+     * its value is equal to the last created supply's ID
      */
     int id_counter_supply;
 };

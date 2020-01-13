@@ -73,7 +73,11 @@ void SimuWidget::setUpMap()
 
 void SimuWidget::update(boost::shared_ptr<EnvDataModel> data)
 {
-    simu_emelents->updateAnimals(data);
+    std::vector<int> born_ids = simu_emelents->updateAnimals(data);
+    for (auto id : born_ids) {
+        scene->addItem(simu_emelents->getAnimal(id));
+    }
+    controller->notifyEnv(born_ids);
 }
 
 void SimuWidget::on_playPauseButton_clicked()

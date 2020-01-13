@@ -1,9 +1,6 @@
 #include "Controller.h"
 
-Controller::Controller()
-{
-
-}
+Controller::Controller(){}
 
 void Controller::attachEnv(boost::shared_ptr<Observer> obs){
     env_observer = obs;
@@ -16,6 +13,11 @@ void Controller::attachSimu(boost::shared_ptr<Observer> obs){
 void Controller::notifyEnv(boost::shared_ptr<EnvDataModel> data){
     //boost::shared_ptr<InitDataModel> mod(data);
     env_observer->update(data);
+}
+
+void Controller::notifyEnv(std::vector<int> born_ids)
+{
+    env_observer->update(born_ids);
 }
 
 void Controller::notifySimu(boost::shared_ptr<EnvDataModel> data){

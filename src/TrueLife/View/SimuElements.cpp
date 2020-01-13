@@ -127,37 +127,39 @@ void SimuElements::setItemsClickable(bool enabled)
     }
 }
 
-void SimuElements::updateAnimals(
+std::vector<int> SimuElements::updateAnimals(
         boost::shared_ptr<EnvDataModel> data)
 {
-    for(auto view_animal = animals_list.begin();
-            view_animal != animals_list.end(); ++view_animal) {
-        if(data->animals.find(view_animal->first)
-                != data->animals.end()) {
-            view_animal->second->setPos(
-                data->animals[view_animal->first]->x,
-                data->animals[view_animal->first]->y
-            );
-        }
-        else {
-            delete view_animal->second;
-            --view_animal;
-            animals_list.erase(std::next(view_animal)->first);
-        }
+    for(auto animal : data->alive) {
+        animals_list[animal->id]->setPos(animal->x, animal->y);
     }
+
+    for(auto id : data->dead_ids) {
+        delete animals_list[id];
+        animals_list.erase(id);
+    }
+
+    std::vector<int> born_ids;
+    for(auto animal : data->born) {
+        addAnimal(animal->type);
+        animals_list[id_counter_animals]->setPos(animal->x, animal->y);
+        born_ids.push_back(id_counter_animals);
+    }
+
+    return born_ids;
 }
 
 boost::shared_ptr<EnvDataModel> SimuElements::createDataModel()
 {
     boost::shared_ptr<EnvDataModel> model(new EnvDataModel());
     for(auto an : animals_list){
-        model->animals[an.first] =
+        model->alive.push_back(
             new AnimalModel(
                 an.first,
                 an.second->x(),
                 an.second->y(),
                 an.second->getType()
-            );
+            ));
     }
     return model;
 }

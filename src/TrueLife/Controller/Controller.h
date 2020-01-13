@@ -29,6 +29,7 @@ public:
     void attachSimu(boost::shared_ptr<Observer>);
 
     void notifyEnv(boost::shared_ptr<EnvDataModel> data);
+    void notifyEnv(std::vector<int> born_ids);
     void notifySimu(boost::shared_ptr<EnvDataModel> data);
 };
 
