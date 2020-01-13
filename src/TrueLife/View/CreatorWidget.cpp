@@ -98,7 +98,7 @@ void CreatorWidget::on_addHerbivoreButton_clicked()
 
 void CreatorWidget::on_addWaterButton_clicked()
 {
-    createElements(WATER, ui->herbivoreSpinBox->value());
+    createElements(WATER, 1);
 }
 
 void CreatorWidget::on_startButton_clicked()
