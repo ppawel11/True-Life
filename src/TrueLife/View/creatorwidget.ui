@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout_2">
+  <layout class="QGridLayout" name="gridLayout_3">
    <item row="0" column="0">
     <widget class="QTextEdit" name="textEdit">
      <property name="html">
@@ -43,7 +43,7 @@ p, li { white-space: pre-wrap; }
      <item row="0" column="0">
       <widget class="QLabel" name="label">
        <property name="text">
-        <string>Wartość 1:</string>
+        <string>Wzrok:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -56,7 +56,7 @@ p, li { white-space: pre-wrap; }
      <item row="1" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>Wartość 2:</string>
+        <string>Prędkość:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -69,7 +69,7 @@ p, li { white-space: pre-wrap; }
      <item row="2" column="0">
       <widget class="QLabel" name="label_3">
        <property name="text">
-        <string>Wartość 3:</string>
+        <string>Ruchliwość:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -82,25 +82,45 @@ p, li { white-space: pre-wrap; }
     </layout>
    </item>
    <item row="2" column="0">
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0" colspan="2">
       <widget class="QPushButton" name="addWaterButton">
        <property name="text">
         <string>Dodaj zbiornik wodny</string>
        </property>
       </widget>
      </item>
-     <item>
+     <item row="1" column="0">
       <widget class="QPushButton" name="addPredatorButton">
        <property name="text">
         <string>Dodaj drapieżnika</string>
        </property>
       </widget>
      </item>
-     <item>
+     <item row="1" column="1">
+      <widget class="QSpinBox" name="predatorSpinBox">
+       <property name="minimum">
+        <number>1</number>
+       </property>
+       <property name="value">
+        <number>5</number>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
       <widget class="QPushButton" name="addHerbivoreButton">
        <property name="text">
         <string>Dodaj roślinożercę</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QSpinBox" name="herbivoreSpinBox">
+       <property name="minimum">
+        <number>1</number>
+       </property>
+       <property name="value">
+        <number>5</number>
        </property>
       </widget>
      </item>

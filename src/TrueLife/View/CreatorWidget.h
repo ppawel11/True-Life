@@ -25,6 +25,7 @@ public:
     ~CreatorWidget();
 
     QAction * getStartAction();
+    void createAnimals(ElementType type, int amount);
 
 private slots:
     void on_addPredatorButton_clicked();

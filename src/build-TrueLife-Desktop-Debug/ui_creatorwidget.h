@@ -19,8 +19,8 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QTextEdit>
-#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -28,7 +28,7 @@ QT_BEGIN_NAMESPACE
 class Ui_CreatorWidget
 {
 public:
-    QGridLayout *gridLayout_2;
+    QGridLayout *gridLayout_3;
     QTextEdit *textEdit;
     QGraphicsView *graphicsView;
     QGridLayout *gridLayout;
@@ -38,10 +38,12 @@ public:
     QLineEdit *lineEdit_2;
     QLabel *label_3;
     QLineEdit *lineEdit_3;
-    QVBoxLayout *verticalLayout;
+    QGridLayout *gridLayout_2;
     QPushButton *addWaterButton;
     QPushButton *addPredatorButton;
+    QSpinBox *predatorSpinBox;
     QPushButton *addHerbivoreButton;
+    QSpinBox *herbivoreSpinBox;
     QPushButton *startButton;
 
     void setupUi(QWidget *CreatorWidget)
@@ -49,19 +51,19 @@ public:
         if (CreatorWidget->objectName().isEmpty())
             CreatorWidget->setObjectName(QStringLiteral("CreatorWidget"));
         CreatorWidget->resize(770, 542);
-        gridLayout_2 = new QGridLayout(CreatorWidget);
-        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
+        gridLayout_3 = new QGridLayout(CreatorWidget);
+        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
         textEdit = new QTextEdit(CreatorWidget);
         textEdit->setObjectName(QStringLiteral("textEdit"));
         textEdit->setTextInteractionFlags(Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
-        gridLayout_2->addWidget(textEdit, 0, 0, 1, 1);
+        gridLayout_3->addWidget(textEdit, 0, 0, 1, 1);
 
         graphicsView = new QGraphicsView(CreatorWidget);
         graphicsView->setObjectName(QStringLiteral("graphicsView"));
         graphicsView->setMinimumSize(QSize(500, 0));
 
-        gridLayout_2->addWidget(graphicsView, 0, 1, 3, 1);
+        gridLayout_3->addWidget(graphicsView, 0, 1, 3, 1);
 
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
@@ -99,32 +101,46 @@ public:
         gridLayout->addWidget(lineEdit_3, 2, 1, 1, 1);
 
 
-        gridLayout_2->addLayout(gridLayout, 1, 0, 1, 1);
+        gridLayout_3->addLayout(gridLayout, 1, 0, 1, 1);
 
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        gridLayout_2 = new QGridLayout();
+        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
         addWaterButton = new QPushButton(CreatorWidget);
         addWaterButton->setObjectName(QStringLiteral("addWaterButton"));
 
-        verticalLayout->addWidget(addWaterButton);
+        gridLayout_2->addWidget(addWaterButton, 0, 0, 1, 2);
 
         addPredatorButton = new QPushButton(CreatorWidget);
         addPredatorButton->setObjectName(QStringLiteral("addPredatorButton"));
 
-        verticalLayout->addWidget(addPredatorButton);
+        gridLayout_2->addWidget(addPredatorButton, 1, 0, 1, 1);
+
+        predatorSpinBox = new QSpinBox(CreatorWidget);
+        predatorSpinBox->setObjectName(QStringLiteral("predatorSpinBox"));
+        predatorSpinBox->setMinimum(1);
+        predatorSpinBox->setValue(5);
+
+        gridLayout_2->addWidget(predatorSpinBox, 1, 1, 1, 1);
 
         addHerbivoreButton = new QPushButton(CreatorWidget);
         addHerbivoreButton->setObjectName(QStringLiteral("addHerbivoreButton"));
 
-        verticalLayout->addWidget(addHerbivoreButton);
+        gridLayout_2->addWidget(addHerbivoreButton, 2, 0, 1, 1);
+
+        herbivoreSpinBox = new QSpinBox(CreatorWidget);
+        herbivoreSpinBox->setObjectName(QStringLiteral("herbivoreSpinBox"));
+        herbivoreSpinBox->setMinimum(1);
+        herbivoreSpinBox->setValue(5);
+
+        gridLayout_2->addWidget(herbivoreSpinBox, 2, 1, 1, 1);
 
 
-        gridLayout_2->addLayout(verticalLayout, 2, 0, 1, 1);
+        gridLayout_3->addLayout(gridLayout_2, 2, 0, 1, 1);
 
         startButton = new QPushButton(CreatorWidget);
         startButton->setObjectName(QStringLiteral("startButton"));
 
-        gridLayout_2->addWidget(startButton, 3, 0, 1, 2);
+        gridLayout_3->addWidget(startButton, 3, 0, 1, 2);
 
 
         retranslateUi(CreatorWidget);
@@ -140,9 +156,9 @@ public:
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Prosz\304\231 wprowadzi\304\207 drapie\305\274nik\303\263w, ro\305\233lino\305\274erc\303\263w oraz wod\304\231 <span style=\" font-weight:600;\">w obr\304\231bie planszy</span>.</p></body></html>", Q_NULLPTR));
-        label->setText(QApplication::translate("CreatorWidget", "Warto\305\233\304\207 1:", Q_NULLPTR));
-        label_2->setText(QApplication::translate("CreatorWidget", "Warto\305\233\304\207 2:", Q_NULLPTR));
-        label_3->setText(QApplication::translate("CreatorWidget", "Warto\305\233\304\207 3:", Q_NULLPTR));
+        label->setText(QApplication::translate("CreatorWidget", "Wzrok:", Q_NULLPTR));
+        label_2->setText(QApplication::translate("CreatorWidget", "Pr\304\231dko\305\233\304\207:", Q_NULLPTR));
+        label_3->setText(QApplication::translate("CreatorWidget", "Ruchliwo\305\233\304\207:", Q_NULLPTR));
         addWaterButton->setText(QApplication::translate("CreatorWidget", "Dodaj zbiornik wodny", Q_NULLPTR));
         addPredatorButton->setText(QApplication::translate("CreatorWidget", "Dodaj drapie\305\274nika", Q_NULLPTR));
         addHerbivoreButton->setText(QApplication::translate("CreatorWidget", "Dodaj ro\305\233lino\305\274erc\304\231", Q_NULLPTR));

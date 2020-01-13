@@ -19,6 +19,10 @@ enum ElementType {PREDATOR, HERBIVORE, WATER, FOOD};
 namespace Map {
     static const int WIDTH = 500;
     static const int HEIGHT = 500;
+
+    /**
+     * @brief free space between map and graphics field border
+     */
     static const int BORDER = 10;
 }
 
