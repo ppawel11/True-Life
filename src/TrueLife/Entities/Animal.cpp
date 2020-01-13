@@ -4,22 +4,25 @@ Animal::Animal(int id, float x, float y){
     this->id = id;
     this->x = x;
     this->y = y;
-    dead = false;
+
     velocity = (rand() % (MAX_VELOCITY-1)) + 1;
     velo_x = (rand() % VELOCITY_PRECISION*2)/float(VELOCITY_PRECISION) - 1;
     velo_y = round(VELOCITY_PRECISION*sqrt(1.0-(velo_x*velo_x)))/float(VELOCITY_PRECISION);
     if (rand() % 2)
         velo_y *= -1;
-    mobility = 1;
-    energy = 2500;
-    ready_cooldown = 1000;
-    view_range = 100;
+
+    mobility = INIT_MOBILITY;
+    energy = INIT_ENERGY;
+    ready_cooldown = INIT_READY_COOLDOWN;
+    view_range = INIT_VIEW_RANGE;
+    dead = false;
     move_state = WALK;
     mate_target = nullptr;
 }
 
 void Animal::step(){
     if ((x+velo_x-15 < -1*Map::WIDTH/2) || (x+velo_x+15 > Map::WIDTH/2) || (y + velo_y-15 < -1* Map::HEIGHT /2) || (y+velo_y+15 > Map::HEIGHT/2)){
+        /* To be sure that animals will not get outside the board */
         changeDirectionRandomly();
         return;
     }
@@ -61,8 +64,8 @@ AnimalModel* Animal::cooperate(Animal * friend_animal, ElementType type){
         resetFollow();
     }
     else if(isReady() && friend_animal->isReady() && distance <= 10){
-        this->unready();
-        friend_animal->unready();
+        this->resetReadyCooldown();
+        friend_animal->resetReadyCooldown();
         resetFollow();
         return new AnimalModel(this->getX(), this->getY(), type);
     }
@@ -96,7 +99,7 @@ void Animal::die(){
     dead = true;
 }
 
-void Animal::unready(){
+void Animal::resetReadyCooldown(){
     ready_cooldown = 400;
 }
 

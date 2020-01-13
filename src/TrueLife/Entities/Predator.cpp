@@ -6,8 +6,10 @@ AnimalModel* Predator::accept(Animal * av){
 }
 
 AnimalModel* Predator::interact(Herbivore * prey){
-    energy += prey->getCalories();
-    prey->beEaten();
+    if (howFarIs(prey) < 10){
+        energy += prey->getCalories();
+        prey->beEaten();
+    }
     return nullptr;
 }
 

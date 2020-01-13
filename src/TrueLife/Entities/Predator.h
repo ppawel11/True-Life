@@ -15,7 +15,6 @@ public:
     Predator(AnimalModel * am): Animal(am->id, am->x, am->y) {}
 
     virtual AnimalModel* accept(Animal *);
-
     virtual AnimalModel* interact(Herbivore *);
     virtual AnimalModel* interact(Predator *);
 };

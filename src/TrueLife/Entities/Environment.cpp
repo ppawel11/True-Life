@@ -47,18 +47,6 @@ void Environment::updateAnimals(int time_tick){
     }
 }
 
-void Environment::showAnimals(){
-    for(auto &animal : animals){
-        animal->show();
-    }
-}
-
-bool Environment::areClose(Animal* animal1, Animal* animal2){
-    if((fabs(animal1->getX() - animal2->getX()) < 10.0) && (fabs(animal1->getY() - animal2->getY()) < 10.0))
-        return true;
-    return false;
-}
-
 boost::shared_ptr<EnvDataModel> Environment::createDataModel()
 {
     boost::shared_ptr<EnvDataModel> model(new EnvDataModel());
@@ -88,4 +76,10 @@ void Environment::update(boost::shared_ptr<EnvDataModel> data){
 void Environment::timeTick(int time_tick){
     updateAnimals(time_tick);
     controller->notifySimu(createDataModel());
+}
+
+void Environment::showAnimals(){
+    for(auto &animal : animals){
+        animal->show();
+    }
 }

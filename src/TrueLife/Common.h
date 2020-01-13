@@ -15,6 +15,7 @@
 
 
 enum ElementType {PREDATOR, HERBIVORE, WATER, FOOD};
+enum MoveState {WALK, SLEEP, CHASE, ESCAPE};
 
 namespace Map {
     static const int WIDTH = 500;
