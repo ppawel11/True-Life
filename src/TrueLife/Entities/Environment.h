@@ -18,6 +18,9 @@
 class Environment: public Observer, public TimeObserver {
 private:
     std::vector<Animal*> animals;
+    std::vector<AnimalModel*> new_borns;
+    std::vector<int> died;
+
     AnimalFactory animal_factory;
 
 public:

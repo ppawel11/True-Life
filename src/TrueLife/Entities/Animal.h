@@ -6,7 +6,6 @@
 #include <stdlib.h>
 #include <math.h>
 #include "Food.h"
-#include "Use-cases/AnimalVisitator.h"
 
 #include "../Common.h"
 
@@ -21,6 +20,7 @@ enum MoveState {WALK, SLEEP, CHASE, ESCAPE};
 
 class Predator;
 class Herbivore;
+class AnimalModel;
 
 class Animal
 {
@@ -38,6 +38,7 @@ protected:
      * @brief When dead changes to true animal will be removed from environment animals vector during next time_tick
      */
     bool dead;
+    bool ready;
 
 public:
     Animal(int, float, float);
@@ -68,12 +69,15 @@ public:
      */
     void reduceEnergy();
 
-    virtual void accept(AnimalVisitator*) = 0;
+    virtual AnimalModel* accept(Animal*) = 0;
 
-    virtual void interact(Predator*) = 0;
-    virtual void interact(Herbivore*) = 0;
+    virtual AnimalModel* interact(Predator*) = 0;
+    virtual AnimalModel* interact(Herbivore*) = 0;
 
     bool isDead();
+
+    void unready();
+    bool isReady();
 
     void show(); // debuging
 };

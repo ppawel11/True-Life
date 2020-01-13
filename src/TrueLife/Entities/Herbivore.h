@@ -4,13 +4,12 @@
 #include "Animal.h"
 #include "../Model/AnimalModel.h"
 #include "Food.h"
-//#include "Use-cases/AnimalVisitator.h"
 
 /**
  * @brief Herbivore, kind of animal which is eaten by Predator and eats randomly generated food
  */
 
-class Herbivore: public Animal, public Food, public AnimalVisitator
+class Herbivore: public Animal, public Food
 {
 public:
     Herbivore(int id, int x, int y): Animal(id, x, y), Food(2) {}
@@ -18,10 +17,10 @@ public:
 
     virtual void beEaten();
 
-    void accept(AnimalVisitator*);
+    virtual AnimalModel* accept(Animal*);
 
-    virtual void interact(Predator*);
-    virtual void interact(Herbivore*);
+    virtual AnimalModel* interact(Predator*);
+    virtual AnimalModel* interact(Herbivore*);
 };
 
 #endif // HERBIVORE_H

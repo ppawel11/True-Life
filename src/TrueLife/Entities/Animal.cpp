@@ -12,6 +12,7 @@ Animal::Animal(int id, float x, float y){
         velo_y *= -1;
     mobility = 1;
     energy = 100;
+    ready = true;
 }
 
 void Animal::step(){
@@ -28,6 +29,14 @@ void Animal::changeDirectionRandomly(){
 
 void Animal::die(){
     dead = true;
+}
+
+void Animal::unready(){
+    ready = false;
+}
+
+bool Animal::isReady(){
+    return ready;
 }
 
 //void Animal::eat(Food* food){

@@ -5,13 +5,19 @@ void Herbivore::beEaten(){
     die();
 }
 
-void Herbivore::accept(AnimalVisitator * av){
-    av->interact(this);
+AnimalModel* Herbivore::accept(Animal * av){
+    return av->interact(this);
 }
 
-void Herbivore::interact(Herbivore *){
+AnimalModel* Herbivore::interact(Herbivore * herb){
+    if (this->isReady() && herb->isReady()){
+        this->unready();
+        herb->unready();
+        return new AnimalModel(this->getX(), this->getY(), HERBIVORE);
+    }
+    return nullptr;
 }
 
-void Herbivore::interact(Predator * pred){
-    pred->interact(this);
+AnimalModel* Herbivore::interact(Predator * pred){
+    return pred->interact(this);
 }

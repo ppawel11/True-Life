@@ -12,21 +12,23 @@ void Environment::addAnimal(Animal * animal){
 }
 
 void Environment::moveAnimal(Animal* animal, int time_tick){
-    if ((random() % 100) < animal->getMobility())
-        animal->changeDirectionRandomly();
     if (time_tick % (MAX_VELOCITY - animal->getVelocity() + 1) == 0){
+        if ((random() % 100) < animal->getMobility())
+            animal->changeDirectionRandomly();
         animal->step();
         animal->reduceEnergy();
     }
 }
 
-void Environment::interactAnimals(
-        std::vector<Animal*>::iterator animal_iterator){
+void Environment::interactAnimals(std::vector<Animal*>::iterator animal_iterator){
     auto it = animal_iterator;
     while(++it != animals.end())
-        if (areClose((*animal_iterator), (*it)))
-            (*it)->accept(
-                    dynamic_cast<AnimalVisitator*>(*animal_iterator));
+        if (areClose((*animal_iterator), (*it))){
+            AnimalModel* new_born = (*it)->accept((*animal_iterator));
+            if (new_born != nullptr)
+                new_borns.push_back(new_born);
+        }
+
 }
 
 void Environment::updateAnimals(int time_tick){
@@ -34,6 +36,7 @@ void Environment::updateAnimals(int time_tick){
         animal_iterator != animals.end(); ++animal_iterator){
 
         if ((*animal_iterator)->isDead()){
+            died.push_back((*animal_iterator)->getId());
             animals.erase(animal_iterator--);
             continue;
         }
@@ -66,12 +69,19 @@ boost::shared_ptr<EnvDataModel> Environment::createDataModel()
                 an->getY()
             ));
     }
+    model->born = new_borns;
+    model->dead_ids = died;
+    died.clear();
+    new_borns.clear();
     return model;
 }
 
 void Environment::update(boost::shared_ptr<EnvDataModel> data){
     for(auto animal_model : data->alive)
         addAnimal(animal_factory.createAnimal(animal_model));
+    for(auto animal_model : data->born){
+        addAnimal(animal_factory.createAnimal(animal_model));
+    }
 }
 
 void Environment::timeTick(int time_tick){
