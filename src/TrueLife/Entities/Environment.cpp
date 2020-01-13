@@ -40,7 +40,7 @@ void Environment::updateAnimals(int time_tick){
             animals.erase(animal_iterator--);
             continue;
         }
-
+        (*animal_iterator)->reduceReadyCooldown();
         moveAnimal(*animal_iterator, time_tick);
         interactAnimals(animal_iterator);
     }

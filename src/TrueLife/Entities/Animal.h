@@ -38,7 +38,7 @@ protected:
      * @brief When dead changes to true animal will be removed from environment animals vector during next time_tick
      */
     bool dead;
-    bool ready;
+    int ready_cooldown;
 
 public:
     Animal(int, float, float);
@@ -78,6 +78,7 @@ public:
 
     void unready();
     bool isReady();
+    void reduceReadyCooldown();
 
     void show(); // debuging
 };

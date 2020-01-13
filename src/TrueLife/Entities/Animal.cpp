@@ -11,11 +11,15 @@ Animal::Animal(int id, float x, float y){
     if (rand() % 2)
         velo_y *= -1;
     mobility = 1;
-    energy = 100;
-    ready = true;
+    energy = 2000;
+    ready_cooldown = 400;
 }
 
 void Animal::step(){
+    if ((x+velo_x-5 < -1*Map::WIDTH/2) || (x+velo_x+15 > Map::WIDTH/2) || (y + velo_y-5 < -1* Map::HEIGHT /2) || (y+velo_y+15 > Map::HEIGHT/2)){
+        changeDirectionRandomly();
+        return;
+    }
     x += velo_x;
     y += velo_y;
 }
@@ -32,11 +36,18 @@ void Animal::die(){
 }
 
 void Animal::unready(){
-    ready = false;
+    ready_cooldown = 400;
 }
 
 bool Animal::isReady(){
-    return ready;
+    if (ready_cooldown == 0)
+            return true;
+    return false;
+}
+
+void Animal::reduceReadyCooldown(){
+    if (ready_cooldown > 0)
+        --ready_cooldown;
 }
 
 //void Animal::eat(Food* food){
@@ -50,7 +61,7 @@ void Animal::show(){
 }
 
 void Animal::reduceEnergy(){
-    if (energy <= 0)
+    if (--energy <= 0)
         die();
 }
 
