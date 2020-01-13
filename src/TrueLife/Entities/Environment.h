@@ -53,7 +53,6 @@ public:
      * @brief Gets initial data, used to create first set of Animals
      */
     virtual void update(boost::shared_ptr<EnvDataModel>);
-    virtual void update(std::vector<int> born_ids);
 
     bool areClose(Animal*, Animal*);
 

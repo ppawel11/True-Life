@@ -15,11 +15,6 @@ void Controller::notifyEnv(boost::shared_ptr<EnvDataModel> data){
     env_observer->update(data);
 }
 
-void Controller::notifyEnv(std::vector<int> born_ids)
-{
-    env_observer->update(born_ids);
-}
-
 void Controller::notifySimu(boost::shared_ptr<EnvDataModel> data){
     simu_observer->update(data);
 }

@@ -127,7 +127,7 @@ void SimuElements::setItemsClickable(bool enabled)
     }
 }
 
-std::vector<int> SimuElements::updateAnimals(
+void SimuElements::updateAnimals(
         boost::shared_ptr<EnvDataModel> data)
 {
     for(auto animal : data->alive) {
@@ -139,14 +139,14 @@ std::vector<int> SimuElements::updateAnimals(
         animals_list.erase(id);
     }
 
-    std::vector<int> born_ids;
     for(auto animal : data->born) {
         addAnimal(animal->type);
         animals_list[id_counter_animals]->setPos(animal->x, animal->y);
-        born_ids.push_back(id_counter_animals);
+        animal->id = id_counter_animals;
     }
 
-    return born_ids;
+    data->alive.clear();
+    data->dead_ids.clear();
 }
 
 boost::shared_ptr<EnvDataModel> SimuElements::createDataModel()

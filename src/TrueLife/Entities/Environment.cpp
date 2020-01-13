@@ -74,11 +74,6 @@ void Environment::update(boost::shared_ptr<EnvDataModel> data){
         addAnimal(animal_factory.createAnimal(animal_model));
 }
 
-void Environment::update(std::vector<int> born_ids)
-{
-    // TO DO
-}
-
 void Environment::timeTick(int time_tick){
     updateAnimals(time_tick);
     controller->notifySimu(createDataModel());

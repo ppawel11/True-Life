@@ -32,8 +32,7 @@ public:
     void setItemsMovable(bool enabled = true);
     void setItemsClickable(bool enabled = true);
 
-    std::vector<int> updateAnimals(
-            boost::shared_ptr<EnvDataModel> data);
+    void updateAnimals(boost::shared_ptr<EnvDataModel> data);
     boost::shared_ptr<EnvDataModel> createDataModel();
 
 

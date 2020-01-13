@@ -21,8 +21,6 @@ public:
      */
     virtual void update(boost::shared_ptr<EnvDataModel>) {}
 
-    virtual void update(std::vector<int>) {}
-
     /**
      * @brief Gives information about simulation statistics
      */

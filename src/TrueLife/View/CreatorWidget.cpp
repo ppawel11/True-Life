@@ -46,8 +46,8 @@ QAction *CreatorWidget::getStartAction()
 void CreatorWidget::createAnimals(ElementType type, int amount)
 {
     int x, y;
-    int range_x = Map::WIDTH - Ani::WIDTH;
-    int range_y = Map::HEIGHT - Ani::HEIGHT;
+    int range_x = Map::WIDTH - 2*Ani::WIDTH;
+    int range_y = Map::HEIGHT - 2*Ani::HEIGHT;
 
     srand (time(NULL));
 
