@@ -2,12 +2,6 @@
 
 Environment::Environment(Controller * contr) : Observer(contr) {}
 
-//Environment::Environment(const Environment &toCopy)
-//    : Observer(toCopy.controller)
-//{
-//    std::cout<<"Kopia Environment utworzona"<<std::endl;
-//}
-
 Environment::~Environment()
 {
     std::cout<<"Environment usunięty"<<std::endl;
@@ -26,15 +20,18 @@ void Environment::moveAnimal(Animal* animal, int time_tick){
     }
 }
 
-void Environment::interactAnimals(std::vector<Animal*>::iterator animal_iterator){
+void Environment::interactAnimals(
+        std::vector<Animal*>::iterator animal_iterator){
     auto it = animal_iterator;
     while(++it != animals.end())
         if (areClose((*animal_iterator), (*it)))
-            (*it)->accept(dynamic_cast<AnimalVisitator*>(*animal_iterator));
+            (*it)->accept(
+                    dynamic_cast<AnimalVisitator*>(*animal_iterator));
 }
 
 void Environment::updateAnimals(int time_tick){
-    for(auto animal_iterator = animals.begin(); animal_iterator != animals.end(); ++animal_iterator){
+    for(auto animal_iterator = animals.begin();
+        animal_iterator != animals.end(); ++animal_iterator){
 
         if ((*animal_iterator)->isDead()){
             animals.erase(animal_iterator--);

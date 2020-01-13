@@ -23,14 +23,6 @@ private:
 public:
     Environment(Controller * contr);
 
-//    /**
-//     * @brief Copy constructor
-//     * @param toCopy instance to copy
-//     *
-//     * Needed to make unique_ptr.
-//     */
-//    Environment(const Environment &toCopy);
-
     ~Environment();
 
     /**
