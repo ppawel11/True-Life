@@ -11,7 +11,9 @@
 #include "Model/AnimalModel.h"
 #include <Use-cases/Observer.h>
 
+
 class Observer;
+class SpecificAnimalModel;
 
 /**
  * @brief Controls flow of data between View and Environment
@@ -30,6 +32,8 @@ public:
 
     void notifyEnv(boost::shared_ptr<EnvDataModel> data);
     void notifySimu(boost::shared_ptr<EnvDataModel> data);
+
+    SpecificAnimalModel* request(int);
 };
 
 #endif // CONTROLLER_H

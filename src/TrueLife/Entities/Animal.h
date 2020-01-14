@@ -65,6 +65,8 @@ public:
     Animal* getTarget() {return mate_target;}
     MoveState getMoveState() {return move_state;}
     int getViewRange() {return view_range;}
+    int getEnergy() {return energy;}
+    int getReadyCooldown() {return ready_cooldown;}
     bool isReady();
     bool isDead();
 

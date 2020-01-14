@@ -8,6 +8,7 @@
 
 #include "Animal.h"
 #include "Model/EnvDataModel.h"
+#include "Model/SpecificAnimalModel.h"
 #include "Use-cases/Observer.h"
 #include "Use-cases/TimeObserver.h"
 #include "Use-cases/AnimalFactory.h"
@@ -63,6 +64,8 @@ public:
      * @brief Gets initial data, used to create first set of Animals and later to add new born Animals to the animals vector
      */
     virtual void update(boost::shared_ptr<EnvDataModel>);
+
+    virtual SpecificAnimalModel* update(int id);
     /**
      * @brief Run by TimeWizard, runs updateAnimals method periodically
      */
