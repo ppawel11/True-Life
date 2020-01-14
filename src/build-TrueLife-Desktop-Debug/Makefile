@@ -55,18 +55,17 @@ SOURCES       = ../TrueLife/main.cpp \
 		../TrueLife/Entities/Animal.cpp \
 		../TrueLife/Entities/Environment.cpp \
 		../TrueLife/Entities/TimeWizard.cpp \
-		../TrueLife/Use-cases/Observer.cpp \
+		../TrueLife/Abstracts/Observer.cpp \
 		../TrueLife/View/CreatorWidget.cpp \
 		../TrueLife/View/MainWindow.cpp \
 		../TrueLife/View/SimuElements.cpp \
 		../TrueLife/View/SimuEllipse.cpp \
 		../TrueLife/View/SimuWidget.cpp \
 		../TrueLife/View/StatWidget.cpp \
-		../TrueLife/Use-cases/AnimalFactory.cpp \
+		../TrueLife/Abstracts/AnimalFactory.cpp \
 		../TrueLife/Entities/Predator.cpp \
 		../TrueLife/Entities/Herbivore.cpp \
-		../TrueLife/Entities/Food.cpp \
-		../TrueLife/Use-cases/AnimalVisitator.cpp qrc_images.cpp \
+		../TrueLife/Entities/Food.cpp qrc_images.cpp \
 		moc_TimeWizard.cpp \
 		moc_CreatorWidget.cpp \
 		moc_MainWindow.cpp \
@@ -88,7 +87,6 @@ OBJECTS       = main.o \
 		Predator.o \
 		Herbivore.o \
 		Food.o \
-		AnimalVisitator.o \
 		qrc_images.o \
 		moc_TimeWizard.o \
 		moc_CreatorWidget.o \
@@ -177,8 +175,8 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../TrueLife/Model/AnimalModel.h \
 		../TrueLife/Model/EnvDataModel.h \
 		../TrueLife/Model/StatisticsModel.h \
-		../TrueLife/Use-cases/Observer.h \
-		../TrueLife/Use-cases/TimeObserver.h \
+		../TrueLife/Abstracts/Observer.h \
+		../TrueLife/Abstracts/TimeObserver.h \
 		../TrueLife/View/CreatorWidget.h \
 		../TrueLife/View/MainWindow.h \
 		../TrueLife/View/SimuElements.h \
@@ -186,27 +184,25 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../TrueLife/View/SimuWidget.h \
 		../TrueLife/View/StatWidget.h \
 		../TrueLife/Common.h \
-		../TrueLife/Use-cases/AnimalFactory.h \
+		../TrueLife/Abstracts/AnimalFactory.h \
 		../TrueLife/Entities/Predator.h \
 		../TrueLife/Entities/Herbivore.h \
-		../TrueLife/Entities/Food.h \
-		../TrueLife/Use-cases/AnimalVisitator.h ../TrueLife/main.cpp \
+		../TrueLife/Entities/Food.h ../TrueLife/main.cpp \
 		../TrueLife/Controller/Controller.cpp \
 		../TrueLife/Entities/Animal.cpp \
 		../TrueLife/Entities/Environment.cpp \
 		../TrueLife/Entities/TimeWizard.cpp \
-		../TrueLife/Use-cases/Observer.cpp \
+		../TrueLife/Abstracts/Observer.cpp \
 		../TrueLife/View/CreatorWidget.cpp \
 		../TrueLife/View/MainWindow.cpp \
 		../TrueLife/View/SimuElements.cpp \
 		../TrueLife/View/SimuEllipse.cpp \
 		../TrueLife/View/SimuWidget.cpp \
 		../TrueLife/View/StatWidget.cpp \
-		../TrueLife/Use-cases/AnimalFactory.cpp \
+		../TrueLife/Abstracts/AnimalFactory.cpp \
 		../TrueLife/Entities/Predator.cpp \
 		../TrueLife/Entities/Herbivore.cpp \
 		../TrueLife/Entities/Food.cpp \
-		../TrueLife/Use-cases/AnimalVisitator.cpp
 QMAKE_TARGET  = TrueLife
 DESTDIR       = 
 TARGET        = TrueLife
@@ -393,8 +389,8 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../TrueLife/images.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../TrueLife/Model/Model.h ../TrueLife/Controller/Controller.h ../TrueLife/Entities/Animal.h ../TrueLife/Entities/Environment.h ../TrueLife/Entities/TimeWizard.h ../TrueLife/Model/AnimalModel.h ../TrueLife/Model/EnvDataModel.h ../TrueLife/Model/StatisticsModel.h ../TrueLife/Use-cases/Observer.h ../TrueLife/Use-cases/TimeObserver.h ../TrueLife/View/CreatorWidget.h ../TrueLife/View/MainWindow.h ../TrueLife/View/SimuElements.h ../TrueLife/View/SimuEllipse.h ../TrueLife/View/SimuWidget.h ../TrueLife/View/StatWidget.h ../TrueLife/Common.h ../TrueLife/Use-cases/AnimalFactory.h ../TrueLife/Entities/Predator.h ../TrueLife/Entities/Herbivore.h ../TrueLife/Entities/Food.h ../TrueLife/Use-cases/AnimalVisitator.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../TrueLife/main.cpp ../TrueLife/Controller/Controller.cpp ../TrueLife/Entities/Animal.cpp ../TrueLife/Entities/Environment.cpp ../TrueLife/Entities/TimeWizard.cpp ../TrueLife/Use-cases/Observer.cpp ../TrueLife/View/CreatorWidget.cpp ../TrueLife/View/MainWindow.cpp ../TrueLife/View/SimuElements.cpp ../TrueLife/View/SimuEllipse.cpp ../TrueLife/View/SimuWidget.cpp ../TrueLife/View/StatWidget.cpp ../TrueLife/Use-cases/AnimalFactory.cpp ../TrueLife/Entities/Predator.cpp ../TrueLife/Entities/Herbivore.cpp ../TrueLife/Entities/Food.cpp ../TrueLife/Use-cases/AnimalVisitator.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../TrueLife/Model/Model.h ../TrueLife/Controller/Controller.h ../TrueLife/Entities/Animal.h ../TrueLife/Entities/Environment.h ../TrueLife/Entities/TimeWizard.h ../TrueLife/Model/AnimalModel.h ../TrueLife/Model/EnvDataModel.h ../TrueLife/Model/StatisticsModel.h ../TrueLife/Abstracts/Observer.h ../TrueLife/Abstracts/TimeObserver.h ../TrueLife/View/CreatorWidget.h ../TrueLife/View/MainWindow.h ../TrueLife/View/SimuElements.h ../TrueLife/View/SimuEllipse.h ../TrueLife/View/SimuWidget.h ../TrueLife/View/StatWidget.h ../TrueLife/Common.h ../TrueLife/Abstracts/AnimalFactory.h ../TrueLife/Entities/Predator.h ../TrueLife/Entities/Herbivore.h ../TrueLife/Entities/Food.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../TrueLife/main.cpp ../TrueLife/Controller/Controller.cpp ../TrueLife/Entities/Animal.cpp ../TrueLife/Entities/Environment.cpp ../TrueLife/Entities/TimeWizard.cpp ../TrueLife/Abstracts/Observer.cpp ../TrueLife/View/CreatorWidget.cpp ../TrueLife/View/MainWindow.cpp ../TrueLife/View/SimuElements.cpp ../TrueLife/View/SimuEllipse.cpp ../TrueLife/View/SimuWidget.cpp ../TrueLife/View/StatWidget.cpp ../TrueLife/Abstracts/AnimalFactory.cpp ../TrueLife/Entities/Predator.cpp ../TrueLife/Entities/Herbivore.cpp ../TrueLife/Entities/Food.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../TrueLife/View/mainwindow.ui ../TrueLife/View/statwidget.ui ../TrueLife/View/simuwidget.ui ../TrueLife/View/creatorwidget.ui $(DISTDIR)/
 
 
@@ -438,7 +434,7 @@ compiler_moc_header_make_all: moc_TimeWizard.cpp moc_CreatorWidget.cpp moc_MainW
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_TimeWizard.cpp moc_CreatorWidget.cpp moc_MainWindow.cpp moc_SimuWidget.cpp moc_StatWidget.cpp
 moc_TimeWizard.cpp: ../TrueLife/Common.h \
-		../TrueLife/Use-cases/TimeObserver.h \
+		../TrueLife/Abstracts/TimeObserver.h \
 		../TrueLife/Entities/TimeWizard.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
@@ -452,7 +448,7 @@ moc_CreatorWidget.cpp: ../TrueLife/Common.h \
 		../TrueLife/Model/Model.h \
 		../TrueLife/Model/AnimalModel.h \
 		../TrueLife/Model/StatisticsModel.h \
-		../TrueLife/Use-cases/Observer.h \
+		../TrueLife/Abstracts/Observer.h \
 		../TrueLife/View/CreatorWidget.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
@@ -467,10 +463,10 @@ moc_MainWindow.cpp: ../TrueLife/Common.h \
 		../TrueLife/Model/Model.h \
 		../TrueLife/Model/AnimalModel.h \
 		../TrueLife/Model/StatisticsModel.h \
-		../TrueLife/Use-cases/Observer.h \
+		../TrueLife/Abstracts/Observer.h \
 		../TrueLife/View/SimuWidget.h \
 		../TrueLife/Entities/TimeWizard.h \
-		../TrueLife/Use-cases/TimeObserver.h \
+		../TrueLife/Abstracts/TimeObserver.h \
 		../TrueLife/View/StatWidget.h \
 		../TrueLife/View/MainWindow.h \
 		moc_predefs.h \
@@ -480,14 +476,14 @@ moc_MainWindow.cpp: ../TrueLife/Common.h \
 moc_SimuWidget.cpp: ../TrueLife/Common.h \
 		../TrueLife/View/SimuElements.h \
 		../TrueLife/View/SimuEllipse.h \
-		../TrueLife/Use-cases/Observer.h \
+		../TrueLife/Abstracts/Observer.h \
 		../TrueLife/Controller/Controller.h \
 		../TrueLife/Model/EnvDataModel.h \
 		../TrueLife/Model/Model.h \
 		../TrueLife/Model/AnimalModel.h \
 		../TrueLife/Model/StatisticsModel.h \
 		../TrueLife/Entities/TimeWizard.h \
-		../TrueLife/Use-cases/TimeObserver.h \
+		../TrueLife/Abstracts/TimeObserver.h \
 		../TrueLife/View/SimuWidget.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
@@ -499,7 +495,7 @@ moc_StatWidget.cpp: ../TrueLife/Common.h \
 		../TrueLife/Model/Model.h \
 		../TrueLife/Model/AnimalModel.h \
 		../TrueLife/Model/StatisticsModel.h \
-		../TrueLife/Use-cases/Observer.h \
+		../TrueLife/Abstracts/Observer.h \
 		../TrueLife/View/StatWidget.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
@@ -546,17 +542,16 @@ main.o: ../TrueLife/main.cpp ../TrueLife/View/MainWindow.h \
 		../TrueLife/Model/Model.h \
 		../TrueLife/Model/AnimalModel.h \
 		../TrueLife/Model/StatisticsModel.h \
-		../TrueLife/Use-cases/Observer.h \
+		../TrueLife/Abstracts/Observer.h \
 		../TrueLife/View/SimuWidget.h \
 		../TrueLife/Entities/TimeWizard.h \
-		../TrueLife/Use-cases/TimeObserver.h \
+		../TrueLife/Abstracts/TimeObserver.h \
 		../TrueLife/View/StatWidget.h \
 		../TrueLife/Entities/Animal.h \
 		../TrueLife/Entities/Food.h \
 		../TrueLife/Entities/Environment.h \
-		../TrueLife/Use-cases/AnimalFactory.h \
+		../TrueLife/Abstracts/AnimalFactory.h \
 		../TrueLife/Entities/Predator.h \
-		../TrueLife/Use-cases/AnimalVisitator.h \
 		../TrueLife/Entities/Herbivore.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../TrueLife/main.cpp
 
@@ -567,7 +562,7 @@ Controller.o: ../TrueLife/Controller/Controller.cpp ../TrueLife/Controller/Contr
 		../TrueLife/Model/Model.h \
 		../TrueLife/Model/AnimalModel.h \
 		../TrueLife/Model/StatisticsModel.h \
-		../TrueLife/Use-cases/Observer.h
+		../TrueLife/Abstracts/Observer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Controller.o ../TrueLife/Controller/Controller.cpp
 
 Animal.o: ../TrueLife/Entities/Animal.cpp ../TrueLife/Entities/Animal.h \
@@ -582,29 +577,28 @@ Environment.o: ../TrueLife/Entities/Environment.cpp ../TrueLife/Entities/Environ
 		../TrueLife/Model/EnvDataModel.h \
 		../TrueLife/Model/Model.h \
 		../TrueLife/Model/AnimalModel.h \
-		../TrueLife/Use-cases/Observer.h \
+		../TrueLife/Abstracts/Observer.h \
 		../TrueLife/Controller/Controller.h \
 		../TrueLife/Model/StatisticsModel.h \
-		../TrueLife/Use-cases/TimeObserver.h \
-		../TrueLife/Use-cases/AnimalFactory.h \
+		../TrueLife/Abstracts/TimeObserver.h \
+		../TrueLife/Abstracts/AnimalFactory.h \
 		../TrueLife/Entities/Predator.h \
-		../TrueLife/Use-cases/AnimalVisitator.h \
 		../TrueLife/Entities/Herbivore.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Environment.o ../TrueLife/Entities/Environment.cpp
 
 TimeWizard.o: ../TrueLife/Entities/TimeWizard.cpp ../TrueLife/Entities/TimeWizard.h \
 		../TrueLife/Common.h \
-		../TrueLife/Use-cases/TimeObserver.h
+		../TrueLife/Abstracts/TimeObserver.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o TimeWizard.o ../TrueLife/Entities/TimeWizard.cpp
 
-Observer.o: ../TrueLife/Use-cases/Observer.cpp ../TrueLife/Use-cases/Observer.h \
+Observer.o: ../TrueLife/Abstracts/Observer.cpp ../TrueLife/Abstracts/Observer.h \
 		../TrueLife/Controller/Controller.h \
 		../TrueLife/Common.h \
 		../TrueLife/Model/EnvDataModel.h \
 		../TrueLife/Model/Model.h \
 		../TrueLife/Model/AnimalModel.h \
 		../TrueLife/Model/StatisticsModel.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Observer.o ../TrueLife/Use-cases/Observer.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Observer.o ../TrueLife/Abstracts/Observer.cpp
 
 CreatorWidget.o: ../TrueLife/View/CreatorWidget.cpp ../TrueLife/View/CreatorWidget.h \
 		../TrueLife/Common.h \
@@ -615,7 +609,7 @@ CreatorWidget.o: ../TrueLife/View/CreatorWidget.cpp ../TrueLife/View/CreatorWidg
 		../TrueLife/Model/Model.h \
 		../TrueLife/Model/AnimalModel.h \
 		../TrueLife/Model/StatisticsModel.h \
-		../TrueLife/Use-cases/Observer.h \
+		../TrueLife/Abstracts/Observer.h \
 		ui_creatorwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o CreatorWidget.o ../TrueLife/View/CreatorWidget.cpp
 
@@ -629,10 +623,10 @@ MainWindow.o: ../TrueLife/View/MainWindow.cpp ../TrueLife/View/MainWindow.h \
 		../TrueLife/Model/Model.h \
 		../TrueLife/Model/AnimalModel.h \
 		../TrueLife/Model/StatisticsModel.h \
-		../TrueLife/Use-cases/Observer.h \
+		../TrueLife/Abstracts/Observer.h \
 		../TrueLife/View/SimuWidget.h \
 		../TrueLife/Entities/TimeWizard.h \
-		../TrueLife/Use-cases/TimeObserver.h \
+		../TrueLife/Abstracts/TimeObserver.h \
 		../TrueLife/View/StatWidget.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainWindow.o ../TrueLife/View/MainWindow.cpp
@@ -650,14 +644,14 @@ SimuWidget.o: ../TrueLife/View/SimuWidget.cpp ../TrueLife/View/SimuWidget.h \
 		../TrueLife/Common.h \
 		../TrueLife/View/SimuElements.h \
 		../TrueLife/View/SimuEllipse.h \
-		../TrueLife/Use-cases/Observer.h \
+		../TrueLife/Abstracts/Observer.h \
 		../TrueLife/Controller/Controller.h \
 		../TrueLife/Model/EnvDataModel.h \
 		../TrueLife/Model/Model.h \
 		../TrueLife/Model/AnimalModel.h \
 		../TrueLife/Model/StatisticsModel.h \
 		../TrueLife/Entities/TimeWizard.h \
-		../TrueLife/Use-cases/TimeObserver.h \
+		../TrueLife/Abstracts/TimeObserver.h \
 		ui_simuwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SimuWidget.o ../TrueLife/View/SimuWidget.cpp
 
@@ -668,26 +662,24 @@ StatWidget.o: ../TrueLife/View/StatWidget.cpp ../TrueLife/View/StatWidget.h \
 		../TrueLife/Model/Model.h \
 		../TrueLife/Model/AnimalModel.h \
 		../TrueLife/Model/StatisticsModel.h \
-		../TrueLife/Use-cases/Observer.h \
+		../TrueLife/Abstracts/Observer.h \
 		ui_statwidget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o StatWidget.o ../TrueLife/View/StatWidget.cpp
 
-AnimalFactory.o: ../TrueLife/Use-cases/AnimalFactory.cpp ../TrueLife/Use-cases/AnimalFactory.h \
+AnimalFactory.o: ../TrueLife/Abstracts/AnimalFactory.cpp ../TrueLife/Abstracts/AnimalFactory.h \
 		../TrueLife/Entities/Animal.h \
 		../TrueLife/Entities/Food.h \
 		../TrueLife/Common.h \
 		../TrueLife/Entities/Predator.h \
 		../TrueLife/Model/AnimalModel.h \
-		../TrueLife/Use-cases/AnimalVisitator.h \
 		../TrueLife/Entities/Herbivore.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o AnimalFactory.o ../TrueLife/Use-cases/AnimalFactory.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o AnimalFactory.o ../TrueLife/Abstracts/AnimalFactory.cpp
 
 Predator.o: ../TrueLife/Entities/Predator.cpp ../TrueLife/Entities/Predator.h \
 		../TrueLife/Entities/Animal.h \
 		../TrueLife/Entities/Food.h \
 		../TrueLife/Common.h \
 		../TrueLife/Model/AnimalModel.h \
-		../TrueLife/Use-cases/AnimalVisitator.h \
 		../TrueLife/Entities/Herbivore.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Predator.o ../TrueLife/Entities/Predator.cpp
 
@@ -700,15 +692,6 @@ Herbivore.o: ../TrueLife/Entities/Herbivore.cpp ../TrueLife/Entities/Herbivore.h
 
 Food.o: ../TrueLife/Entities/Food.cpp ../TrueLife/Entities/Food.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Food.o ../TrueLife/Entities/Food.cpp
-
-AnimalVisitator.o: ../TrueLife/Use-cases/AnimalVisitator.cpp ../TrueLife/Use-cases/AnimalVisitator.h \
-		../TrueLife/Entities/Herbivore.h \
-		../TrueLife/Entities/Animal.h \
-		../TrueLife/Entities/Food.h \
-		../TrueLife/Common.h \
-		../TrueLife/Model/AnimalModel.h \
-		../TrueLife/Entities/Predator.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o AnimalVisitator.o ../TrueLife/Use-cases/AnimalVisitator.cpp
 
 qrc_images.o: qrc_images.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_images.o qrc_images.cpp

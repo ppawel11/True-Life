@@ -12,7 +12,7 @@
 #include "Model/EnvDataModel.h"
 #include "Model/StatisticsModel.h"
 #include "Model/AnimalModel.h"
-#include <Use-cases/Observer.h>
+#include <Abstracts/Observer.h>
 
 
 class Observer;

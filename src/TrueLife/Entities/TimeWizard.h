@@ -11,7 +11,7 @@
 #include <QTimer>
 
 #include "Common.h"
-#include "Use-cases/TimeObserver.h"
+#include "Abstracts/TimeObserver.h"
 
 /**
  * @brief Handles time measurement and makes movement possible

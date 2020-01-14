@@ -12,9 +12,9 @@
 #include "Animal.h"
 #include "Model/EnvDataModel.h"
 #include "Model/SpecificAnimalModel.h"
-#include "Use-cases/Observer.h"
-#include "Use-cases/TimeObserver.h"
-#include "Use-cases/AnimalFactory.h"
+#include "Abstracts/Observer.h"
+#include "Abstracts/TimeObserver.h"
+#include "Abstracts/AnimalFactory.h"
 
 /**
  * @brief Environment brain, containing all animals and managing them

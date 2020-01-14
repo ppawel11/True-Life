@@ -32,19 +32,22 @@ SOURCES += \
     Entities/TimeWizard.cpp \
     Entities/Predator.cpp \
     Entities/Herbivore.cpp \
-    Use-cases/Observer.cpp \
-    Use-cases/AnimalFactory.cpp \
+    Abstracts/Observer.cpp \
+    Abstracts/AnimalFactory.cpp \
     View/CreatorWidget.cpp \
     View/MainWindow.cpp \
     View/SimuElements.cpp \
     View/SimuEllipse.cpp \
     View/SimuWidget.cpp \
     View/StatWidget.cpp \
-    Use-cases/AnimalFactory.cpp \
+    Abstracts/AnimalFactory.cpp \
     Entities/Predator.cpp \
     Entities/Herbivore.cpp \
     Entities/Food.cpp \
-    Use-cases/AnimalVisitator.cpp
+    Abstracts/AnimalVisitator.cpp \
+    Abstracts/AnimalFactory.cpp \
+    Abstracts/AnimalVisitator.cpp \
+    Abstracts/Observer.cpp
 
 HEADERS += \
     Controller/Controller.h \
@@ -57,9 +60,9 @@ HEADERS += \
     Model/Model.h \
     Model/AnimalModel.h \
     Model/StatisticsModel.h \
-    Use-cases/Observer.h \
-    Use-cases/TimeObserver.h \
-    Use-cases/AnimalFactory.h \
+    Abstracts/Observer.h \
+    Abstracts/TimeObserver.h \
+    Abstracts/AnimalFactory.h \
     View/CreatorWidget.h \
     View/MainWindow.h \
     View/SimuElements.h \
@@ -67,12 +70,14 @@ HEADERS += \
     View/SimuWidget.h \
     View/StatWidget.h \
     Common.h \
-    Use-cases/AnimalFactory.h \
+    Abstracts/AnimalFactory.h \
     Entities/Predator.h \
     Entities/Herbivore.h \
     Entities/Food.h \
-    Use-cases/AnimalVisitator.h \
-    Model/SpecificAnimalModel.h
+    Model/SpecificAnimalModel.h \
+    Abstracts/AnimalFactory.h \
+    Abstracts/Observer.h \
+    Abstracts/TimeObserver.h
 
 FORMS += \
     View/mainwindow.ui \
