@@ -9,10 +9,14 @@ SimuElements::~SimuElements(){}
 void SimuElements::addElement(SimuEllipse *element)
 {
     int type = element->getType();
-    if(type == PREDATOR || type == HERBIVORE)
+    if(type == PREDATOR || type == HERBIVORE) {
         animals_list.insert({++id_counter_animals, element});
-    else
+        element->setID(id_counter_animals);
+    }
+    else {
         supply_list.insert({++id_counter_supply, element});
+        element->setID(id_counter_supply);
+    }
 }
 
 SimuEllipse * SimuElements::addElement(ElementType type)
@@ -99,17 +103,25 @@ void SimuElements::setItemsMovable(bool enabled)
 void SimuElements::setItemsClickable(bool enabled)
 {
     for (auto item : animals_list) {
-        if(enabled)
+        if(enabled) {
             item.second->setAcceptedMouseButtons(Qt::AllButtons);
-        else
+            item.second->setCursor(QCursor(Qt::PointingHandCursor));
+        }
+        else {
             item.second->setAcceptedMouseButtons(0);
+            item.second->setCursor(QCursor(Qt::ArrowCursor));
+        }
     }
 
-    for (auto item = supply_list.begin(); item != supply_list.end(); ++item) {
-        if(enabled)
-            item->second->setAcceptedMouseButtons(Qt::AllButtons);
-        else
-            item->second->setAcceptedMouseButtons(0);
+    for (auto item : supply_list) {
+        if(enabled) {
+            item.second->setAcceptedMouseButtons(Qt::AllButtons);
+            item.second->setCursor(QCursor(Qt::PointingHandCursor));
+        }
+        else {
+            item.second->setAcceptedMouseButtons(0);
+            item.second->setCursor(QCursor(Qt::ArrowCursor));
+        }
     }
 }
 

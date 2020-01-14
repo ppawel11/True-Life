@@ -1,6 +1,8 @@
 ﻿#ifndef SIMUELEMENTS_H
 #define SIMUELEMENTS_H
 
+#include <QCursor>
+
 #include "SimuEllipse.h"
 #include "Model/EnvDataModel.h"
 #include "Model/StatisticsModel.h"

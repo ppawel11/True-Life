@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
@@ -33,12 +34,17 @@ public:
     QGridLayout *gridLayout;
     QPushButton *statsButton;
     QLabel *label_5;
+    QFrame *line;
     QLabel *label_2;
-    QLineEdit *lineEdit;
+    QLineEdit *speedLineEdit;
     QLabel *label_3;
-    QLineEdit *lineEdit_2;
+    QLineEdit *activenessLineEdit;
     QLabel *label_4;
-    QLineEdit *lineEdit_3;
+    QLineEdit *sightLineEdit;
+    QLabel *label_6;
+    QLineEdit *readyLineEdit;
+    QLabel *label_7;
+    QLineEdit *ageLineEdit;
     QHBoxLayout *horizontalLayout;
     QPushButton *playPauseButton;
     QLabel *label;
@@ -61,50 +67,80 @@ public:
         statsButton = new QPushButton(SimuWidget);
         statsButton->setObjectName(QStringLiteral("statsButton"));
         statsButton->setMinimumSize(QSize(0, 50));
+        QFont font;
+        font.setPointSize(14);
+        statsButton->setFont(font);
 
         gridLayout->addWidget(statsButton, 0, 0, 1, 2);
 
         label_5 = new QLabel(SimuWidget);
         label_5->setObjectName(QStringLiteral("label_5"));
-        QFont font;
-        font.setPointSize(14);
         label_5->setFont(font);
         label_5->setAlignment(Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft);
 
-        gridLayout->addWidget(label_5, 1, 0, 1, 2);
+        gridLayout->addWidget(label_5, 1, 0, 1, 2, Qt::AlignHCenter);
+
+        line = new QFrame(SimuWidget);
+        line->setObjectName(QStringLiteral("line"));
+        line->setFrameShape(QFrame::HLine);
+        line->setFrameShadow(QFrame::Sunken);
+
+        gridLayout->addWidget(line, 2, 0, 1, 2);
 
         label_2 = new QLabel(SimuWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        gridLayout->addWidget(label_2, 2, 0, 1, 1);
+        gridLayout->addWidget(label_2, 3, 0, 1, 1);
 
-        lineEdit = new QLineEdit(SimuWidget);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        speedLineEdit = new QLineEdit(SimuWidget);
+        speedLineEdit->setObjectName(QStringLiteral("speedLineEdit"));
 
-        gridLayout->addWidget(lineEdit, 2, 1, 1, 1);
+        gridLayout->addWidget(speedLineEdit, 3, 1, 1, 1);
 
         label_3 = new QLabel(SimuWidget);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        gridLayout->addWidget(label_3, 3, 0, 1, 1);
+        gridLayout->addWidget(label_3, 4, 0, 1, 1);
 
-        lineEdit_2 = new QLineEdit(SimuWidget);
-        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
+        activenessLineEdit = new QLineEdit(SimuWidget);
+        activenessLineEdit->setObjectName(QStringLiteral("activenessLineEdit"));
 
-        gridLayout->addWidget(lineEdit_2, 3, 1, 1, 1);
+        gridLayout->addWidget(activenessLineEdit, 4, 1, 1, 1);
 
         label_4 = new QLabel(SimuWidget);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        gridLayout->addWidget(label_4, 4, 0, 1, 1);
+        gridLayout->addWidget(label_4, 5, 0, 1, 1);
 
-        lineEdit_3 = new QLineEdit(SimuWidget);
-        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
+        sightLineEdit = new QLineEdit(SimuWidget);
+        sightLineEdit->setObjectName(QStringLiteral("sightLineEdit"));
 
-        gridLayout->addWidget(lineEdit_3, 4, 1, 1, 1);
+        gridLayout->addWidget(sightLineEdit, 5, 1, 1, 1);
+
+        label_6 = new QLabel(SimuWidget);
+        label_6->setObjectName(QStringLiteral("label_6"));
+        label_6->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        gridLayout->addWidget(label_6, 6, 0, 1, 1);
+
+        readyLineEdit = new QLineEdit(SimuWidget);
+        readyLineEdit->setObjectName(QStringLiteral("readyLineEdit"));
+
+        gridLayout->addWidget(readyLineEdit, 6, 1, 1, 1);
+
+        label_7 = new QLabel(SimuWidget);
+        label_7->setObjectName(QStringLiteral("label_7"));
+        label_7->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        gridLayout->addWidget(label_7, 7, 0, 1, 1);
+
+        ageLineEdit = new QLineEdit(SimuWidget);
+        ageLineEdit->setObjectName(QStringLiteral("ageLineEdit"));
+
+        gridLayout->addWidget(ageLineEdit, 7, 1, 1, 1);
 
 
         gridLayout_2->addLayout(gridLayout, 0, 1, 1, 1);
@@ -142,12 +178,16 @@ public:
     {
         SimuWidget->setWindowTitle(QApplication::translate("SimuWidget", "Form", Q_NULLPTR));
         statsButton->setText(QApplication::translate("SimuWidget", "Statystyki globalne", Q_NULLPTR));
-        label_5->setText(QApplication::translate("SimuWidget", "Statystyki osobnika:", Q_NULLPTR));
-        label_2->setText(QApplication::translate("SimuWidget", "Czas \305\274ycia:", Q_NULLPTR));
-        label_3->setText(QApplication::translate("SimuWidget", "Ilo\305\233\304\207 dzieci:", Q_NULLPTR));
-        lineEdit_2->setText(QApplication::translate("SimuWidget", "?", Q_NULLPTR));
-        label_4->setText(QApplication::translate("SimuWidget", "Warto\305\233\304\207 3:", Q_NULLPTR));
-        lineEdit_3->setText(QApplication::translate("SimuWidget", "-", Q_NULLPTR));
+        label_5->setText(QApplication::translate("SimuWidget", "Statystyki osobnika", Q_NULLPTR));
+        label_2->setText(QApplication::translate("SimuWidget", "Pr\304\231dko\305\233\304\207:", Q_NULLPTR));
+        label_3->setText(QApplication::translate("SimuWidget", "Ruchliwo\305\233\304\207:", Q_NULLPTR));
+        activenessLineEdit->setText(QString());
+        label_4->setText(QApplication::translate("SimuWidget", "Zasi\304\231g wzroku:", Q_NULLPTR));
+        sightLineEdit->setText(QString());
+        label_6->setText(QApplication::translate("SimuWidget", "Dojrza\305\202y?:", Q_NULLPTR));
+        readyLineEdit->setText(QString());
+        label_7->setText(QApplication::translate("SimuWidget", "Wiek:", Q_NULLPTR));
+        ageLineEdit->setText(QString());
         playPauseButton->setText(QApplication::translate("SimuWidget", "Kontynuuj", Q_NULLPTR));
         label->setText(QApplication::translate("SimuWidget", "Szybko\305\233\304\207 up\305\202ywu czasu:", Q_NULLPTR));
     } // retranslateUi

@@ -71,7 +71,8 @@ HEADERS += \
     Entities/Predator.h \
     Entities/Herbivore.h \
     Entities/Food.h \
-    Use-cases/AnimalVisitator.h
+    Use-cases/AnimalVisitator.h \
+    Model/SpecificAnimalModel.h
 
 FORMS += \
     View/mainwindow.ui \

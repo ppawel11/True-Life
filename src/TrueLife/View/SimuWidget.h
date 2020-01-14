@@ -33,6 +33,9 @@ public:
     StatisticsModel * getStats();
     QAction * getStatsAction();
 
+    void listenToAction(QAction * action);
+    void showAnimalStats(int id);
+
     virtual void update(boost::shared_ptr<EnvDataModel> data);
 
 private slots:
@@ -41,6 +44,8 @@ private slots:
     void on_timeSlider_sliderReleased();
 
     void on_statsButton_clicked();
+
+    void heardAnimal();
 
 private:
     Ui::SimuWidget *ui;

@@ -1,7 +1,9 @@
 #ifndef SIMUELLIPSE_H
 #define SIMUELLIPSE_H
 
+#include <QAction>
 #include <QGraphicsEllipseItem>
+#include <QVariant>
 #include <QPen>
 #include <QBrush>
 
@@ -17,6 +19,11 @@ public:
     SimuEllipse(ElementType type, int x, int y, int width, int height, QPen pen, QBrush brush);
     SimuEllipse(ElementType type, int x, int y, int width, int height, QBrush brush);
 
+    QAction * getClickedAction();
+
+    void inSimulation() {in_simulation = true;}
+    void setID(int id);
+    int getID() {return id;}
     ElementType getType() {return type;}
 
 protected:
@@ -42,9 +49,24 @@ protected:
     virtual void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
 
     /**
+     * @brief Action of click during simulation
+     */
+    QAction *clicked_action;
+
+    /**
      * @brief Type of the element
      */
     ElementType type;
+
+    /**
+     * @brief ID of the animal
+     */
+    int id;
+
+    /**
+     * @brief specifies if the element is in simulation or creation
+     */
+    bool in_simulation;
 };
 
 #endif // SIMUELLIPSE_H

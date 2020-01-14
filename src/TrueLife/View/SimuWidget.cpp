@@ -63,7 +63,8 @@ void SimuWidget::setUpMap()
     qDebug()<<"Amount of animals: "<< simu_emelents->animalsCount();
     for (auto it = animals.begin(); it != animals.end(); ++it) {
         scene->addItem(it->second);
-//        qDebug()<<it->first; // id
+        listenToAction(it->second->getClickedAction());
+        it->second->inSimulation();
     }
 
     std::map<int, SimuEllipse*> supply = simu_emelents->getSupply();
@@ -85,11 +86,34 @@ QAction *SimuWidget::getStatsAction()
     return stats_action;
 }
 
+void SimuWidget::listenToAction(QAction *action)
+{
+    // actions from centralWidgets settings
+    connect(action,
+            SIGNAL(triggered()), this,
+            SLOT(heardAnimal()));
+}
+
+void SimuWidget::heardAnimal()
+{
+    QAction *act = qobject_cast<QAction *>(sender());
+    showAnimalStats(act->data().toInt());
+}
+
+void SimuWidget::showAnimalStats(int id)
+{
+    qDebug()<<"Show stats of animal: "<<id;
+//    controller->request(id);
+}
+
 void SimuWidget::update(boost::shared_ptr<EnvDataModel> data)
 {
     simu_emelents->updateElements(data);
     for (auto animal : data->born) {
         scene->addItem(simu_emelents->getAnimal(animal->id));
+        listenToAction(
+            simu_emelents->getAnimal(animal->id)->getClickedAction());
+        simu_emelents->getAnimal(animal->id)->inSimulation();
     }
     controller->notifyEnv(data);
 }
