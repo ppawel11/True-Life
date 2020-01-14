@@ -1,3 +1,6 @@
+/**
+ * @author Paweł Lech
+ */
 #include "Animal.h"
 
 Animal::Animal(int id, double x, double y){

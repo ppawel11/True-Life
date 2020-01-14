@@ -1,3 +1,6 @@
+/**
+ * @author Paweł Lech
+ */
 #include "AnimalFactory.h"
 
 AnimalFactory::AnimalFactory()

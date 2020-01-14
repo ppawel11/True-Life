@@ -1,3 +1,6 @@
+/**
+ * @author Paweł Lech
+ */
 #ifndef ENVIRONMENT_H
 #define ENVIRONMENT_H
 

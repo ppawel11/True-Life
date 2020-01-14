@@ -1,7 +1,9 @@
 #ifndef SPECIFICANIMALMODEL_H
 #define SPECIFICANIMALMODEL_H
 
-
+/**
+ * @brief Holds data of a specific animal
+ */
 struct SpecificAnimalModel
 {
     SpecificAnimalModel(int energy_, int view_range_, int velocity_, int mobility_, int ready_cooldown_)

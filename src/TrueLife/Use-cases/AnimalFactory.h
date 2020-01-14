@@ -1,3 +1,6 @@
+/**
+ * @author Paweł Lech
+ */
 #ifndef ANIMALFACTORY_H
 #define ANIMALFACTORY_H
 

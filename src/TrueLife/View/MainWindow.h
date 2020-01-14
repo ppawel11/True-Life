@@ -30,6 +30,8 @@ class MainWindow;
 
 /**
  * @brief Main window of the application
+ *
+ * Handles widgets showing simulation, statistics etc.
  */
 class MainWindow : public QMainWindow
 {

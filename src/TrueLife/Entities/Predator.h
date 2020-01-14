@@ -1,3 +1,6 @@
+/**
+ * @author Paweł Lech
+ */
 #ifndef PREDATOR_H
 #define PREDATOR_H
 

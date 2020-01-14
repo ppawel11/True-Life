@@ -1,3 +1,6 @@
+/**
+ * @author Paweł Lech
+ */
 #ifndef HERBIVORE_H
 #define HERBIVORE_H
 

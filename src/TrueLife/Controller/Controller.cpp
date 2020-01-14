@@ -1,3 +1,6 @@
+/**
+ * @author Paweł Lech
+ */
 #include "Controller.h"
 
 Controller::Controller(){}

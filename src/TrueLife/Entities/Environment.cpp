@@ -1,3 +1,6 @@
+/**
+ * @author Paweł Lech
+ */
 #include "Environment.h"
 
 Environment::Environment(Controller * contr) : Observer(contr) {}

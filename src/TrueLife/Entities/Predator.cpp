@@ -1,3 +1,6 @@
+/**
+ * @author Paweł Lech
+ */
 #include "Predator.h"
 #include "Herbivore.h"
 
