@@ -8,7 +8,7 @@
 #include <QTimer>
 
 #include "Common.h"
-#include "Use-cases/TimeObserver.h"
+#include "Abstracts/TimeObserver.h"
 
 typedef boost::shared_ptr<TimeObserver> t_obs_ptr;
 

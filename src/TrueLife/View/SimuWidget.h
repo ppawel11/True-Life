@@ -7,7 +7,7 @@
 
 #include "Common.h"
 #include "SimuElements.h"
-#include "Use-cases/Observer.h"
+#include "Abstracts/Observer.h"
 #include "Entities/TimeWizard.h"
 #include "Model/SpecificAnimalModel.h"
 
