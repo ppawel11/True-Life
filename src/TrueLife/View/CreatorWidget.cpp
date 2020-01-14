@@ -45,7 +45,7 @@ QAction *CreatorWidget::getStartAction()
 
 void CreatorWidget::createElements(ElementType type, int amount)
 {
-    int x, y;
+    double x, y;
     int range_x = Map::WIDTH - 2*width(type);
     int range_y = Map::HEIGHT - 2*height(type);
 

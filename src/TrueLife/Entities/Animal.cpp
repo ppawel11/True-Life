@@ -1,6 +1,6 @@
 #include "Animal.h"
 
-Animal::Animal(int id, float x, float y){
+Animal::Animal(int id, double x, double y){
     this->id = id;
     this->x = x;
     this->y = y;

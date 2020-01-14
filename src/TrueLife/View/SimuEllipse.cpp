@@ -53,6 +53,6 @@ void SimuEllipse::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
     QGraphicsItem::mouseReleaseEvent(event);
     qDebug()<<"mouseReleaseEvent "<<x()<<" "<<y();
     if(abs(x()) >= Map::WIDTH/2 || abs(y()) >= Map::HEIGHT/2 ) {
-        setPos(0, 0);
+        setPos(0.0, 0.0);
     }
 }

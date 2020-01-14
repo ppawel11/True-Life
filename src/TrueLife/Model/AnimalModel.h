@@ -7,16 +7,17 @@
  * @brief Model of Animal, reduces Animal only to params needed by View
  */
 struct AnimalModel{
-    AnimalModel(int id, int x, int y, ElementType type)
+    AnimalModel(int id, double x, double y, ElementType type)
         : id(id), x(x), y(y), type(type) {}
 
-    AnimalModel(int id, int x, int y)
+    AnimalModel(int id, double x, double y)
         : id(id), x(x), y(y) {}
 
-    AnimalModel(int x, int y, ElementType type)
+    AnimalModel(double x, double y, ElementType type)
         : x(x), y(y), type(type) {}
 
-    int id, x, y;
+    int id;
+    double x, y;
     ElementType type;
 };
 

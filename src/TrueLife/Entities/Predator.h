@@ -11,7 +11,7 @@
 class Predator: public Animal
 {
 public:
-    Predator(int id, int x, int y): Animal(id, x, y) {}
+    Predator(int id, double x, double y): Animal(id, x, y) {}
     Predator(AnimalModel * am): Animal(am->id, am->x, am->y) {}
 
     virtual AnimalModel* accept(Animal *);
