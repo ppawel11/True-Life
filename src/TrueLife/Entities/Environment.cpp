@@ -73,6 +73,21 @@ void Environment::update(boost::shared_ptr<EnvDataModel> data){
     }
 }
 
+SpecificAnimalModel* Environment::update(int id){
+    for(auto animal : animals){
+        if(animal->getId() == id){
+            return new SpecificAnimalModel(
+                        animal->getEnergy(),
+                        animal->getViewRange(),
+                        animal->getVelocity(),
+                        animal->getMobility(),
+                        animal->getReadyCooldown()
+                        );
+        }
+    }
+    return nullptr;
+}
+
 void Environment::timeTick(int time_tick){
     updateAnimals(time_tick);
     controller->notifySimu(createDataModel());

@@ -15,6 +15,10 @@ void Controller::notifyEnv(boost::shared_ptr<EnvDataModel> data){
     env_observer->update(data);
 }
 
+SpecificAnimalModel* Controller::request(int id){
+    return env_observer->update(id);
+}
+
 void Controller::notifySimu(boost::shared_ptr<EnvDataModel> data){
     simu_observer->update(data);
 }

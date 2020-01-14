@@ -153,7 +153,6 @@ boost::shared_ptr<EnvDataModel> SimuElements::createDataModel()
 {
     boost::shared_ptr<EnvDataModel> model(new EnvDataModel());
     for(auto an : animals_list){
-        qDebug()<<an.second->x()<<" "<<an.second->y();
         model->alive.push_back(
             new AnimalModel(
                 an.first,
