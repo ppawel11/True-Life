@@ -1,3 +1,6 @@
+/**
+ * @author Grzegorz Fijałkowski
+ */
 #include "TimeWizard.h"
 
 TimeWizard::TimeWizard(int period, QObject *parent) :
@@ -61,7 +64,7 @@ bool TimeWizard::isRunning()
     return timer->isActive();
 }
 
-void TimeWizard::addObserver(t_obs_ptr observer)
+void TimeWizard::addObserver(boost::shared_ptr<TimeObserver> observer)
 {
     observers.push_back(observer);
 }

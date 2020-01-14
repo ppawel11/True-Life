@@ -1,3 +1,21 @@
+/**
+ * @file main.cpp
+ * @author Grzegorz Fijałkowski
+ *
+ * @mainpage
+ *
+ * @section what-is-truelife Czym jest TrueLife?
+ * Jest to program, który umożliwia przeprowadzenie symulacji
+ * naturalnego ekosystemu. W prezentowanym środowisku występują
+ * dwa rodzaje osobników: roślinożercy oraz mięsożercy.
+ * Każdy z osobników zawiera zestaw swoich potrzeb (głód, pragnienie)
+ * oraz zestaw cech, które określają w jaki sposób zachowuje się
+ * podczas trwania symulacji (ruchliwość, szybkość, zasięg widzenia,
+ * gotowość do reprodukcji).
+ *
+ * @section motivation Motywacja
+ * Program został napisany na przedmiot ZPR.
+ */
 #include <stdlib.h>
 
 #include <QApplication>

@@ -1,4 +1,7 @@
-﻿#ifndef SIMUELEMENTS_H
+﻿/**
+ * @author Grzegorz Fijałkowski
+ */
+#ifndef SIMUELEMENTS_H
 #define SIMUELEMENTS_H
 
 #include <QCursor>

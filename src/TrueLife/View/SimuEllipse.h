@@ -1,3 +1,6 @@
+/**
+ * @author Grzegorz Fijałkowski
+ */
 #ifndef SIMUELLIPSE_H
 #define SIMUELLIPSE_H
 

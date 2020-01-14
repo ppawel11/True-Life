@@ -1,3 +1,6 @@
+/**
+ * @author Grzegorz Fijałkowski
+ */
 #include "SimuWidget.h"
 #include "ui_simuwidget.h"
 

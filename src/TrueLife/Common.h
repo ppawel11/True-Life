@@ -1,3 +1,7 @@
+/**
+ * @file Common.h
+ * @author Grzegorz Fijałkowski
+ */
 #ifndef COMMON_H
 #define COMMON_H
 
@@ -13,10 +17,19 @@
 #include <QDebug> // qDebug()<<"Hello!";
 #include <QColor>
 
-
+/**
+ * @brief Types of elements in simulation
+ */
 enum ElementType {PREDATOR, HERBIVORE, WATER, FOOD};
+
+/**
+ * @brief Move states of animals
+ */
 enum MoveState {WALK, SLEEP, CHASE, ESCAPE};
 
+/**
+ * @brief Map size and minimal free space border around it
+ */
 namespace Map {
     static const int WIDTH = 1000;
     static const int HEIGHT = 500;
@@ -27,16 +40,25 @@ namespace Map {
     static const int BORDER = 10;
 }
 
+/**
+ * @brief Animal size
+ */
 namespace Ani {
     static const int WIDTH = 15;
     static const int HEIGHT = 15;
 }
 
+/**
+ * @brief Water size
+ */
 namespace Wat {
     static const int WIDTH = 50;
     static const int HEIGHT = 33;
 }
 
+/**
+ * @brief Food size
+ */
 namespace Foo {
     static const int WIDTH = 10;
     static const int HEIGHT = 10;

@@ -1,3 +1,6 @@
+/**
+ * @author Grzegorz Fijałkowski
+ */
 #ifndef TIMEWIZARD_H
 #define TIMEWIZARD_H
 
@@ -9,8 +12,6 @@
 
 #include "Common.h"
 #include "Use-cases/TimeObserver.h"
-
-typedef boost::shared_ptr<TimeObserver> t_obs_ptr;
 
 /**
  * @brief Handles time measurement and makes movement possible
@@ -48,7 +49,7 @@ public:
     void resetPeriod(bool restart_timer = true);
     bool isRunning();
 
-    void addObserver(t_obs_ptr observer);
+    void addObserver(boost::shared_ptr<TimeObserver> observer);
 
 public slots:
     /**
@@ -81,7 +82,10 @@ private:
      */
     double duration_ms;
 
-    std::vector<t_obs_ptr> observers;
+    /**
+     * @brief list of observers of the timer
+     */
+    std::vector<boost::shared_ptr<TimeObserver>> observers;
 };
 
 #endif // TIMEWIZARD_H

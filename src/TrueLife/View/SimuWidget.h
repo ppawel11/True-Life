@@ -1,3 +1,6 @@
+/**
+ * @author Grzegorz Fijałkowski
+ */
 #ifndef SIMUWIDGET_H
 #define SIMUWIDGET_H
 

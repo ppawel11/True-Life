@@ -1,3 +1,6 @@
+/**
+ * @author Grzegorz Fijałkowski
+ */
 #ifndef STATWIDGET_H
 #define STATWIDGET_H
 

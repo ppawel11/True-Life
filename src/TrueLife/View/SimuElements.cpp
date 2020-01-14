@@ -1,3 +1,6 @@
+/**
+ * @author Grzegorz Fijałkowski
+ */
 #include "SimuElements.h"
 
 SimuElements::SimuElements():

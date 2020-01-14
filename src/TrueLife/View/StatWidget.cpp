@@ -1,3 +1,6 @@
+/**
+ * @author Grzegorz Fijałkowski
+ */
 #include "StatWidget.h"
 #include "ui_statwidget.h"
 

@@ -1,3 +1,6 @@
+/**
+ * @author Grzegorz Fijałkowski
+ */
 #include <stdlib.h>
 
 #include "CreatorWidget.h"

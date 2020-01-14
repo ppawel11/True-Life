@@ -1,3 +1,6 @@
+/**
+ * @author Grzegorz Fijałkowski
+ */
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 

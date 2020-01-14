@@ -1,3 +1,6 @@
+/**
+ * @author Grzegorz Fijałkowski
+ */
 #ifndef CREATORWIDGET_H
 #define CREATORWIDGET_H
 

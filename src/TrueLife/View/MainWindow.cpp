@@ -1,3 +1,7 @@
+/**
+ * @file MainWindow.cpp
+ * @author Grzegorz Fijałkowski
+ */
 #include "MainWindow.h"
 #include "ui_mainwindow.h"
 

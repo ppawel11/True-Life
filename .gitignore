@@ -1,5 +1,7 @@
 #src/build-TrueLife-Desktop-Debug/
 src/build-TrueLife-Desktop-Debug/TrueLife
+src/latex
+src/html
 *.user
 *.autosave
 *.o

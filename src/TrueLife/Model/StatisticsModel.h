@@ -1,11 +1,14 @@
+/**
+ * @author Grzegorz Fijałkowski
+ */
 #ifndef STATISTICSMODEL_H
 #define STATISTICSMODEL_H
+
+#include "Model.h"
 
 /**
  * @brief Holds statistics of simulations
  */
-#include "Model.h"
-
 struct StatisticsModel: Model {
 
     StatisticsModel(int alive_p, int alive_h,
