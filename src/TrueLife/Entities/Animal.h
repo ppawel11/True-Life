@@ -28,11 +28,11 @@ class Animal
 {
 protected:
     int id;
-    float x, y;
+    double x, y;
     /**
      * @brief Velocity versor components
      */
-    float velo_x, velo_y;
+    double velo_x, velo_y;
     int velocity;
     int mobility;
     int energy;
@@ -55,11 +55,11 @@ protected:
     MoveState move_state;
 
 public:
-    Animal(int, float, float);
+    Animal(int, double, double);
 
     int getId() {return id;}
-    int getX() {return x;}
-    int getY() {return y;}
+    double getX() {return x;}
+    double getY() {return y;}
     int getVelocity() {return velocity;}
     int getMobility() {return mobility;}
     Animal* getTarget() {return mate_target;}

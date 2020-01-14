@@ -13,7 +13,7 @@
 class Herbivore: public Animal, public Food
 {
 public:
-    Herbivore(int id, int x, int y): Animal(id, x, y), Food(INIT_CALORIES) {}
+    Herbivore(int id, double x, double y): Animal(id, x, y), Food(INIT_CALORIES) {}
     Herbivore(AnimalModel * am): Animal(am->id, am->x, am->y), Food(INIT_CALORIES) {}
 
     virtual void beEaten();
