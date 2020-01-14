@@ -43,6 +43,8 @@ public:
 private slots:
     void startSimulation();
 
+    void resumeSimulation();
+
     void on_actionSimulation_triggered();
 
     void on_actionStatistics_triggered();

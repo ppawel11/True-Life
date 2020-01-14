@@ -66,12 +66,13 @@ public:
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
         statsButton = new QPushButton(SimuWidget);
         statsButton->setObjectName(QStringLiteral("statsButton"));
-        statsButton->setMinimumSize(QSize(0, 50));
+        statsButton->setMinimumSize(QSize(320, 50));
+        statsButton->setMaximumSize(QSize(320, 16777215));
         QFont font;
         font.setPointSize(14);
         statsButton->setFont(font);
 
-        gridLayout->addWidget(statsButton, 0, 0, 1, 2);
+        gridLayout->addWidget(statsButton, 0, 0, 1, 2, Qt::AlignRight);
 
         label_5 = new QLabel(SimuWidget);
         label_5->setObjectName(QStringLiteral("label_5"));

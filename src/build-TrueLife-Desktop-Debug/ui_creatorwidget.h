@@ -155,7 +155,12 @@ public:
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Prosz\304\231 wprowadzi\304\207 drapie\305\274nik\303\263w, ro\305\233lino\305\274erc\303\263w oraz wod\304\231 <span style=\" font-weight:600;\">w obr\304\231bie planszy</span>.</p></body></html>", Q_NULLPTR));
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Prosz\304\231 wprowadzi\304\207 drapie\305\274nik\303\263w, ro\305\233lino\305\274erc\303\263w oraz wod\304\231.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:14pt;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Pozycje s\304\205 generowane losowo, ale ka\305\274dy element mo\305\274na ind"
+                        "ywidualnie przesun\304\205\304\207.</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:14pt;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Obiekty przesuni\304\231te poza plansz\304\231 zostan\304\205 przeniesione na jej \305\233rodek.</span></p></body></html>", Q_NULLPTR));
         label->setText(QApplication::translate("CreatorWidget", "Wzrok:", Q_NULLPTR));
         label_2->setText(QApplication::translate("CreatorWidget", "Pr\304\231dko\305\233\304\207:", Q_NULLPTR));
         label_3->setText(QApplication::translate("CreatorWidget", "Ruchliwo\305\233\304\207:", Q_NULLPTR));

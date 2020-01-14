@@ -46,13 +46,20 @@ void MainWindow::initWindow()
 
     connect(stat_widget->getBackAction(),
             SIGNAL(triggered()), this,
-            SLOT(on_actionSimulation_triggered()));
+            SLOT(resumeSimulation()));
 }
 
 void MainWindow::startSimulation()
 {
     qDebug()<<"Starting simulation...";
     simu_widget->startSimulation();
+    this->takeCentralWidget(); // to preserve it from deletion
+    this->setCentralWidget(simu_widget.get());
+}
+
+void MainWindow::resumeSimulation()
+{
+    simu_widget->on_playPauseButton_clicked();
     this->takeCentralWidget(); // to preserve it from deletion
     this->setCentralWidget(simu_widget.get());
 }

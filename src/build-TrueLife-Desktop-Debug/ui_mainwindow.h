@@ -74,10 +74,11 @@ public:
         font.setPointSize(25);
         label->setFont(font);
 
-        gridLayout->addWidget(label, 0, 0, 1, 2);
+        gridLayout->addWidget(label, 0, 0, 1, 2, Qt::AlignHCenter);
 
         textEdit = new QTextEdit(centralwidget);
         textEdit->setObjectName(QStringLiteral("textEdit"));
+        textEdit->setCursorWidth(0);
         textEdit->setTextInteractionFlags(Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         gridLayout->addWidget(textEdit, 1, 0, 1, 1);
@@ -132,7 +133,17 @@ public:
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Ubuntu'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Lorem ipsum dolores Amrit.</p></body></html>", Q_NULLPTR));
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Projekt z przedmiotu </span><span style=\" font-size:14pt; font-weight:600;\">ZPR</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:14pt; font-weight:600;\"><br /></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt"
+                        "-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt;\">Autorzy:</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt; font-style:italic;\">	Grzegorz Fija\305\202kowski</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:14pt; font-style:italic;\">	Pawe\305\202 Lech</span></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:14pt;\"><br /></p>\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:14pt;\"><br /></p>\n"
+"<p align=\"justify\" style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" "
+                        "font-size:14pt;\">Program umo\305\274liwia przeprowadzenie symulacji naturalnego ekosystemu. W prezentowanym \305\233rodowisku wyst\304\231puj\304\205 dwa rodzaje osobnik\303\263w: ro\305\233lino\305\274ercy oraz mi\304\231so\305\274ercy. Ka\305\274dy z osobnik\303\263w zawiera zestaw swoich potrzeb (g\305\202\303\263d, pragnienie) oraz zestaw cech, kt\303\263re okre\305\233laj\304\205 w jaki spos\303\263b zachowuje si\304\231 podczas trwania symulacji (ruchliwo\305\233\304\207, szybko\305\233\304\207, zasi\304\231g widzenia, gotowo\305\233\304\207 do reprodukcji).</span></p></body></html>", Q_NULLPTR));
         logo_label->setText(QString());
         pushButton->setText(QApplication::translate("MainWindow", "Utw\303\263rz now\304\205 symulacj\304\231!", Q_NULLPTR));
         menuPlik->setTitle(QApplication::translate("MainWindow", "Plik", Q_NULLPTR));

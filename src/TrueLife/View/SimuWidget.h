@@ -38,9 +38,10 @@ public:
 
     virtual void update(boost::shared_ptr<EnvDataModel> data);
 
-private slots:
+public slots:
     void on_playPauseButton_clicked();
 
+private slots:
     void on_timeSlider_sliderReleased();
 
     void on_statsButton_clicked();
