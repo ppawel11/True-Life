@@ -36,7 +36,6 @@ public:
     explicit MainWindow(
             boost::shared_ptr<SimuWidget> simu_widget,
             QWidget *parent = 0);
-//    MainWindow(const MainWindow &toCopy);
     ~MainWindow();
 
     void initWindow();

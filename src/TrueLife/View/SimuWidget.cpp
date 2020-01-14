@@ -32,6 +32,9 @@ SimuWidget::SimuWidget(
     // assigning instance of container for simulated elements
     simu_emelents = SimuElements::getInstance();
 
+    // setting up a signal for MainWindow to show statistics
+    stats_action = new QAction("Zobaczmy statystyki!", this);
+
     // timer settings
     this->time_wizard = time_wizard;
 }
@@ -71,6 +74,17 @@ void SimuWidget::setUpMap()
     }
 }
 
+StatisticsModel *SimuWidget::getStats()
+{
+    return simu_emelents->createStatsModel(
+                time_wizard->getSimulationTime());
+}
+
+QAction *SimuWidget::getStatsAction()
+{
+    return stats_action;
+}
+
 void SimuWidget::update(boost::shared_ptr<EnvDataModel> data)
 {
     simu_emelents->updateElements(data);
@@ -99,4 +113,10 @@ void SimuWidget::on_playPauseButton_clicked()
 void SimuWidget::on_timeSlider_sliderReleased()
 {
     time_wizard->setPeriod(-ui->timeSlider->value());
+}
+
+void SimuWidget::on_statsButton_clicked()
+{
+    if(time_wizard->isRunning()) on_playPauseButton_clicked();
+    stats_action->activate(QAction::Trigger);
 }

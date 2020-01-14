@@ -3,6 +3,7 @@
 
 #include "SimuEllipse.h"
 #include "Model/EnvDataModel.h"
+#include "Model/StatisticsModel.h"
 #include "../Common.h"
 
 /**
@@ -45,8 +46,9 @@ public:
     void setItemsClickable(bool enabled = true);
 
     void updateElements(boost::shared_ptr<EnvDataModel> data);
-    boost::shared_ptr<EnvDataModel> createDataModel();
 
+    boost::shared_ptr<EnvDataModel> createDataModel();
+    StatisticsModel * createStatsModel(std::pair<double,double> times);
 
 private:
     /**
@@ -78,6 +80,9 @@ private:
      * its value is equal to the last created supply's ID
      */
     int id_counter_supply;
+
+    int dead_predators;
+    int dead_herbivores;
 };
 
 #endif // SIMUELEMENTS_H

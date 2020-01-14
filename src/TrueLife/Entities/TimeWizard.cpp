@@ -1,7 +1,8 @@
 #include "TimeWizard.h"
 
 TimeWizard::TimeWizard(int period, QObject *parent) :
-    QObject(parent), tick_counter(0), duration_ms(0)
+    QObject(parent), tick_counter(0),
+    duration_ms(0), tick_counter_full(0)
 {
     this->period = period;
     timer = new QTimer();
@@ -42,6 +43,14 @@ int TimeWizard::getPeriod()
     return period;
 }
 
+std::pair<double, double> TimeWizard::getSimulationTime()
+{
+    return std::pair<double, double>(
+            duration_ms + period*tick_counter,
+            DEFAULT_PERIOD*tick_counter_full
+           );
+}
+
 void TimeWizard::resetPeriod(bool restartTimer)
 {
     setPeriod(DEFAULT_PERIOD, restartTimer);
@@ -61,6 +70,7 @@ void TimeWizard::interrupt()
 {
 //    qDebug()<< "tick! " << tick_counter;
     ++tick_counter;
+    ++tick_counter_full;
     for(auto obs : observers) {
         obs->timeTick(tick_counter);
     }

@@ -8,17 +8,8 @@ MainWindow::MainWindow(boost::shared_ptr<SimuWidget> simu_widget, QWidget *paren
     ui(new Ui::MainWindow)
 {
     this->simu_widget = std::move(simu_widget);
-//    home_widget = nullptr;
     initWindow();
 }
-
-//MainWindow::MainWindow(const MainWindow &toCopy)
-//    : MainWindow(std::move(const_cast<MainWindow&>(toCopy).simu_widget),
-//                 toCopy.parentWidget())
-//{
-////    initWindow();
-//    qDebug()<<"Kopia MainWindow utworzona";
-//}
 
 MainWindow::~MainWindow()
 {
@@ -48,6 +39,14 @@ void MainWindow::initWindow()
     connect(creator_widget->getStartAction(),
             SIGNAL(triggered()), this,
             SLOT(startSimulation()));
+
+    connect(simu_widget->getStatsAction(),
+            SIGNAL(triggered()), this,
+            SLOT(on_actionStatistics_triggered()));
+
+    connect(stat_widget->getBackAction(),
+            SIGNAL(triggered()), this,
+            SLOT(on_actionSimulation_triggered()));
 }
 
 void MainWindow::startSimulation()
@@ -68,6 +67,7 @@ void MainWindow::on_actionSimulation_triggered()
 
 void MainWindow::on_actionStatistics_triggered()
 {
+    stat_widget->updateStats(simu_widget->getStats());
     this->takeCentralWidget(); // to preserve it from deletion
     this->setCentralWidget(stat_widget.get());
 }

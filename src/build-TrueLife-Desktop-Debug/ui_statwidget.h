@@ -13,13 +13,14 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
-#include <QtWidgets/QGraphicsView>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
-#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QVBoxLayout>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -27,35 +28,43 @@ QT_BEGIN_NAMESPACE
 class Ui_StatWidget
 {
 public:
-    QHBoxLayout *horizontalLayout;
+    QGridLayout *gridLayout_3;
     QGridLayout *gridLayout;
-    QLabel *label;
-    QLCDNumber *lcdNumber;
+    QSpacerItem *verticalSpacer;
     QLabel *label_2;
-    QLCDNumber *lcdNumber_2;
-    QVBoxLayout *verticalLayout;
+    QLCDNumber *lcdPredatorsDead;
+    QLabel *label_5;
+    QSpacerItem *horizontalSpacer;
+    QLCDNumber *lcdPredatorsAlive;
+    QLabel *label_6;
+    QLabel *label;
+    QLabel *label_7;
+    QLCDNumber *lcdHerbivoresDead;
+    QLabel *label_4;
+    QLCDNumber *lcdHerbivoresAlive;
+    QGridLayout *gridLayout_2;
+    QSpacerItem *verticalSpacer_3;
     QLabel *label_3;
-    QGraphicsView *graphicsView;
+    QLineEdit *realTimeLineEdit;
+    QLabel *label_8;
+    QLineEdit *simuTimeLineEdit;
+    QSpacerItem *verticalSpacer_2;
+    QPushButton *pushButton;
+    QSpacerItem *horizontalSpacer_2;
+    QFrame *line;
 
     void setupUi(QWidget *StatWidget)
     {
         if (StatWidget->objectName().isEmpty())
             StatWidget->setObjectName(QStringLiteral("StatWidget"));
         StatWidget->resize(774, 529);
-        horizontalLayout = new QHBoxLayout(StatWidget);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        gridLayout_3 = new QGridLayout(StatWidget);
+        gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        label = new QLabel(StatWidget);
-        label->setObjectName(QStringLiteral("label"));
-        label->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+        verticalSpacer = new QSpacerItem(50, 10, QSizePolicy::Minimum, QSizePolicy::Preferred);
 
-        gridLayout->addWidget(label, 0, 0, 1, 1);
-
-        lcdNumber = new QLCDNumber(StatWidget);
-        lcdNumber->setObjectName(QStringLiteral("lcdNumber"));
-
-        gridLayout->addWidget(lcdNumber, 0, 1, 1, 1);
+        gridLayout->addItem(verticalSpacer, 3, 0, 1, 2);
 
         label_2 = new QLabel(StatWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
@@ -63,35 +72,122 @@ public:
 
         gridLayout->addWidget(label_2, 1, 0, 1, 1);
 
-        lcdNumber_2 = new QLCDNumber(StatWidget);
-        lcdNumber_2->setObjectName(QStringLiteral("lcdNumber_2"));
+        lcdPredatorsDead = new QLCDNumber(StatWidget);
+        lcdPredatorsDead->setObjectName(QStringLiteral("lcdPredatorsDead"));
 
-        gridLayout->addWidget(lcdNumber_2, 1, 1, 1, 1);
+        gridLayout->addWidget(lcdPredatorsDead, 2, 1, 1, 1);
+
+        label_5 = new QLabel(StatWidget);
+        label_5->setObjectName(QStringLiteral("label_5"));
+        label_5->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        gridLayout->addWidget(label_5, 2, 0, 1, 1);
+
+        horizontalSpacer = new QSpacerItem(300, 20, QSizePolicy::Preferred, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer, 4, 0, 1, 2);
+
+        lcdPredatorsAlive = new QLCDNumber(StatWidget);
+        lcdPredatorsAlive->setObjectName(QStringLiteral("lcdPredatorsAlive"));
+        lcdPredatorsAlive->setDigitCount(5);
+
+        gridLayout->addWidget(lcdPredatorsAlive, 1, 1, 1, 1);
+
+        label_6 = new QLabel(StatWidget);
+        label_6->setObjectName(QStringLiteral("label_6"));
+        label_6->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        gridLayout->addWidget(label_6, 7, 0, 1, 1);
+
+        label = new QLabel(StatWidget);
+        label->setObjectName(QStringLiteral("label"));
+        QFont font;
+        font.setPointSize(14);
+        label->setFont(font);
+        label->setAlignment(Qt::AlignCenter);
+
+        gridLayout->addWidget(label, 0, 0, 1, 2);
+
+        label_7 = new QLabel(StatWidget);
+        label_7->setObjectName(QStringLiteral("label_7"));
+        label_7->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
+
+        gridLayout->addWidget(label_7, 6, 0, 1, 1);
+
+        lcdHerbivoresDead = new QLCDNumber(StatWidget);
+        lcdHerbivoresDead->setObjectName(QStringLiteral("lcdHerbivoresDead"));
+
+        gridLayout->addWidget(lcdHerbivoresDead, 7, 1, 1, 1);
+
+        label_4 = new QLabel(StatWidget);
+        label_4->setObjectName(QStringLiteral("label_4"));
+        label_4->setFont(font);
+        label_4->setAlignment(Qt::AlignCenter);
+
+        gridLayout->addWidget(label_4, 5, 0, 1, 2);
+
+        lcdHerbivoresAlive = new QLCDNumber(StatWidget);
+        lcdHerbivoresAlive->setObjectName(QStringLiteral("lcdHerbivoresAlive"));
+
+        gridLayout->addWidget(lcdHerbivoresAlive, 6, 1, 1, 1);
 
 
-        horizontalLayout->addLayout(gridLayout);
+        gridLayout_3->addLayout(gridLayout, 0, 0, 1, 1);
 
-        verticalLayout = new QVBoxLayout();
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        gridLayout_2 = new QGridLayout();
+        gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_2->addItem(verticalSpacer_3, 0, 1, 1, 1);
+
         label_3 = new QLabel(StatWidget);
         label_3->setObjectName(QStringLiteral("label_3"));
-        QFont font;
-        font.setFamily(QStringLiteral("URW Bookman L"));
-        font.setPointSize(14);
-        font.setBold(true);
-        font.setItalic(true);
-        font.setWeight(75);
-        label_3->setFont(font);
+        QFont font1;
+        font1.setPointSize(13);
+        label_3->setFont(font1);
 
-        verticalLayout->addWidget(label_3);
+        gridLayout_2->addWidget(label_3, 1, 0, 1, 1, Qt::AlignRight);
 
-        graphicsView = new QGraphicsView(StatWidget);
-        graphicsView->setObjectName(QStringLiteral("graphicsView"));
+        realTimeLineEdit = new QLineEdit(StatWidget);
+        realTimeLineEdit->setObjectName(QStringLiteral("realTimeLineEdit"));
 
-        verticalLayout->addWidget(graphicsView);
+        gridLayout_2->addWidget(realTimeLineEdit, 1, 2, 1, 1);
+
+        label_8 = new QLabel(StatWidget);
+        label_8->setObjectName(QStringLiteral("label_8"));
+        label_8->setFont(font1);
+
+        gridLayout_2->addWidget(label_8, 2, 0, 1, 1, Qt::AlignRight);
+
+        simuTimeLineEdit = new QLineEdit(StatWidget);
+        simuTimeLineEdit->setObjectName(QStringLiteral("simuTimeLineEdit"));
+
+        gridLayout_2->addWidget(simuTimeLineEdit, 2, 2, 1, 1);
+
+        verticalSpacer_2 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_2->addItem(verticalSpacer_2, 3, 1, 1, 1);
+
+        pushButton = new QPushButton(StatWidget);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setMinimumSize(QSize(0, 50));
+
+        gridLayout_2->addWidget(pushButton, 4, 0, 1, 3);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_2->addItem(horizontalSpacer_2, 0, 0, 1, 1);
 
 
-        horizontalLayout->addLayout(verticalLayout);
+        gridLayout_3->addLayout(gridLayout_2, 0, 2, 1, 1);
+
+        line = new QFrame(StatWidget);
+        line->setObjectName(QStringLiteral("line"));
+        line->setFrameShadow(QFrame::Sunken);
+        line->setLineWidth(10);
+        line->setFrameShape(QFrame::VLine);
+
+        gridLayout_3->addWidget(line, 0, 1, 1, 1);
 
 
         retranslateUi(StatWidget);
@@ -102,9 +198,15 @@ public:
     void retranslateUi(QWidget *StatWidget)
     {
         StatWidget->setWindowTitle(QApplication::translate("StatWidget", "Form", Q_NULLPTR));
-        label->setText(QApplication::translate("StatWidget", "Liczba drapie\305\274nik\303\263w:", Q_NULLPTR));
-        label_2->setText(QApplication::translate("StatWidget", "Liczba ro\305\233lino\305\274erc\303\263w:", Q_NULLPTR));
-        label_3->setText(QApplication::translate("StatWidget", "Historia populacji obu gatunk\303\263w:", Q_NULLPTR));
+        label_2->setText(QApplication::translate("StatWidget", "\305\273yj\304\205ce:", Q_NULLPTR));
+        label_5->setText(QApplication::translate("StatWidget", "Nie\305\274yj\304\205ce:", Q_NULLPTR));
+        label_6->setText(QApplication::translate("StatWidget", "Nie\305\274yj\304\205cy:", Q_NULLPTR));
+        label->setText(QApplication::translate("StatWidget", "DRAPIE\305\273NIKI", Q_NULLPTR));
+        label_7->setText(QApplication::translate("StatWidget", "\305\273yj\304\205cy:", Q_NULLPTR));
+        label_4->setText(QApplication::translate("StatWidget", "RO\305\232LINO\305\273ERCY", Q_NULLPTR));
+        label_3->setText(QApplication::translate("StatWidget", "Simulation real time:", Q_NULLPTR));
+        label_8->setText(QApplication::translate("StatWidget", "Simulated time:", Q_NULLPTR));
+        pushButton->setText(QApplication::translate("StatWidget", "Powr\303\263t do symulacji", Q_NULLPTR));
     } // retranslateUi
 
 };

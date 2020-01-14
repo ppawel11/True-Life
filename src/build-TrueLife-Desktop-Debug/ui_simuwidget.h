@@ -31,6 +31,7 @@ public:
     QGridLayout *gridLayout_2;
     QGraphicsView *graphicsView;
     QGridLayout *gridLayout;
+    QPushButton *statsButton;
     QLabel *label_5;
     QLabel *label_2;
     QLineEdit *lineEdit;
@@ -57,43 +58,53 @@ public:
 
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        statsButton = new QPushButton(SimuWidget);
+        statsButton->setObjectName(QStringLiteral("statsButton"));
+        statsButton->setMinimumSize(QSize(0, 50));
+
+        gridLayout->addWidget(statsButton, 0, 0, 1, 2);
+
         label_5 = new QLabel(SimuWidget);
         label_5->setObjectName(QStringLiteral("label_5"));
+        QFont font;
+        font.setPointSize(14);
+        label_5->setFont(font);
+        label_5->setAlignment(Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft);
 
-        gridLayout->addWidget(label_5, 0, 0, 1, 2);
+        gridLayout->addWidget(label_5, 1, 0, 1, 2);
 
         label_2 = new QLabel(SimuWidget);
         label_2->setObjectName(QStringLiteral("label_2"));
         label_2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        gridLayout->addWidget(label_2, 1, 0, 1, 1);
+        gridLayout->addWidget(label_2, 2, 0, 1, 1);
 
         lineEdit = new QLineEdit(SimuWidget);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
 
-        gridLayout->addWidget(lineEdit, 1, 1, 1, 1);
+        gridLayout->addWidget(lineEdit, 2, 1, 1, 1);
 
         label_3 = new QLabel(SimuWidget);
         label_3->setObjectName(QStringLiteral("label_3"));
         label_3->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        gridLayout->addWidget(label_3, 2, 0, 1, 1);
+        gridLayout->addWidget(label_3, 3, 0, 1, 1);
 
         lineEdit_2 = new QLineEdit(SimuWidget);
         lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
 
-        gridLayout->addWidget(lineEdit_2, 2, 1, 1, 1);
+        gridLayout->addWidget(lineEdit_2, 3, 1, 1, 1);
 
         label_4 = new QLabel(SimuWidget);
         label_4->setObjectName(QStringLiteral("label_4"));
         label_4->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        gridLayout->addWidget(label_4, 3, 0, 1, 1);
+        gridLayout->addWidget(label_4, 4, 0, 1, 1);
 
         lineEdit_3 = new QLineEdit(SimuWidget);
         lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
 
-        gridLayout->addWidget(lineEdit_3, 3, 1, 1, 1);
+        gridLayout->addWidget(lineEdit_3, 4, 1, 1, 1);
 
 
         gridLayout_2->addLayout(gridLayout, 0, 1, 1, 1);
@@ -130,10 +141,13 @@ public:
     void retranslateUi(QWidget *SimuWidget)
     {
         SimuWidget->setWindowTitle(QApplication::translate("SimuWidget", "Form", Q_NULLPTR));
-        label_5->setText(QApplication::translate("SimuWidget", "Statystyki osobnika", Q_NULLPTR));
-        label_2->setText(QApplication::translate("SimuWidget", "Warto\305\233\304\207 1:", Q_NULLPTR));
-        label_3->setText(QApplication::translate("SimuWidget", "Warto\305\233\304\207 2:", Q_NULLPTR));
+        statsButton->setText(QApplication::translate("SimuWidget", "Statystyki globalne", Q_NULLPTR));
+        label_5->setText(QApplication::translate("SimuWidget", "Statystyki osobnika:", Q_NULLPTR));
+        label_2->setText(QApplication::translate("SimuWidget", "Czas \305\274ycia:", Q_NULLPTR));
+        label_3->setText(QApplication::translate("SimuWidget", "Ilo\305\233\304\207 dzieci:", Q_NULLPTR));
+        lineEdit_2->setText(QApplication::translate("SimuWidget", "?", Q_NULLPTR));
         label_4->setText(QApplication::translate("SimuWidget", "Warto\305\233\304\207 3:", Q_NULLPTR));
+        lineEdit_3->setText(QApplication::translate("SimuWidget", "-", Q_NULLPTR));
         playPauseButton->setText(QApplication::translate("SimuWidget", "Kontynuuj", Q_NULLPTR));
         label->setText(QApplication::translate("SimuWidget", "Szybko\305\233\304\207 up\305\202ywu czasu:", Q_NULLPTR));
     } // retranslateUi

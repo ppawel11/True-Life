@@ -25,6 +25,8 @@ class TimeWizard : public QObject
 private:
     /**
      * @brief Default period of the timer in milliseconds
+     *
+     * Equivalent of real-time one tick
      */
     static const int DEFAULT_PERIOD = 20;
 
@@ -42,6 +44,7 @@ public:
     void stopTimer();
     void setPeriod(int new_period, bool restart_timer = true);
     int getPeriod();
+    std::pair<double, double> getSimulationTime();
     void resetPeriod(bool restart_timer = true);
     bool isRunning();
 
@@ -70,6 +73,8 @@ private:
      * @brief Counter of ticks during simulation.
      */
     int tick_counter;
+
+    int tick_counter_full;
 
     /**
      * @brief Stores real time of the simulation in milliseconds

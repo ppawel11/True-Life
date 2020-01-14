@@ -1,7 +1,8 @@
 #include "SimuElements.h"
 
 SimuElements::SimuElements():
-    id_counter_animals(0), id_counter_supply(0) {}
+    id_counter_animals(0), id_counter_supply(0),
+    dead_predators(0), dead_herbivores(0) {}
 
 SimuElements::~SimuElements(){}
 
@@ -120,6 +121,8 @@ void SimuElements::updateElements(
     }
 
     for(auto id : data->dead_ids) {
+        if(animals_list[id]->getType() == PREDATOR) ++dead_predators;
+        else  ++dead_herbivores;
         delete animals_list[id];
         animals_list.erase(id);
     }
@@ -147,6 +150,23 @@ boost::shared_ptr<EnvDataModel> SimuElements::createDataModel()
             ));
     }
     return model;
+}
+
+StatisticsModel *SimuElements::createStatsModel(
+        std::pair<double,double> times)
+{
+    StatisticsModel * stats = new StatisticsModel();
+    for(auto animal : animals_list) {
+        if(animal.second->getType() == PREDATOR)
+            ++stats->alive_predators;
+        else
+            ++stats->alive_herbivores;
+    }
+    stats->dead_predators = dead_predators;
+    stats->dead_herbivores = dead_herbivores;
+    stats->times = times;
+
+    return stats;
 }
 
 SimuElements* SimuElements::getInstance() {

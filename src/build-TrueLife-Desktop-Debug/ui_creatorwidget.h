@@ -118,7 +118,7 @@ public:
         predatorSpinBox = new QSpinBox(CreatorWidget);
         predatorSpinBox->setObjectName(QStringLiteral("predatorSpinBox"));
         predatorSpinBox->setMinimum(1);
-        predatorSpinBox->setValue(5);
+        predatorSpinBox->setValue(10);
 
         gridLayout_2->addWidget(predatorSpinBox, 1, 1, 1, 1);
 
@@ -130,7 +130,7 @@ public:
         herbivoreSpinBox = new QSpinBox(CreatorWidget);
         herbivoreSpinBox->setObjectName(QStringLiteral("herbivoreSpinBox"));
         herbivoreSpinBox->setMinimum(1);
-        herbivoreSpinBox->setValue(5);
+        herbivoreSpinBox->setValue(10);
 
         gridLayout_2->addWidget(herbivoreSpinBox, 2, 1, 1, 1);
 
