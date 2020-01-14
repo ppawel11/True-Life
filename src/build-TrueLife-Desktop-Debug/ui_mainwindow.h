@@ -49,7 +49,8 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(800, 600);
+        MainWindow->resize(1400, 532);
+        MainWindow->setMinimumSize(QSize(1400, 0));
         QIcon icon;
         icon.addFile(QStringLiteral(":/img/img/icon.jpg"), QSize(), QIcon::Normal, QIcon::Off);
         MainWindow->setWindowIcon(icon);
@@ -96,7 +97,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 22));
+        menubar->setGeometry(QRect(0, 0, 1400, 22));
         menuPlik = new QMenu(menubar);
         menuPlik->setObjectName(QStringLiteral("menuPlik"));
         menuWidok = new QMenu(menubar);

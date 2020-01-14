@@ -21,10 +21,11 @@ class CreatorWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit CreatorWidget(QWidget *mainWindow, QWidget *parent = 0);
+    explicit CreatorWidget(QWidget *main_window, QWidget *parent = 0);
     ~CreatorWidget();
 
     QAction * getStartAction();
+    void resetSimulation() {simu_emelents->clear();}
     void createElements(ElementType type, int amount);
 
     int width(ElementType type);
@@ -42,13 +43,13 @@ private slots:
 private:
     Ui::CreatorWidget *ui;
 
-    QWidget *mainWindow;
+    QWidget *main_window;
 
     QGraphicsScene *scene;
 
-    QAction *startAction;
+    QAction *start_action;
 
-    SimuElements *simuEmelents;
+    SimuElements *simu_emelents;
 };
 
 #endif // CREATORWIDGET_H

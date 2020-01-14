@@ -9,6 +9,7 @@
 #include "SimuElements.h"
 #include "Use-cases/Observer.h"
 #include "Entities/TimeWizard.h"
+#include "Model/SpecificAnimalModel.h"
 
 namespace Ui {
 class SimuWidget;

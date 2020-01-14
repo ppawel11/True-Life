@@ -55,6 +55,7 @@ public:
         gridLayout_3->setObjectName(QStringLiteral("gridLayout_3"));
         textEdit = new QTextEdit(CreatorWidget);
         textEdit->setObjectName(QStringLiteral("textEdit"));
+        textEdit->setMinimumSize(QSize(320, 0));
         textEdit->setTextInteractionFlags(Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         gridLayout_3->addWidget(textEdit, 0, 0, 1, 1);

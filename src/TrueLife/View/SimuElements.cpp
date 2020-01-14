@@ -185,3 +185,13 @@ SimuElements* SimuElements::getInstance() {
     static SimuElements *instance = new SimuElements();
     return instance;
 }
+
+void SimuElements::clear()
+{
+    animals_list.clear();
+    supply_list.clear();
+    id_counter_animals = 0;
+    id_counter_supply = 0;
+    dead_predators = 0;
+    dead_herbivores = 0;
+}

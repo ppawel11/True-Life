@@ -8,7 +8,7 @@ CreatorWidget::CreatorWidget(QWidget *mainWindow, QWidget *parent) :
     ui(new Ui::CreatorWidget)
 {
     ui->setupUi(this);
-    this->mainWindow = mainWindow;
+    this->main_window = mainWindow;
 
     // setting up the graphics scene
     scene = new QGraphicsScene(this);
@@ -24,10 +24,10 @@ CreatorWidget::CreatorWidget(QWidget *mainWindow, QWidget *parent) :
     scene->addRect(0,0,Map::WIDTH,Map::HEIGHT,pen,brush);
 
     // assigning instance of container for sumulated elements
-    simuEmelents = SimuElements::getInstance();
+    simu_emelents = SimuElements::getInstance();
 
     // setting up a signal for MainWindow to start simulation
-    startAction = new QAction("Zaczynamy symulację!", this);
+    start_action = new QAction("Zaczynamy symulację!", this);
 
     ui->startButton->setEnabled(false);
 }
@@ -40,7 +40,7 @@ CreatorWidget::~CreatorWidget()
 
 QAction *CreatorWidget::getStartAction()
 {
-    return startAction;
+    return start_action;
 }
 
 void CreatorWidget::createElements(ElementType type, int amount)
@@ -52,7 +52,7 @@ void CreatorWidget::createElements(ElementType type, int amount)
     srand (time(NULL));
 
     for(int i=0; i<amount; ++i) {
-        SimuEllipse *item = simuEmelents->addElement(type);
+        SimuEllipse *item = simu_emelents->addElement(type);
         x = rand() % range_x - range_x/2;
         y = rand() % range_y - range_y/2;
         item->setPos(x, y);
@@ -103,7 +103,7 @@ void CreatorWidget::on_addWaterButton_clicked()
 
 void CreatorWidget::on_startButton_clicked()
 {
-    simuEmelents->setItemsMovable(false);
-    startAction->activate(QAction::Trigger);
+    simu_emelents->setItemsMovable(false);
+    start_action->activate(QAction::Trigger);
     ui->startButton->setEnabled(false);
 }

@@ -36,15 +36,15 @@ public:
     QLabel *label_5;
     QFrame *line;
     QLabel *label_2;
-    QLineEdit *speedLineEdit;
+    QLineEdit *velocityLineEdit;
     QLabel *label_3;
-    QLineEdit *activenessLineEdit;
+    QLineEdit *mobilityLineEdit;
     QLabel *label_4;
-    QLineEdit *sightLineEdit;
+    QLineEdit *view_rangeLineEdit;
     QLabel *label_6;
     QLineEdit *readyLineEdit;
     QLabel *label_7;
-    QLineEdit *ageLineEdit;
+    QLineEdit *energyLineEdit;
     QHBoxLayout *horizontalLayout;
     QPushButton *playPauseButton;
     QLabel *label;
@@ -94,10 +94,10 @@ public:
 
         gridLayout->addWidget(label_2, 3, 0, 1, 1);
 
-        speedLineEdit = new QLineEdit(SimuWidget);
-        speedLineEdit->setObjectName(QStringLiteral("speedLineEdit"));
+        velocityLineEdit = new QLineEdit(SimuWidget);
+        velocityLineEdit->setObjectName(QStringLiteral("velocityLineEdit"));
 
-        gridLayout->addWidget(speedLineEdit, 3, 1, 1, 1);
+        gridLayout->addWidget(velocityLineEdit, 3, 1, 1, 1);
 
         label_3 = new QLabel(SimuWidget);
         label_3->setObjectName(QStringLiteral("label_3"));
@@ -105,10 +105,10 @@ public:
 
         gridLayout->addWidget(label_3, 4, 0, 1, 1);
 
-        activenessLineEdit = new QLineEdit(SimuWidget);
-        activenessLineEdit->setObjectName(QStringLiteral("activenessLineEdit"));
+        mobilityLineEdit = new QLineEdit(SimuWidget);
+        mobilityLineEdit->setObjectName(QStringLiteral("mobilityLineEdit"));
 
-        gridLayout->addWidget(activenessLineEdit, 4, 1, 1, 1);
+        gridLayout->addWidget(mobilityLineEdit, 4, 1, 1, 1);
 
         label_4 = new QLabel(SimuWidget);
         label_4->setObjectName(QStringLiteral("label_4"));
@@ -116,10 +116,10 @@ public:
 
         gridLayout->addWidget(label_4, 5, 0, 1, 1);
 
-        sightLineEdit = new QLineEdit(SimuWidget);
-        sightLineEdit->setObjectName(QStringLiteral("sightLineEdit"));
+        view_rangeLineEdit = new QLineEdit(SimuWidget);
+        view_rangeLineEdit->setObjectName(QStringLiteral("view_rangeLineEdit"));
 
-        gridLayout->addWidget(sightLineEdit, 5, 1, 1, 1);
+        gridLayout->addWidget(view_rangeLineEdit, 5, 1, 1, 1);
 
         label_6 = new QLabel(SimuWidget);
         label_6->setObjectName(QStringLiteral("label_6"));
@@ -138,10 +138,10 @@ public:
 
         gridLayout->addWidget(label_7, 7, 0, 1, 1);
 
-        ageLineEdit = new QLineEdit(SimuWidget);
-        ageLineEdit->setObjectName(QStringLiteral("ageLineEdit"));
+        energyLineEdit = new QLineEdit(SimuWidget);
+        energyLineEdit->setObjectName(QStringLiteral("energyLineEdit"));
 
-        gridLayout->addWidget(ageLineEdit, 7, 1, 1, 1);
+        gridLayout->addWidget(energyLineEdit, 7, 1, 1, 1);
 
 
         gridLayout_2->addLayout(gridLayout, 0, 1, 1, 1);
@@ -182,13 +182,13 @@ public:
         label_5->setText(QApplication::translate("SimuWidget", "Statystyki osobnika", Q_NULLPTR));
         label_2->setText(QApplication::translate("SimuWidget", "Pr\304\231dko\305\233\304\207:", Q_NULLPTR));
         label_3->setText(QApplication::translate("SimuWidget", "Ruchliwo\305\233\304\207:", Q_NULLPTR));
-        activenessLineEdit->setText(QString());
+        mobilityLineEdit->setText(QString());
         label_4->setText(QApplication::translate("SimuWidget", "Zasi\304\231g wzroku:", Q_NULLPTR));
-        sightLineEdit->setText(QString());
-        label_6->setText(QApplication::translate("SimuWidget", "Dojrza\305\202y?:", Q_NULLPTR));
+        view_rangeLineEdit->setText(QString());
+        label_6->setText(QApplication::translate("SimuWidget", "Dojrza\305\202o\305\233\304\207:", Q_NULLPTR));
         readyLineEdit->setText(QString());
-        label_7->setText(QApplication::translate("SimuWidget", "Wiek:", Q_NULLPTR));
-        ageLineEdit->setText(QString());
+        label_7->setText(QApplication::translate("SimuWidget", "Energia:", Q_NULLPTR));
+        energyLineEdit->setText(QString());
         playPauseButton->setText(QApplication::translate("SimuWidget", "Kontynuuj", Q_NULLPTR));
         label->setText(QApplication::translate("SimuWidget", "Szybko\305\233\304\207 up\305\202ywu czasu:", Q_NULLPTR));
     } // retranslateUi

@@ -76,7 +76,7 @@
       </widget>
      </item>
      <item row="3" column="1">
-      <widget class="QLineEdit" name="speedLineEdit"/>
+      <widget class="QLineEdit" name="velocityLineEdit"/>
      </item>
      <item row="4" column="0">
       <widget class="QLabel" name="label_3">
@@ -89,7 +89,7 @@
       </widget>
      </item>
      <item row="4" column="1">
-      <widget class="QLineEdit" name="activenessLineEdit">
+      <widget class="QLineEdit" name="mobilityLineEdit">
        <property name="text">
         <string/>
        </property>
@@ -106,7 +106,7 @@
       </widget>
      </item>
      <item row="5" column="1">
-      <widget class="QLineEdit" name="sightLineEdit">
+      <widget class="QLineEdit" name="view_rangeLineEdit">
        <property name="text">
         <string/>
        </property>
@@ -115,7 +115,7 @@
      <item row="6" column="0">
       <widget class="QLabel" name="label_6">
        <property name="text">
-        <string>Dojrzały?:</string>
+        <string>Dojrzałość:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -132,7 +132,7 @@
      <item row="7" column="0">
       <widget class="QLabel" name="label_7">
        <property name="text">
-        <string>Wiek:</string>
+        <string>Energia:</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -140,7 +140,7 @@
       </widget>
      </item>
      <item row="7" column="1">
-      <widget class="QLineEdit" name="ageLineEdit">
+      <widget class="QLineEdit" name="energyLineEdit">
        <property name="text">
         <string/>
        </property>

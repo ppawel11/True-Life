@@ -103,7 +103,12 @@ void SimuWidget::heardAnimal()
 void SimuWidget::showAnimalStats(int id)
 {
     qDebug()<<"Show stats of animal: "<<id;
-//    controller->request(id);
+    SpecificAnimalModel* stats = controller->request(id);
+    ui->velocityLineEdit->setText(QString::number(stats->velocity));
+    ui->view_rangeLineEdit->setText(QString::number(stats->view_range));
+    ui->mobilityLineEdit->setText(QString::number(stats->mobility));
+    ui->readyLineEdit->setText(QString::number(stats->ready_cooldown));
+    ui->energyLineEdit->setText(QString::number(stats->energy));
 }
 
 void SimuWidget::update(boost::shared_ptr<EnvDataModel> data)

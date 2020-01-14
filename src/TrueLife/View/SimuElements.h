@@ -33,6 +33,8 @@ public:
      */
     static SimuElements* getInstance();
 
+    void clear();
+
     void addElement(SimuEllipse *supply);
 
     SimuEllipse * addElement(ElementType type);

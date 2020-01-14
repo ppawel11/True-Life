@@ -87,6 +87,7 @@ void MainWindow::on_actionHome_triggered()
 
 void MainWindow::on_actionNew_triggered()
 {
+    creator_widget->resetSimulation();
     this->takeCentralWidget(); // to preserve it from deletion
     this->setCentralWidget(creator_widget.get());
 }
