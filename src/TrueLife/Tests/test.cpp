@@ -24,13 +24,13 @@
 #include <boost/test/included/unit_test.hpp>
 
 #include "../View/SimuElements.h"
-#include "../Entities/Animal.h"
 
 int amountOfAnimals() {
     SimuElements* simu_elem = SimuElements::getInstance();
-    simu_elem->addAnimal(ElementType::PREDATOR);
-    simu_elem->addAnimal(ElementType::HERBIVORE);
-    simu_elem->addAnimal(ElementType::PREDATOR);
+    simu_elem->addElement(ElementType::PREDATOR);
+    simu_elem->addElement(ElementType::HERBIVORE);
+    simu_elem->addElement(ElementType::PREDATOR);
+    simu_elem->addElement(ElementType::WATER);
     std::map<int, SimuEllipse*> animals = simu_elem->getAnimals();
     return animals.size();
 }
@@ -39,11 +39,4 @@ BOOST_AUTO_TEST_CASE(amount_of_animals_test)
 {
     BOOST_REQUIRE(amountOfAnimals() == 3);
     BOOST_WARN_MESSAGE(false, "Wymuszony warning :)");
-}
-
-BOOST_AUTO_TEST_CASE(animal_velocity_test){
-    Animal* animal = new Animal(1, 1.0, 1.0);
-    int velo = animal->getVelocity();
-
-    BOOST_REQUIRE(velo>0 && velo<=MAX_VELOCITY);
 }

@@ -7,8 +7,8 @@
 #include <QCursor>
 
 #include "SimuEllipse.h"
-#include "Model/EnvDataModel.h"
-#include "Model/StatisticsModel.h"
+#include "../Model/EnvDataModel.h"
+#include "../Model/StatisticsModel.h"
 #include "../Common.h"
 
 /**

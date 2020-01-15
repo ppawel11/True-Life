@@ -1,7 +1,7 @@
 #ifndef ANIMALMODEL_H
 #define ANIMALMODEL_H
 
-#include "Common.h"
+#include "../Common.h"
 
 /**
  * @brief Model of Animal, reduces Animal only to params needed by View
